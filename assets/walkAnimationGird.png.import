@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bg0innh5ewfqu"
-valid=false
+uid="uid://da34ygim7rwhx"
+path="res://.godot/imported/walkAnimationGird.png-93a7de635f38884df05486a6a00f1fe5.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://assets/cloud.png"
+source_file="res://assets/walkAnimationGird.png"
+dest_files=["res://.godot/imported/walkAnimationGird.png-93a7de635f38884df05486a6a00f1fe5.ctex"]
 
 [params]
 
