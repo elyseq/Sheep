@@ -20,6 +20,7 @@ class WoolController: CharacterBody2D {
         let sheepsprite = Sprite2D()
         sheepsprite.texture = GD.load(path: "res://assets/TransparentSheep.png") as? Texture2D
         sheepsprite.position = Vector2(x: 500, y: 500)
+        sheepsprite.scale = Vector2(x: 1.5, y: 1.5)
         addChild(node:sheepsprite)
         
         let woolLocations = readFile(fileName: "sheepmatrix.txt")
