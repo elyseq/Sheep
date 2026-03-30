@@ -7,7 +7,7 @@ valid=false
 
 [deps]
 
-source_file="res://cloud.png"
+source_file="res://assets/cloud.png"
 
 [params]
 
