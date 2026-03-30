@@ -39,6 +39,10 @@ class WoolChunkController: Area2D {
             
             tween.tweenProperty(object: self, property: "position", finalVal: Variant(Vector2(x: self.position.x+100, y: self.position.y+100)), duration: 0.5)
             tween.tweenProperty(object: self, property: "position", finalVal: Variant(Vector2(x: self.position.x+150, y: self.position.y+150)), duration: 0.5)
+            tween.parallel()?.tweenProperty(object: self, property: "scale", finalVal: Variant(Vector2(x: 0, y: 0)), duration: 0.3)?
+                           .setTrans(.back)?
+                          .setEase(.in)
+
             tween.finished.connect {
                 self.queueFree()
             }
