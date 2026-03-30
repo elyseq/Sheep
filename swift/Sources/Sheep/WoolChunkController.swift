@@ -27,9 +27,22 @@ class WoolChunkController: Area2D {
     
     func onMouseEntered() {
             // Check if the left mouse button is held down while entering
-            if Input.isMouseButtonPressed(button: .left) {
-                queueFree()
+        if Input.isMouseButtonPressed(button: .left) {
+            guard let tween = createTween() else {
+                GD.print("Could not create tween")
+                return
+            }
+//            tween.tweenProperty(object: self, property: "scale", finalVal: Variant(Vector2(x: 0, y: 0)), duration: 0.3)?
+//                .setTrans(.back)?
+//                .setEase(.in)
+//            tween.parallel()?.tweenProperty(object: self, property: "modulate", finalVal: Variant(Color(r: 1, g: 1, b: 1, a: 0)), duration: 1)
+            
+            tween.tweenProperty(object: self, property: "position", finalVal: Variant(Vector2(x: self.position.x+100, y: self.position.y+100)), duration: 0.5)
+            tween.tweenProperty(object: self, property: "position", finalVal: Variant(Vector2(x: self.position.x+150, y: self.position.y+150)), duration: 0.5)
+            tween.finished.connect {
+                self.queueFree()
             }
         }
+    }
 
 }

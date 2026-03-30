@@ -22,18 +22,9 @@ class WoolThing: CharacterBody2D {
         self.addChild(node: chunk)
         self.inputPickable = true
         
-        self.mouseEntered.connect(onMouseEntered)
+   
 
     }
     
         
-    func onMouseEntered() {
-     
-        vanish()
-    }
-        
-    func vanish() {
-        // Animate here!!!
-        queueFree()
-    }
 }
