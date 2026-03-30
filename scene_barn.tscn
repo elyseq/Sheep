@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bbqjljhld2v2u"]
+
+[ext_resource type="Texture2D" uid="uid://cie20k6j82drv" path="res://assets/barnimgNeedreplace.png" id="1_uyymv"]
+
+[node name="SceneBarn" type="Node2D" unique_id=1642393439]
+
+[node name="barnBG" type="Sprite2D" parent="." unique_id=690342074]
+position = Vector2(958.00006, 544.00006)
+scale = Vector2(0.7596838, 0.7063075)
+texture = ExtResource("1_uyymv")
+
+[node name="WoolController" type="WoolController" parent="." unique_id=277431185]
+position = Vector2(6, 14)
