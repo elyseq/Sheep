@@ -14,7 +14,7 @@ let package = Package(
             targets: ["Sheep"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/migueldeicaza/SwiftGodot", revision: "e34b14c") //changed from branch: "main" to from: "0.46"
+        .package(url: "https://github.com/migueldeicaza/SwiftGodot", branch: "main") //changed from branch: "main" to from: "0.46"
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.

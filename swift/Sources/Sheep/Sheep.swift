@@ -3,5 +3,35 @@
 
 import SwiftGodot
 
-#initSwiftExtension(cdecl: "swift_entry_point", types: [PlayerController.self])
+#initSwiftExtension(cdecl: "swift_entry_point", types: [WoolController.self, WoolThing.self, WoolChunkController.self,])
 
+func makeWoolNode (_ pos: Vector2) -> Node {
+    let n = WoolThing()
+    n.position = pos
+    return n
+}
+
+
+
+@Godot
+class WoolThing: CharacterBody2D {
+    override func _ready () {
+        let chunk = WoolChunkController()
+        self.addChild(node: chunk)
+        self.inputPickable = true
+        
+        self.mouseEntered.connect(onMouseEntered)
+
+    }
+    
+        
+    func onMouseEntered() {
+     
+        vanish()
+    }
+        
+    func vanish() {
+        // Animate here!!!
+        queueFree()
+    }
+}

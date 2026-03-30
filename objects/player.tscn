@@ -64,5 +64,5 @@ sprite_frames = SubResource("SpriteFrames_h0btm")
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=525743798]
-position = Vector2(2.08165e-12, 16)
+position = Vector2(37, -9)
 shape = SubResource("CapsuleShape2D_oxeaw")
