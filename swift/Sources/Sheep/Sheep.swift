@@ -3,7 +3,7 @@
 
 import SwiftGodot
 
-#initSwiftExtension(cdecl: "swift_entry_point", types: [WoolController.self, WoolThing.self, WoolChunkController.self,])
+#initSwiftExtension(cdecl: "swift_entry_point", types: [WoolController.self, WoolThing.self, WoolChunkController.self, Player.self])
 
 func makeWoolNode (_ pos: Vector2) -> Node {
     let n = WoolThing()
@@ -15,6 +15,7 @@ func makeWoolNode (_ pos: Vector2) -> Node {
 
 @Godot
 class WoolThing: CharacterBody2D {
+    
     override func _ready () {
         let chunk = WoolChunkController()
         self.addChild(node: chunk)
