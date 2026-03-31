@@ -8,10 +8,12 @@
 import SwiftGodot
 
 @Godot
-final class WalkingSheep: CharacterBody2D {
+class WalkingSheep: CharacterBody2D {
 
     var speed: Float = 80.0
     var direction: Float = 1.0
+    
+    var body: CharacterBody2D!
 
     private var animatedSprite: AnimatedSprite2D!
 
@@ -22,13 +24,13 @@ final class WalkingSheep: CharacterBody2D {
         let frames = GD.load(path: "res://assets/sheep_frames.tres") as? SpriteFrames
         animatedSprite.spriteFrames = frames
         animatedSprite.play(name: "walk")
-        addChild(node: animatedSprite)
+        body.addChild(node: animatedSprite)
 
         let collision = CollisionShape2D()
         let shape = RectangleShape2D()
         shape.size = Vector2(x: 40, y: 24)
         collision.shape = shape
-        addChild(node: collision)
+        body.addChild(node: collision)
     }
 
     override func _physicsProcess(delta: Double) {

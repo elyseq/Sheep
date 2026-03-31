@@ -7,7 +7,7 @@
 import SwiftGodot
 
 @Godot
-final class WalkingSheepSpawner: Node2D {
+class WalkingSheepSpawner: Node2D {
     
     public var sheepList: [WalkingSheep] = []
 
@@ -15,13 +15,14 @@ final class WalkingSheepSpawner: Node2D {
         GD.print("WalkingSheepSpawner ready")
         
 
-        for i in 0..<4 {
-            let sheep = WalkingSheep()
-            sheep.position = Vector2(x: 800 + Float(i) * 150, y: 700)
-            sheep.scale = Vector2(x: 2, y: 2)
-            addChild(node: sheep)
-            sheepList.append(sheep)
-            GD.print("Added sheep \(i)")
-        }
+        //for i in 0..<4 {
+        let sheep = WalkingSheep()
+        //sheep.position = Vector2(x: 800 + Float(i) * 150, y: 700)
+        sheep.position = Vector2(x: 800, y: 700)
+        sheep.scale = Vector2(x: 2, y: 2)
+        addChild(node: sheep)
+        sheepList.append(sheep)
+
+        //}
     }
 }

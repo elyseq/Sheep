@@ -12,8 +12,6 @@ func makeWoolNode(_ pos: Vector2) -> Node {
     return n
 }
 
-
-
 @Godot
 class WoolThing: CharacterBody2D {
     
