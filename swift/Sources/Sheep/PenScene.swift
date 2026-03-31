@@ -1,5 +1,5 @@
 //
-//  WalkingSheepSpawner.swift
+//  PenScene.swift
 //  Sheep
 //
 //  Created by Maddy Scott on 3/31/26.
@@ -7,13 +7,11 @@
 import SwiftGodot
 
 @Godot
-final class WalkingSheepSpawner: Node2D {
+final class PenScene: Node2D {
     
     public var sheepList: [WalkingSheep] = []
 
     override func _ready() {
-        GD.print("WalkingSheepSpawner ready")
-        
 
         for i in 0..<4 {
             let sheep = WalkingSheep()
@@ -21,7 +19,6 @@ final class WalkingSheepSpawner: Node2D {
             sheep.scale = Vector2(x: 2, y: 2)
             addChild(node: sheep)
             sheepList.append(sheep)
-            GD.print("Added sheep \(i)")
         }
     }
 }

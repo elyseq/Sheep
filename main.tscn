@@ -17,7 +17,7 @@ size = Vector2(640, 212)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h2yge"]
 size = Vector2(280, 240)
 
-[node name="Main Level" type="Node2D" unique_id=1221304897]
+[node name="PenScene" type="Node2D" unique_id=1221304897]
 scale = Vector2(1.0043718, 1)
 
 [node name="background" type="Sprite2D" parent="." unique_id=1340833516]
