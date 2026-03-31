@@ -17,6 +17,7 @@ class WalkingSheepSpawner: Sprite2D {
         let sheep = WalkingSheep()
         //sheep.position = Vector2(x: 800 + Float(i) * 150, y: 700)
         sheep.position = Vector2(x: 800, y: 700)
+        sheep.visible = true
         sheep.scale = Vector2(x: 2, y: 2)
         addChild(node: sheep)
         sheepList.append(sheep)

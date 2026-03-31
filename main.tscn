@@ -11,9 +11,6 @@ b = Vector2(62, -227)
 a = Vector2(-85, -239)
 b = Vector2(197, 323)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rgc1s"]
-size = Vector2(640, 212)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h2yge"]
 size = Vector2(280, 240)
 
@@ -40,14 +37,6 @@ shape = SubResource("SegmentShape2D_1bvp3")
 
 [node name="Spawnpoint" type="Node2D" parent="." unique_id=1626801168]
 position = Vector2(2.08165e-12, -336)
-
-[node name="Telepoint" type="Area2D" parent="." unique_id=390946717]
-position = Vector2(2.08165e-12, 480)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Telepoint" unique_id=589136459]
-position = Vector2(357, -713)
-shape = SubResource("RectangleShape2D_rgc1s")
-debug_color = Color(0.76508605, 0.44417724, 0.18362471, 0.41960785)
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="." unique_id=288178666]
 position = Vector2(1677.6656, 475)
