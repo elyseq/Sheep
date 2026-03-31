@@ -11,7 +11,7 @@ import SwiftGodot
 class WalkingSheep: CharacterBody2D {
 
     var speed: Float = 80.0
-    var direction: Float = 1.0
+    var direction: Float = -1.0
 
     var animatedSprite: AnimatedSprite2D!
 
@@ -37,7 +37,7 @@ class WalkingSheep: CharacterBody2D {
         moveAndSlide()
 
         if isOnWall() {
-            direction *= -1
+            direction *= 1
             animatedSprite.flipH = direction < 0
         }
     }
