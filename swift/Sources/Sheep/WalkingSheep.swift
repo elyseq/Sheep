@@ -11,26 +11,25 @@ import SwiftGodot
 class WalkingSheep: CharacterBody2D {
 
     var speed: Float = 80.0
-    var direction: Float = 1.0
-    
-    var body: CharacterBody2D!
+    var direction: Float = -1.0
 
-    private var animatedSprite: AnimatedSprite2D!
+    var animatedSprite: AnimatedSprite2D!
 
     override func _ready() {
-        GD.print("WalkingSheep ready")
-
         animatedSprite = AnimatedSprite2D()
-        let frames = GD.load(path: "res://assets/sheep_frames.tres") as? SpriteFrames
+        guard let frames = GD.load(path: "res://assets/sheep_frames.tres") as? SpriteFrames else {
+            GD.print("Failed to load sprite frames")
+            return
+        }
         animatedSprite.spriteFrames = frames
         animatedSprite.play(name: "walk")
-        body.addChild(node: animatedSprite)
+        addChild(node: animatedSprite)
 
         let collision = CollisionShape2D()
         let shape = RectangleShape2D()
-        shape.size = Vector2(x: 40, y: 24)
+        shape.size = Vector2(x: 300, y: 300)
         collision.shape = shape
-        body.addChild(node: collision)
+        addChild(node: collision)
     }
 
     override func _physicsProcess(delta: Double) {
@@ -38,7 +37,7 @@ class WalkingSheep: CharacterBody2D {
         moveAndSlide()
 
         if isOnWall() {
-            direction *= -1
+            direction *= 1
             animatedSprite.flipH = direction < 0
         }
     }
