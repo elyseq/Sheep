@@ -3,7 +3,7 @@
 
 import SwiftGodot
 
-#initSwiftExtension(cdecl: "swift_entry_point", types: [WoolController.self, WoolThing.self, WoolChunkController.self, Player.self, sceneSwitch.self])
+#initSwiftExtension(cdecl: "swift_entry_point", types: [WoolController.self, WoolThing.self, WoolChunkController.self, sceneSwitch.self, SheepBody.self])
 
 func makeWoolNode(_ pos: Vector2) -> Node {
     let n = WoolThing()

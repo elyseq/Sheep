@@ -4,12 +4,18 @@
 //
 //  Created by Maddy Scott on 3/30/26.
 //
+//
+//  WalkingSheep.swift
+//  Sheep
+//
+//  Created by Maddy Scott on 3/30/26.
+//
 import SwiftGodot
 
 @Godot
-class Player: Node {
-    
-    @Export var speed: Float = 100.0
+class SheepBody: CharacterBody2D {
+
+    @Export var speed: Float = 80.0
     var direction: Float = 1.0
     
     var body: CharacterBody2D?
@@ -40,3 +46,4 @@ class Player: Node {
         }
     }
 }
+
