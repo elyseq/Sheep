@@ -1,8 +1,6 @@
 [gd_scene format=3 uid="uid://bl105vstqmhgy"]
 
 [ext_resource type="Texture2D" uid="uid://dsclqubop3vn1" path="res://assets/background.jpg" id="1_0xm2m"]
-[ext_resource type="Texture2D" uid="uid://da34ygim7rwhx" path="res://assets/walkAnimationGird.png" id="1_ig7tw"]
-[ext_resource type="Script" path="res://sheep_body.gd" id="2_h2yge"]
 [ext_resource type="Texture2D" uid="uid://ca2r6q742bax" path="res://assets/barnTransparentBG.png" id="4_1bvp3"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_h2yge"]
@@ -15,106 +13,6 @@ b = Vector2(197, 323)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rgc1s"]
 size = Vector2(640, 212)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
-size = Vector2(262, 233)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_h2yge"]
-atlas = ExtResource("1_ig7tw")
-region = Rect2(0, 82, 387, 616)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1bvp3"]
-atlas = ExtResource("1_ig7tw")
-region = Rect2(387, 82, 387, 616)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lquwl"]
-atlas = ExtResource("1_ig7tw")
-region = Rect2(774, 82, 387, 616)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7mycd"]
-atlas = ExtResource("1_ig7tw")
-region = Rect2(1161, 82, 387, 616)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_272bh"]
-atlas = ExtResource("1_ig7tw")
-region = Rect2(1548, 82, 387, 616)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5vw27"]
-atlas = ExtResource("1_ig7tw")
-region = Rect2(1935, 82, 387, 616)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kek77"]
-atlas = ExtResource("1_ig7tw")
-region = Rect2(0, 698, 387, 616)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4c57u"]
-atlas = ExtResource("1_ig7tw")
-region = Rect2(387, 698, 387, 616)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_efxa6"]
-atlas = ExtResource("1_ig7tw")
-region = Rect2(774, 698, 387, 616)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dg77c"]
-atlas = ExtResource("1_ig7tw")
-region = Rect2(1161, 698, 387, 616)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ycdy4"]
-atlas = ExtResource("1_ig7tw")
-region = Rect2(1548, 698, 387, 616)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_w48qg"]
-atlas = ExtResource("1_ig7tw")
-region = Rect2(1935, 698, 387, 616)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_vivmo"]
-animations = [{
-"frames": [],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_h2yge")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1bvp3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lquwl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7mycd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_272bh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5vw27")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kek77")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4c57u")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_efxa6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dg77c")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ycdy4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_w48qg")
-}],
-"loop": true,
-"name": &"walk",
-"speed": 5.0
-}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h2yge"]
 size = Vector2(280, 240)
@@ -150,22 +48,6 @@ position = Vector2(2.08165e-12, 480)
 position = Vector2(357, -713)
 shape = SubResource("RectangleShape2D_rgc1s")
 debug_color = Color(0.76508605, 0.44417724, 0.18362471, 0.41960785)
-
-[node name="SheepBody" type="CharacterBody2D" parent="." unique_id=419675693]
-position = Vector2(1183.8246, 859)
-script = ExtResource("2_h2yge")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SheepBody" unique_id=1969884203]
-position = Vector2(-146, 47)
-shape = SubResource("RectangleShape2D_0xm2m")
-
-[node name="animatedSheep" type="AnimatedSprite2D" parent="SheepBody" unique_id=235156653]
-position = Vector2(-148.35141, 5.999995)
-scale = Vector2(0.7073643, 0.7053572)
-sprite_frames = SubResource("SpriteFrames_vivmo")
-animation = &"walk"
-
-[node name="Player" type="Node" parent="SheepBody" unique_id=701309583]
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="." unique_id=288178666]
 position = Vector2(1677.6656, 475)

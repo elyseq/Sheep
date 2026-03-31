@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://da34ygim7rwhx"
-path="res://.godot/imported/walkAnimationGird.png-93a7de635f38884df05486a6a00f1fe5.ctex"
+uid="uid://cxs4ac11rnmo7"
+path="res://.godot/imported/walkAnimationGrid.png-a11d5f4a3aded908d1b2b09224d9f99a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/walkAnimationGird.png"
-dest_files=["res://.godot/imported/walkAnimationGird.png-93a7de635f38884df05486a6a00f1fe5.ctex"]
+source_file="res://assets/walkAnimationGrid.png"
+dest_files=["res://.godot/imported/walkAnimationGrid.png-a11d5f4a3aded908d1b2b09224d9f99a.ctex"]
 
 [params]
 

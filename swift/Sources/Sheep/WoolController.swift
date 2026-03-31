@@ -17,7 +17,7 @@ import Foundation
 @Godot
 class WoolController: CharacterBody2D {
     override func _ready() {
-        
+        // Sheep Body
         let sheepbody = Sprite2D()
         sheepbody.texture = GD.load(path: "res://assets/sheepBody.png") as? Texture2D
         sheepbody.position = Vector2(x: 1000, y: 700)
@@ -30,6 +30,7 @@ class WoolController: CharacterBody2D {
 //        sheepsprite.scale = Vector2(x: 1.5, y: 1.5)
 //        addChild(node:sheepsprite)
         
+        // Wool
         let woolLocations = readFile(fileName: "sheepmatrix.txt")
         for y in 0...woolLocations.count-1{
             let ypos = 10 * y - 220
@@ -43,6 +44,7 @@ class WoolController: CharacterBody2D {
         
         }
         
+        // Sheep Head
         let sheephead = Sprite2D()
         sheephead.texture = GD.load(path: "res://assets/sheepHead.png") as? Texture2D
         sheephead.position = Vector2(x: 1000, y: 700)
