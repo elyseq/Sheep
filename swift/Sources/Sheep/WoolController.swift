@@ -58,5 +58,12 @@ class WoolController: CharacterBody2D {
             .filter { !$0.isEmpty }
             .map { $0.components(separatedBy: ",") }
     }
+    
+    func makeWoolNode(_ pos: Vector2) -> Node {
+        let n = WoolThing()
+        n.position = pos
+        n.rotation = Double.random(in:0.0...360.0)
+        return n
+    }
 
 }
