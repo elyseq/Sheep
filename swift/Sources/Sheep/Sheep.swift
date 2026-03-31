@@ -19,5 +19,9 @@ class WoolThing: CharacterBody2D {
         let chunk = WoolChunkController()
         self.addChild(node: chunk)
         self.inputPickable = true
+        
+//        let sheep = WalkingSheepSpawner()
+//        self.addChild(node: sheep)
     }
 }
+

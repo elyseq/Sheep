@@ -8,7 +8,7 @@
 import SwiftGodot
 
 @Godot
-class WalkingSheepSpawner: Node2D {
+class WalkingSheepSpawner: Sprite2D {
     
     public var sheepList: [WalkingSheep] = []
 
