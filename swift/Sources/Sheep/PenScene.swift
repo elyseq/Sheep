@@ -7,7 +7,7 @@
 import SwiftGodot
 
 @Godot
-final class PenScene: Node2D {
+class PenScene: Node2D {
     
     public var sheepList: [WalkingSheep] = []
 
