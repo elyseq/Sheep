@@ -4,6 +4,7 @@
 //
 //  Created by Maddy Scott on 3/31/26.
 //
+
 import SwiftGodot
 
 @Godot
@@ -12,9 +13,6 @@ class WalkingSheepSpawner: Node2D {
     public var sheepList: [WalkingSheep] = []
 
     override func _ready() {
-        GD.print("WalkingSheepSpawner ready")
-        
-
         //for i in 0..<4 {
         let sheep = WalkingSheep()
         //sheep.position = Vector2(x: 800 + Float(i) * 150, y: 700)
