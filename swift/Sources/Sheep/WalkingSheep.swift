@@ -37,10 +37,10 @@ class WalkingSheep: CharacterBody2D {
         moveAndSlide()
 
         if isOnWall() {
-            direction *= 1
+            direction *= -1
             //direction *= -1
                         
-                if direction < 0 {
+                if direction == 1 {
                     animatedSprite?.flipH = true
                 } else {
                     animatedSprite?.flipH = false
