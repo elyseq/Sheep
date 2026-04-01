@@ -4,3 +4,17 @@
 import SwiftGodot
 
 #initSwiftExtension(cdecl: "swift_entry_point", types: [WoolController.self, WoolThing.self, WoolChunkController.self, sceneSwitch.self, WalkingSheep.self, WalkingSheepSpawner.self])
+
+@Godot
+class MainScene: Node2D {
+
+    override func _ready() {
+        let bg = Sprite2D()
+        let texture = GD.load(path: "res://background.jpg") as! Texture2D
+        bg.texture = texture
+        bg.position = Vector2(x: 400, y: 300)
+        addChild(node: bg)
+
+        WalkingSheepSpawner()
+    }
+}

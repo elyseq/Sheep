@@ -28,10 +28,13 @@ class WoolChunkController: Area2D {
     func onMouseEntered() {
             // Check if the left mouse button is held down while entering
         if Input.isMouseButtonPressed(button: .left) {
-            guard let tween = createTween() else {
-                GD.print("Could not create tween")
-                return
+            self.zIndex = 100
+            
+                guard let tween = createTween() else {
+                    GD.print("Could not create tween")
+                    return
             }
+        
 //            tween.tweenProperty(object: self, property: "scale", finalVal: Variant(Vector2(x: 0, y: 0)), duration: 0.3)?
 //                .setTrans(.back)?
 //                .setEase(.in)
@@ -47,10 +50,10 @@ class WoolChunkController: Area2D {
             tween.parallel()?.tweenProperty(object: self, property: "rotation", finalVal: Variant(self.rotation+3.14), duration: 0.18)
             if xMovement > 0 {
                 tween.tweenProperty(object: self, property: "global_position", finalVal: Variant(Vector2( x: self.globalPosition.x + Float(Double.random(in: 190 ... 210)), y: self.globalPosition.y+220)), duration: 0.55)
-            } else {
-                tween.tweenProperty(object: self, property: "global_position", finalVal: Variant(Vector2( x: self.globalPosition.x + Float(Double.random(in: -210 ... -190)), y: self.globalPosition.y+220)), duration: 0.55)
+                } else {
+                    tween.tweenProperty(object: self, property: "global_position", finalVal: Variant(Vector2( x: self.globalPosition.x + Float(Double.random(in: -210 ... -190)), y: self.globalPosition.y+220)), duration: 0.55)
             }
-           
+               
 
             tween.parallel()?.tweenProperty(object: self, property: "rotation", finalVal: Variant(self.rotation+18.84954), duration: 1)
 

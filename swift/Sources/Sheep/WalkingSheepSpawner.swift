@@ -8,11 +8,11 @@
 import SwiftGodot
 
 @Godot
-class WalkingSheepSpawner: CharacterBody2D {
+public class WalkingSheepSpawner: CharacterBody2D {
     
     //public var sheepList: [WalkingSheep] = []
 
-    override func _ready() {
+    public override func _ready() {
         //for i in 0..<4 {
         let sheep = WalkingSheep()
         //sheep.position = Vector2(x: 800 + Float(i) * 150, y: 700)
