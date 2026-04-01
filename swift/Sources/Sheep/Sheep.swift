@@ -5,19 +5,16 @@ import SwiftGodot
 
 #initSwiftExtension(cdecl: "swift_entry_point", types: [WoolController.self, WoolThing.self, WoolChunkController.self, sceneSwitch.self, WalkingSheep.self, WalkingSheepSpawner.self])
 
-func makeWoolNode(_ pos: Vector2) -> Node {
-    let n = WoolThing()
-    n.position = pos
-    n.rotation = Double.random(in:0.0...360.0)
-    return n
-}
-
 @Godot
-class WoolThing: CharacterBody2D {
-    
-    override func _ready () {
-        let chunk = WoolChunkController()
-        self.addChild(node: chunk)
-        self.inputPickable = true
+class MainScene: Node2D {
+
+    override func _ready() {
+        let bg = Sprite2D()
+        let texture = GD.load(path: "res://background.jpg") as! Texture2D
+        bg.texture = texture
+        bg.position = Vector2(x: 400, y: 300)
+        addChild(node: bg)
+
+        WalkingSheepSpawner()
     }
 }

@@ -23,13 +23,13 @@ class WalkingSheep: CharacterBody2D {
         }
         animatedSprite.spriteFrames = frames
         animatedSprite.play(name: "walk")
-        addChild(node: animatedSprite)
+        self.addChild(node: animatedSprite)
 
         let collision = CollisionShape2D()
         let shape = RectangleShape2D()
         shape.size = Vector2(x: 300, y: 300)
         collision.shape = shape
-        addChild(node: collision)
+        self.addChild(node: collision)
     }
 
     override func _physicsProcess(delta: Double) {
