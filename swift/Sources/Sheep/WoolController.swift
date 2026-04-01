@@ -1,4 +1,4 @@
-Ging//
+//
 //  WoolController.swift
 //  Sheep
 //
@@ -27,21 +27,18 @@ class WoolController: CharacterBody2D {
         addChild(node:sheepbody)
         
         // Wool
-        let woolLocations = readFile(fileName: "sheepmatrix.txt")
+        self.woolLocations = readFile(fileName: "sheepmatrix.txt")
         for y in 0...woolLocations.count-1{
+            woolNodesMatrix.append(Array(repeating: nil, count: woolLocations[y].count))
             let ypos = 10 * y - 130
-            woolNodesMatrix.append([])
             for x in 0...woolLocations[y].count-1{
                 let xpos = 10 * x - 180
                 if(woolLocations[y][x] == "1"){
                     let wool = makeWoolNode(Vector2(x: Float(xpos), y: Float(ypos)))
-                    woolNodesMatrix[y].append(wool as! WoolThing)
-
+                    woolNodesMatrix[y][x] = wool as? WoolThing
                     sheepbody.addChild(node: wool)
                 }
-                else {
-                                woolNodesMatrix[y].append(nil)
-                            }
+                
             }
         
         }
@@ -52,6 +49,12 @@ class WoolController: CharacterBody2D {
         sheephead.position = Vector2(x: 1000, y: 700)
         sheephead.scale = Vector2(x: 2, y: 2)
         addChild(node:sheephead)
+    }
+    func makeWoolNode (_ pos: Vector2) -> Node {
+        let n = WoolThing()
+        n.position = pos
+        n.rotation = Double.random(in:0.0...360.0)
+        return n
     }
     
     func readFile(fileName: String) -> [[String]] {
@@ -66,33 +69,30 @@ class WoolController: CharacterBody2D {
             .filter { !$0.isEmpty }
             .map { $0.components(separatedBy: ",") }
     }
-    func checkForFloating(x: Int,y: Int){
+    func checkForFloating(row: Int,col: Int){
         let rows = woolLocations.count
         let cols = woolLocations[0].count
         var safeMatrix: [[Bool]] = Array(repeating: Array(repeating: false, count: cols), count: rows)
         
         for r in 0..<rows{
             for c in 0..<cols{
-                var is_touching_one = false
-                for delta in [(0,1), (0,-1), (1,0), (-1,0)]{
-                    let newRow = r + delta.0
-                    let newCol = r + delta.1
-                    if(0 <= newRow && newRow < rows && 0 <= newCol && newCol < cols && woolLocations[newRow][newCol] == "1"){
-                        is_touching_one = true
-                        break
-                    }
-                    
-                    if(is_touching_one){
-                        recursiveCheck(r: r, c: c, rows: rows, cols: cols, safeMatrix: safeMatrix)
-                    }
+                if woolLocations[r][c] == "1" {
+                                // If it's skin, it's safe, and so is all wool touching it
+                                recursiveCheck(r: r, c: c, rows: rows, cols: cols, safeMatrix: &safeMatrix)
+                            
                 }
             }
         }
         
-        for r in 0...rows{
-            for c in 0...cols{
+        for r in 0..<rows{
+            for c in 0..<cols{
                 if(woolLocations[r][c] == "2" && !safeMatrix[r][c]){
                     woolLocations[r][c] = "0"
+                    if let node = woolNodesMatrix[r][c] {
+                        GD.print(woolNodesMatrix)
+                        node.queueFree()
+                        woolNodesMatrix[r][c] = nil
+                    }
                 }
             }
             
@@ -101,17 +101,19 @@ class WoolController: CharacterBody2D {
         
     
     
-    func recursiveCheck(r: Int, c: Int, rows: Int, cols: Int, safeMatrix: [[Bool]]){
+    func recursiveCheck(r: Int, c: Int, rows: Int, cols: Int, safeMatrix: inout [[Bool]]){
         if (r < 0 || r >= rows || c < 0 || c >= cols || safeMatrix[r][c] || woolLocations[r][c] != "2"){
             return
+
         }
-        var newMatrix = safeMatrix
-        newMatrix[r][c] = true
         
-        recursiveCheck(r: r + 1, c: c, rows: rows, cols: cols, safeMatrix: newMatrix)
-        recursiveCheck(r: r - 1, c: c, rows: rows, cols: cols, safeMatrix: newMatrix)
-        recursiveCheck(r: r, c: c + 1, rows: rows, cols: cols, safeMatrix: newMatrix)
-        recursiveCheck(r: r, c: c - 1, rows: rows, cols: cols, safeMatrix: newMatrix)
+        safeMatrix[r][c] = true
+        
+        recursiveCheck(r: r + 1, c: c, rows: rows, cols: cols, safeMatrix: &safeMatrix)
+        recursiveCheck(r: r - 1, c: c, rows: rows, cols: cols, safeMatrix: &safeMatrix)
+        recursiveCheck(r: r, c: c + 1, rows: rows, cols: cols, safeMatrix: &safeMatrix)
+        recursiveCheck(r: r, c: c - 1, rows: rows, cols: cols, safeMatrix: &safeMatrix)
+
     }
     
     func getNode(r: Int, c: Int) -> WoolThing{

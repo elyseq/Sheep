@@ -50,3 +50,5 @@ offset_bottom = 2386.0
 scale = Vector2(0.17309445, 0.1608048)
 icon = ExtResource("4_1bvp3")
 flat = true
+
+[node name="WalkingSheepSpawner" type="WalkingSheepSpawner" parent="." unique_id=1828825578]

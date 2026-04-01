@@ -62,7 +62,24 @@ class WoolChunkController: Area2D {
                            .setEase(.in)
 
             tween.finished.connect {
-                self.queueFree()
+                guard let woolThing = self.getParent() as? WoolThing else { return }
+                    
+                    guard let woolController = woolThing.getParent()?.getParent() as? WoolController else {
+                        GD.print("Could not find WoolController")
+                        self.queueFree()
+                        return
+                    }
+
+                 
+                    let row = Int((woolThing.position.y + 130) / 10)
+                    let col = Int((woolThing.position.x + 180) / 10)
+
+                    woolController.woolLocations[row][col] = "0"
+                    woolController.checkForFloating(row: row, col: col)
+
+                    self.queueFree()
+                    woolThing.queueFree() // Remove the parent wrapper as well
+                
             }
         }
     }
