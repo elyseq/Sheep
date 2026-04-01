@@ -5,7 +5,7 @@
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_h2yge"]
 a = Vector2(-225, 336)
-b = Vector2(62, -227)
+b = Vector2(75.66919, -205)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_1bvp3"]
 a = Vector2(-85, -239)
@@ -52,3 +52,4 @@ icon = ExtResource("4_1bvp3")
 flat = true
 
 [node name="WalkingSheepSpawner" type="WalkingSheepSpawner" parent="." unique_id=1828825578]
+position = Vector2(956.817, 793)

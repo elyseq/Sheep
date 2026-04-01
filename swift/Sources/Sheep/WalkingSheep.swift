@@ -27,7 +27,7 @@ class WalkingSheep: CharacterBody2D {
 
         let collision = CollisionShape2D()
         let shape = RectangleShape2D()
-        shape.size = Vector2(x: 300, y: 300)
+        shape.size = Vector2(x: 250, y: 250)
         collision.shape = shape
         self.addChild(node: collision)
     }
@@ -38,7 +38,13 @@ class WalkingSheep: CharacterBody2D {
 
         if isOnWall() {
             direction *= 1
-            animatedSprite.flipH = direction < 0
+            //direction *= -1
+                        
+                if direction < 0 {
+                    animatedSprite?.flipH = true
+                } else {
+                    animatedSprite?.flipH = false
+                }
         }
     }
 }
