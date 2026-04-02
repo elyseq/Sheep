@@ -22,7 +22,7 @@ class WoolController: CharacterBody2D {
         // Sheep Body
         let sheepbody = Sprite2D()
         sheepbody.texture = GD.load(path: "res://assets/sheepBody.png") as? Texture2D
-        sheepbody.position = Vector2(x: 1000, y: 700)
+        sheepbody.position = Vector2(x: 1100, y: 700)
         sheepbody.scale = Vector2(x: 2, y: 2)
         addChild(node:sheepbody)
         
@@ -32,7 +32,7 @@ class WoolController: CharacterBody2D {
             woolNodesMatrix.append(Array(repeating: nil, count: woolLocations[y].count))
             let ypos = 10 * y - 130
             for x in 0...woolLocations[y].count-1{
-                let xpos = 10 * x - 180
+                let xpos = 10 * x - 190
                 if(woolLocations[y][x] == "1"){
                     let wool = makeWoolNode(Vector2(x: Float(xpos), y: Float(ypos)))
                     woolNodesMatrix[y][x] = wool as? WoolThing
@@ -46,7 +46,7 @@ class WoolController: CharacterBody2D {
         // Sheep Head
         let sheephead = Sprite2D()
         sheephead.texture = GD.load(path: "res://assets/sheepHead.png") as? Texture2D
-        sheephead.position = Vector2(x: 1000, y: 700)
+        sheephead.position = Vector2(x: 1100, y: 700)
         sheephead.scale = Vector2(x: 2, y: 2)
         addChild(node:sheephead)
     }

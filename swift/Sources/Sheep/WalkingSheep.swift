@@ -10,8 +10,8 @@ import SwiftGodot
 @Godot
 class WalkingSheep: CharacterBody2D {
 
-    var speed: Float = 80.0
-    var direction: Float = -1.0
+    var speed: Float = 0
+    var direction: Float = 0
 
     var animatedSprite: AnimatedSprite2D!
 
@@ -27,12 +27,19 @@ class WalkingSheep: CharacterBody2D {
 
         let collision = CollisionShape2D()
         let shape = RectangleShape2D()
-        shape.size = Vector2(x: 250, y: 250)
+        shape.size = Vector2(x: 275, y: 150)
         collision.shape = shape
         self.addChild(node: collision)
+        
+        
     }
 
     override func _physicsProcess(delta: Double) {
+        if direction == 1 {
+            animatedSprite?.flipH = true
+        }
+        
+        velocity.y = 0
         velocity.x = speed * direction
         moveAndSlide()
 
@@ -46,5 +53,12 @@ class WalkingSheep: CharacterBody2D {
                     animatedSprite?.flipH = false
                 }
         }
+    }
+    
+    public func configure(direction: Float, position: Vector2, scale: Vector2, speed: Float) {
+        self.direction = direction
+        self.position = position
+        self.scale = scale
+        self.speed = speed
     }
 }

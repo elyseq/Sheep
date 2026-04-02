@@ -5,11 +5,11 @@
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_h2yge"]
 a = Vector2(-225, 336)
-b = Vector2(75.66919, -205)
+b = Vector2(184.19473, -387)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_1bvp3"]
-a = Vector2(-85, -239)
-b = Vector2(197, 323)
+a = Vector2(-189.17297, -407)
+b = Vector2(207.0946, 317)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h2yge"]
 size = Vector2(280, 240)

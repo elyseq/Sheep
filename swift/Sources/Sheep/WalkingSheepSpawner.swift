@@ -10,17 +10,33 @@ import SwiftGodot
 @Godot
 public class WalkingSheepSpawner: CharacterBody2D {
     
-    //public var sheepList: [WalkingSheep] = []
+    var sheepList: [WalkingSheep] = []
 
     public override func _ready() {
-        //for i in 0..<4 {
-        let sheep = WalkingSheep()
-        //sheep.position = Vector2(x: 800 + Float(i) * 150, y: 700)
-        //sheep.position = Vector2(x: 800, y: 700)
-        sheep.visible = true
-        //sheep.scale = Vector2(x: 2, y: 2)
-        self.addChild(node: sheep)
-        //sheepList.append(sheep)
-        //}
+        
+        //ARRAY OF SHEEP
+        var scaleNum : Float = 0.4
+        var positionY : Float = -200
+        var level : Float = 0
+        var speed: Float = 50
+        for i in 0..<4 {
+            let direction: Float = Bool.random() ? 1.0 : -1.0
+            let positionX = Float.random(in: -400...400)
+            let position = Vector2(x: positionX + level, y: positionY)
+            let scale = Vector2(x: scaleNum, y: scaleNum)
+            
+            let sheep = WalkingSheep()
+            sheep.configure(direction: direction, position: position, scale: scale, speed: speed)
+            sheep.visible = true
+            self.addChild(node: sheep)
+            
+            sheepList.append(sheep)
+            GD.print("sheep added")
+            
+            scaleNum = scaleNum + 0.1
+            positionY = positionY + 100
+            level = level + 10
+            speed = speed + 13.5
+        }
     }
 }
