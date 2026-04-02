@@ -52,4 +52,4 @@ icon = ExtResource("4_1bvp3")
 flat = true
 
 [node name="WalkingSheepSpawner" type="WalkingSheepSpawner" parent="." unique_id=1828825578]
-position = Vector2(-2.9869385, 3)
+position = Vector2(956.817, 793)
