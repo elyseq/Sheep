@@ -12,6 +12,10 @@ class WalkingSheep: CharacterBody2D {
 
     var speed: Float = 0
     var direction: Float = 0
+<<<<<<< HEAD
+=======
+    
+>>>>>>> cbee62e5b6acb786c703a60595162844b130f766
     var animatedSprite: AnimatedSprite2D!
     //var path: String = "" // load a different sprite frame for each sheep to have them all start at different walking positions?
     
@@ -31,15 +35,13 @@ class WalkingSheep: CharacterBody2D {
         shape.size = Vector2(x: 275, y: 150)
         collision.shape = shape
         self.addChild(node: collision)
-        
-        
     }
 
     override func _physicsProcess(delta: Double) {
         if direction == 1 {
-            animatedSprite?.flipH = true
-        }
-        
+                   animatedSprite?.flipH = true
+               }
+               
         velocity.y = 0
         velocity.x = speed * direction
         moveAndSlide()
@@ -55,6 +57,7 @@ class WalkingSheep: CharacterBody2D {
                 }
         }
     }
+<<<<<<< HEAD
     
     public func configure(direction: Float, position: Vector2, scale: Vector2, speed: Float) { // path: String
         self.direction = direction
@@ -63,4 +66,12 @@ class WalkingSheep: CharacterBody2D {
         self.speed = speed
         //self.path = path // load a different sprite frame for each sheep to have them all start at different walking positions?
     }
+=======
+    public func configure(direction: Float, position: Vector2, scale: Vector2, speed: Float) {
+          self.direction = direction
+          self.position = position
+          self.scale = scale
+          self.speed = speed
+      }
+>>>>>>> cbee62e5b6acb786c703a60595162844b130f766
 }
