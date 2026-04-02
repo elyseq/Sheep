@@ -13,49 +13,28 @@ public class WalkingSheepSpawner: CharacterBody2D {
     var sheepList: [WalkingSheep] = []
 
     public override func _ready() {
-//        //1 SHEEP (WORKING)
-//        //for i in 0..<4 {
-//            let sheep = WalkingSheep()
-//            //sheep.position = Vector2(x: 800 + Float(i) * 150, y: 700) //doesn't work
-//            //sheep.position = Vector2(x: 800, y: 700) //doesn't work
-//            //sheep.position = Vector2(x: 1300, y: 700) //doesn't work
-//            //sheep.position = Vector2(x: Float(i) * 150, y: Float(i) * 50)
-//            sheep.position = Vector2(x: 0, y: 0) //WORKS
-//            sheep.visible = true
-//            sheep.scale = Vector2(x: 0.7, y: 0.7)
-//            self.addChild(node: sheep)
-//            //sheepList.append(sheep)
-//            GD.print("sheep added")
-//        //}
         
-        //ARRAY OF SHEEP (WORKING, looks off)
+        //ARRAY OF SHEEP
+        var scaleNum : Float = 0.4
+        var positionY : Float = -200
+        var level : Float = 0
         for i in 0..<4 {
+            let direction: Float = Bool.random() ? 1.0 : -1.0
+            let positionX = Float.random(in: -400...400)
+            let position = Vector2(x: positionX + level, y: positionY)
+            let scale = Vector2(x: scaleNum, y: scaleNum)
+            
             let sheep = WalkingSheep()
-            //sheep.position = Vector2(x: 800 + Float(i) * 150, y: 700) //doesn't work
-            //sheep.position = Vector2(x: 800, y: 700) //doesn't work in array
-            //sheep.position = Vector2(x: 1300, y: 700) //doesn't work in array
-            sheep.position = Vector2(x: Float(i) * 150, y: Float(i) * 50)
+            sheep.configure(direction: direction, position: position, scale: scale)
             sheep.visible = true
-            sheep.scale = Vector2(x: 0.7, y: 0.7)
             self.addChild(node: sheep)
+            
             sheepList.append(sheep)
             GD.print("sheep added")
+            
+            scaleNum = scaleNum + 0.1
+            positionY = positionY + 100
+            level = level + 10
         }
-        
-        //ARRAY OF SHEEP RANDOM POINT (NOT WORKING)
-//        for i in 0..<4 {
-//            let sheep = WalkingSheep()
-//
-//            sheep.position = Vector2(x: 800, y: 500 //these points don't work (was using to test range)
-//                //x: Float.random(in: 300...800), //wrong range
-//                //y: Float.random(in: 0...1) //wrong range
-//            )
-//            
-//            sheep.visible = true
-//            sheep.scale = Vector2(x: 0.7, y: 0.7)
-//            addChild(node: sheep)
-//            sheepList.append(sheep)
-//            GD.print("sheep added")
-//        }
     }
 }
