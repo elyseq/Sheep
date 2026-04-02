@@ -3,7 +3,14 @@
 
 import SwiftGodot
 
-#initSwiftExtension(cdecl: "swift_entry_point", types: [WoolController.self, WoolThing.self, WoolChunkController.self, sceneSwitch.self, WalkingSheep.self, WalkingSheepSpawner.self])
+#initSwiftExtension(cdecl: "swift_entry_point", types: [
+    WoolController.self,
+    WoolThing.self,
+    WoolChunkController.self,
+    sceneSwitch.self,
+    penSceneSwitch.self,
+    WalkingSheep.self,
+    WalkingSheepSpawner.self])
 
 @Godot
 class MainScene: Node2D {
