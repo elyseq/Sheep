@@ -13,6 +13,7 @@ class WoolChunkController: Area2D {
         let sprite = Sprite2D()
         sprite.texture = GD.load(path: "res://assets/cloudshape.png") as? Texture2D
         sprite.scale = Vector2(x: 0.01, y: 0.01)
+        self.modulate = Color(r: 0.965, g: 0.945, b: 0.898) // makes clouds/wool the color of head
         addChild(node: sprite)
         
         let collision = CollisionShape2D()
