@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bbqjljhld2v2u"]
 
 [ext_resource type="Texture2D" uid="uid://cie20k6j82drv" path="res://assets/barnimgNeedreplace.png" id="1_uyymv"]
+[ext_resource type="Texture2D" uid="uid://dsclqubop3vn1" path="res://assets/background.jpg" id="2_lbu2r"]
 
 [node name="SceneBarn" type="Node2D" unique_id=1642393439]
 
@@ -11,3 +12,9 @@ texture = ExtResource("1_uyymv")
 
 [node name="WoolController" type="WoolController" parent="." unique_id=277431185]
 position = Vector2(6, 14)
+
+[node name="penSceneSwitch" type="penSceneSwitch" parent="." unique_id=544739832]
+offset_right = 8.0
+offset_bottom = 8.0
+scale = Vector2(0.13760987, 0.12656853)
+icon = ExtResource("2_lbu2r")
