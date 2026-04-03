@@ -12,7 +12,7 @@ class WoolChunkController: Area2D {
     override func _ready() {
         let sprite = Sprite2D()
         sprite.texture = GD.load(path: "res://assets/cloudshape.png") as? Texture2D
-        sprite.scale = Vector2(x: 0.01, y: 0.01)
+        sprite.scale = Vector2(x: 0.007, y: 0.007)
         self.modulate = Color(r: 0.965, g: 0.945, b: 0.898) // makes clouds/wool the color of head
         addChild(node: sprite)
         
@@ -72,8 +72,8 @@ class WoolChunkController: Area2D {
                     }
 
                  
-                    let row = Int((woolThing.position.y + 130) / 10)
-                    let col = Int((woolThing.position.x + 180) / 10)
+                    let row = Int((woolThing.position.y + 100) / 7)
+                    let col = Int((woolThing.position.x + 190) / 10)
 
                     woolController.woolLocations[row][col] = "0"
                     woolController.checkForFloating(row: row, col: col)

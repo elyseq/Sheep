@@ -30,10 +30,10 @@ class WoolController: CharacterBody2D {
         self.woolLocations = readFile(fileName: "sheepmatrix.txt")
         for y in 0...woolLocations.count-1{
             woolNodesMatrix.append(Array(repeating: nil, count: woolLocations[y].count))
-            let ypos = 10 * y - 130
+            let ypos = 7 * y - 100
             for x in 0...woolLocations[y].count-1{
                 let xpos = 10 * x - 190
-                if(woolLocations[y][x] == "1"){
+                if(woolLocations[y][x] == "1" || woolLocations[y][x] == "2"){
                     let wool = makeWoolNode(Vector2(x: Float(xpos), y: Float(ypos)))
                     woolNodesMatrix[y][x] = wool as? WoolThing
                     sheepbody.addChild(node: wool)
@@ -77,36 +77,50 @@ class WoolController: CharacterBody2D {
         for r in 0..<rows{
             for c in 0..<cols{
                 if woolLocations[r][c] == "1" {
-                                // If it's skin, it's safe, and so is all wool touching it
-                                recursiveCheck(r: r, c: c, rows: rows, cols: cols, safeMatrix: &safeMatrix)
-                            
+                    recursiveCheck(r: r, c: c, rows: rows, cols: cols, safeMatrix: &safeMatrix)
+                    
                 }
             }
         }
-        
-        for r in 0..<rows{
-            for c in 0..<cols{
-                if(woolLocations[r][c] == "2" && !safeMatrix[r][c]){
+  
+        for r in 0..<rows {
+            for c in 0..<cols {
+                if woolLocations[r][c] == "2" && !safeMatrix[r][c] {
+                    GD.print("in first loop")
+
                     woolLocations[r][c] = "0"
+                    
+                    //remove the actual node from the scene
                     if let node = woolNodesMatrix[r][c] {
-                        GD.print(woolNodesMatrix)
-                        node.queueFree()
+                        GD.print("trying to queue free")
+//                        let tween = createTween()
+//                        var xMovement:Float = Float(Bool.random() ? Double.random(in: -110 ... -90) : Double.random(in: 90 ... 110))
+//                        tween?.tweenProperty(object: node, property: "global_position", finalVal: Variant(Vector2(x: node.globalPosition.x + xMovement, y: node.globalPosition.y-60)), duration: 0.18)
+//                        tween?.parallel()?.tweenProperty(object: node, property: "rotation", finalVal: Variant(node.rotation+3.14), duration: 0.18)
+//                        tween?.tweenProperty(object: node, property: "global_position", finalVal: Variant(Vector2(x: node.globalPosition.x + xMovement , y: node.globalPosition.y+300)), duration: 0.5)
+//                        tween?.parallel()?.tweenProperty(object: node, property: "modulate", finalVal: Variant(Color(r: 1, g: 1, b: 1, a: 0)), duration: 1.7)
+//                        tween?.finished.connect {
+                            node.queueFree()
+                        }
+                        
                         woolNodesMatrix[r][c] = nil
                     }
                 }
             }
-            
         }
-    }
+    
         
     
     
     func recursiveCheck(r: Int, c: Int, rows: Int, cols: Int, safeMatrix: inout [[Bool]]){
-        if (r < 0 || r >= rows || c < 0 || c >= cols || safeMatrix[r][c] || woolLocations[r][c] != "2"){
+        if (r < 0 || r >= rows || c < 0 || c >= cols || safeMatrix[r][c]){
             return
 
         }
-        
+        if (safeMatrix[r][c]) { return }
+            
+        if (woolLocations[r][c] == "0") { return }
+            
         safeMatrix[r][c] = true
         
         recursiveCheck(r: r + 1, c: c, rows: rows, cols: cols, safeMatrix: &safeMatrix)
