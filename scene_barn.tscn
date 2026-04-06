@@ -33,3 +33,5 @@ offset_left = 12.0
 offset_top = 12.0
 offset_right = 179.0
 offset_bottom = 145.0
+edit_alpha = false
+edit_intensity = false
