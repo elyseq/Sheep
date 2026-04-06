@@ -18,3 +18,18 @@ offset_right = 8.0
 offset_bottom = 8.0
 scale = Vector2(0.13760987, 0.12656853)
 icon = ExtResource("2_lbu2r")
+
+[node name="ColorButton" type="Control" parent="." unique_id=20955943]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1703.0
+offset_top = 32.0
+offset_right = 1892.0
+offset_bottom = 187.0
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="ColorButton" unique_id=1999863699]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 179.0
+offset_bottom = 145.0

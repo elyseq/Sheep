@@ -133,5 +133,13 @@ class WoolController: CharacterBody2D {
     func getNode(r: Int, c: Int) -> WoolThing{
         return woolNodesMatrix[r][c]!
     }
+    
+    func applyColorToWool(_ color: Color) {
+        for row in woolNodesMatrix {
+            for wool in row {
+                wool?.setColor(color)
+            }
+        }
+    }
 
 }

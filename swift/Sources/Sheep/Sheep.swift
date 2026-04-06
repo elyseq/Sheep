@@ -10,7 +10,8 @@ import SwiftGodot
     sceneSwitch.self,
     penSceneSwitch.self,
     WalkingSheep.self,
-    WalkingSheepSpawner.self])
+    WalkingSheepSpawner.self,
+    ColorButton.self])
 
 @Godot
 class MainScene: Node2D {

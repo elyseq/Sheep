@@ -9,9 +9,15 @@ import SwiftGodot
 @Godot
 class WoolThing: CharacterBody2D {
     
+    var chunk: WoolChunkController!
+    
     override func _ready () {
-        let chunk = WoolChunkController()
+        chunk = WoolChunkController()
         self.addChild(node: chunk)
         self.inputPickable = true
+    }
+    
+    func setColor(_ color: Color) {
+        chunk.modulate = color
     }
 }
