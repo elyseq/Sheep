@@ -7,7 +7,7 @@
 import SwiftGodot
 
 @Godot
-class ColorButton: Control {
+class ColorChanger: Control {
     
     var woolController: WoolController?
     

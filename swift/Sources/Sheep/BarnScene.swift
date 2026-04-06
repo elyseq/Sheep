@@ -13,7 +13,7 @@ class SceneBarn: Node2D {
     override func _ready() {
         woolController = getNode(path: "WoolController") as? WoolController
 
-        let ui = ColorButton()
+        let ui = ColorChanger()
         ui.woolController = woolController
         addChild(node: ui)
     }

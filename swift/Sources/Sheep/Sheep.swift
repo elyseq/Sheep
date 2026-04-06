@@ -11,7 +11,7 @@ import SwiftGodot
     penSceneSwitch.self,
     WalkingSheep.self,
     WalkingSheepSpawner.self,
-    ColorButton.self])
+    ColorChanger.self])
 
 @Godot
 class MainScene: Node2D {
