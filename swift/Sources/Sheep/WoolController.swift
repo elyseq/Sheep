@@ -93,14 +93,12 @@ class WoolController: CharacterBody2D {
                     //remove the actual node from the scene
                     if let node = woolNodesMatrix[r][c] {
                         GD.print("trying to queue free")
-//                        let tween = createTween()
-//                        var xMovement:Float = Float(Bool.random() ? Double.random(in: -110 ... -90) : Double.random(in: 90 ... 110))
-//                        tween?.tweenProperty(object: node, property: "global_position", finalVal: Variant(Vector2(x: node.globalPosition.x + xMovement, y: node.globalPosition.y-60)), duration: 0.18)
-//                        tween?.parallel()?.tweenProperty(object: node, property: "rotation", finalVal: Variant(node.rotation+3.14), duration: 0.18)
-//                        tween?.tweenProperty(object: node, property: "global_position", finalVal: Variant(Vector2(x: node.globalPosition.x + xMovement , y: node.globalPosition.y+300)), duration: 0.5)
-//                        tween?.parallel()?.tweenProperty(object: node, property: "modulate", finalVal: Variant(Color(r: 1, g: 1, b: 1, a: 0)), duration: 1.7)
-//                        tween?.finished.connect {
-                            node.queueFree()
+                        let tween = createTween()
+                        var xMovement:Float = Float(Bool.random() ? Double.random(in: -110 ... -90) : Double.random(in: 90 ... 110))
+                        tween?.tweenProperty(object: node, property: "global_position", finalVal: Variant(Vector2(x: node.globalPosition.x + xMovement, y: node.globalPosition.y-60)), duration: 0.18)
+                        tween?.parallel()?.tweenProperty(object: node, property: "rotation", finalVal: Variant(node.rotation+3.14), duration: 0.18)
+                        tween?.tweenProperty(object: node, property: "global_position", finalVal: Variant(Vector2(x: node.globalPosition.x + xMovement , y: node.globalPosition.y+300)), duration: 0.5)
+                        tween?.parallel()?.tweenProperty(object: node, property: "modulate", finalVal: Variant(Color(r: 1, g: 1, b: 1, a: 0)), duration: 1.7)
                         }
                         
                         woolNodesMatrix[r][c] = nil

@@ -12,7 +12,7 @@ class WoolChunkController: Area2D {
     override func _ready() {
         let sprite = Sprite2D()
         sprite.texture = GD.load(path: "res://assets/cloudshape.png") as? Texture2D
-        sprite.scale = Vector2(x: 0.007, y: 0.007)
+        sprite.scale = Vector2(x: 0.07, y: 0.07)
         addChild(node: sprite)
         
         let collision = CollisionShape2D()
@@ -45,7 +45,7 @@ class WoolChunkController: Area2D {
 //            tween.parallel()?.tweenProperty(object: self, property: "scale", finalVal: Variant(Vector2(x: 0, y: 0)), duration: 0.3)?
 //                           .setTrans(.back)?
 //                          .setEase(.in)
-            var xMovement:Float = Float(Bool.random() ? Double.random(in: -110 ... -90) : Double.random(in: 90 ... 110))
+            var xMovement:Float = Float(Bool.random() ? Double.random(in: -120 ... -30) : Double.random(in: 30 ... 120))
             tween.tweenProperty(object: self, property: "global_position", finalVal: Variant(Vector2(x: self.globalPosition.x + xMovement, y: self.globalPosition.y-60)), duration: 0.18)
             tween.parallel()?.tweenProperty(object: self, property: "rotation", finalVal: Variant(self.rotation+3.14), duration: 0.18)
             if xMovement > 0 {
@@ -66,7 +66,6 @@ class WoolChunkController: Area2D {
                     
                     guard let woolController = woolThing.getParent()?.getParent() as? WoolController else {
                         GD.print("Could not find WoolController")
-                        self.queueFree()
                         return
                     }
 
