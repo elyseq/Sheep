@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://muyeek7v0y50"]
+
+[ext_resource type="Texture2D" path="res://bg img/player/sheep_sprite_sheet_6x1_aligned.png" id="1_5xc7i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gccyv"]
+atlas = ExtResource("1_5xc7i")
+region = Rect2(0, 0, 228, 187)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hybpn"]
+atlas = ExtResource("1_5xc7i")
+region = Rect2(228, 0, 228, 187)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mdxhy"]
+atlas = ExtResource("1_5xc7i")
+region = Rect2(456, 0, 228, 187)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gggcq"]
+atlas = ExtResource("1_5xc7i")
+region = Rect2(684, 0, 228, 187)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o34ai"]
+atlas = ExtResource("1_5xc7i")
+region = Rect2(912, 0, 228, 187)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ksx3"]
+atlas = ExtResource("1_5xc7i")
+region = Rect2(1140, 0, 228, 187)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ww64n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gccyv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hybpn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mdxhy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gggcq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o34ai")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ksx3")
+}],
+"loop": true,
+"name": &"sheep walking",
+"speed": 5.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1540592834]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1623233078]
+position = Vector2(0, 2)
+sprite_frames = SubResource("SpriteFrames_ww64n")
+animation = &"sheep walking"
+autoplay = "sheep walking"
+frame_progress = 0.4876985

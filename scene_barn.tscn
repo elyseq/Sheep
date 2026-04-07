@@ -1,7 +1,11 @@
 [gd_scene format=3 uid="uid://bbqjljhld2v2u"]
 
 [ext_resource type="Texture2D" uid="uid://cie20k6j82drv" path="res://assets/barnimgNeedreplace.png" id="1_uyymv"]
-[ext_resource type="Texture2D" uid="uid://dsclqubop3vn1" path="res://assets/background.jpg" id="2_lbu2r"]
+[ext_resource type="Texture2D" uid="uid://dtdhdd0aotmf3" path="res://assets/color-icon.PNG" id="2_lbu2r"]
+[ext_resource type="Texture2D" uid="uid://cjf73vwj1sa3a" path="res://assets/shaving-icon.png" id="3_4yfq6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uyymv"]
+bg_color = Color(0.09, 0.09, 0.09, 0.4745098)
 
 [node name="SceneBarn" type="Node2D" unique_id=1642393439]
 
@@ -35,3 +39,70 @@ offset_right = 179.0
 offset_bottom = 145.0
 edit_alpha = false
 edit_intensity = false
+
+[node name="SidebarButtonColor" type="SidebarButton" parent="." unique_id=1156635172]
+function_name = "color"
+offset_left = 56.0
+offset_top = 509.0
+offset_right = 2112.0
+offset_bottom = 2565.0
+scale = Vector2(0.08101292, 0.072900444)
+icon = ExtResource("2_lbu2r")
+flat = true
+
+[node name="colorPanel" type="SidebarPanel" parent="." unique_id=874791387]
+visible = false
+offset_left = 243.0
+offset_top = 35.0
+offset_right = 1536.0
+offset_bottom = 188.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_uyymv")
+
+[node name="redButton" type="ColorFunction" parent="colorPanel" unique_id=1385902745]
+color_name = "red"
+layout_mode = 0
+offset_left = 45.0
+offset_top = 29.0
+offset_right = 80.0
+offset_bottom = 60.0
+scale = Vector2(4.4158425, 3.3505166)
+text = "red
+"
+
+[node name="blueButton" type="ColorFunction" parent="colorPanel" unique_id=1555123773]
+color_name = "blue"
+layout_mode = 0
+offset_left = 259.0
+offset_top = 28.0
+offset_right = 301.0
+offset_bottom = 59.0
+scale = Vector2(4.5264335, 3.4844308)
+text = "blue"
+
+[node name="greenButton" type="ColorFunction" parent="colorPanel" unique_id=76911267]
+color_name = "green"
+layout_mode = 0
+offset_left = 528.0
+offset_top = 40.0
+offset_right = 581.0
+offset_bottom = 71.0
+scale = Vector2(2.7745988, 2.781302)
+text = "green"
+
+[node name="SidebarButtonDecoration" type="SidebarButton" parent="." unique_id=1818296298]
+visible = false
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="decorationPanel" type="SidebarPanel" parent="." unique_id=590645921]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="sidebarButtonShave" type="ShaveFunction" parent="." unique_id=823735988]
+offset_left = 53.0
+offset_top = 317.0
+offset_right = 189.0
+offset_bottom = 453.0
+icon = ExtResource("3_4yfq6")
+flat = true

@@ -42,11 +42,11 @@ position = Vector2(2.08165e-12, -336)
 position = Vector2(1677.6656, 475)
 shape = SubResource("RectangleShape2D_h2yge")
 
-[node name="sceneSwitch" type="sceneSwitch" parent="." unique_id=1584410505]
-offset_left = 1480.5275
-offset_top = 330.00003
-offset_right = 3536.5273
-offset_bottom = 2386.0
+[node name="sceneSwitch" type="MainToBarnSceneSwitch" parent="." unique_id=679890085]
+offset_left = 1466.5884
+offset_top = 332.00003
+offset_right = 3522.5884
+offset_bottom = 2388.0
 scale = Vector2(0.17309445, 0.1608048)
 icon = ExtResource("4_1bvp3")
 flat = true
