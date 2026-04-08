@@ -6,7 +6,7 @@
 import SwiftGodot
 
 @Godot
-final class sceneSwitch : Button {
+final class MainToBarnSceneSwitch : Button {
     override func _ready() {
         self.pressed.connect {
             self.getTree()?.changeSceneToFile(path: "res://scene_barn.tscn")

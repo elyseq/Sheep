@@ -18,6 +18,9 @@ import Foundation
 class WoolController: CharacterBody2D {
     var woolLocations: [[String]] = []
     var woolNodesMatrix : [[WoolThing?]] = []
+    var selectedFunction : String = ""
+    var selectedColor: Color = Color(r: 0.0, g: 0.0, b: 0.0, a: 0.0)
+    
     override func _ready() {
         // Sheep Body
         let sheepbody = Sprite2D()
@@ -40,7 +43,7 @@ class WoolController: CharacterBody2D {
                 }
                 
             }
-        
+            
         }
         
         // Sheep Head
@@ -82,12 +85,12 @@ class WoolController: CharacterBody2D {
                 }
             }
         }
-  
+        
         for r in 0..<rows {
             for c in 0..<cols {
                 if woolLocations[r][c] == "2" && !safeMatrix[r][c] {
                     GD.print("in first loop")
-
+                    
                     woolLocations[r][c] = "0"
                     
                     //remove the actual node from the scene
@@ -99,37 +102,50 @@ class WoolController: CharacterBody2D {
                         tween?.parallel()?.tweenProperty(object: node, property: "rotation", finalVal: Variant(node.rotation+3.14), duration: 0.18)
                         tween?.tweenProperty(object: node, property: "global_position", finalVal: Variant(Vector2(x: node.globalPosition.x + xMovement , y: node.globalPosition.y+300)), duration: 0.5)
                         tween?.parallel()?.tweenProperty(object: node, property: "modulate", finalVal: Variant(Color(r: 1, g: 1, b: 1, a: 0)), duration: 1.7)
-                        }
-                        
-                        woolNodesMatrix[r][c] = nil
                     }
+                    
+                    woolNodesMatrix[r][c] = nil
                 }
             }
         }
-    
-        
-    
+    }
     
     func recursiveCheck(r: Int, c: Int, rows: Int, cols: Int, safeMatrix: inout [[Bool]]){
         if (r < 0 || r >= rows || c < 0 || c >= cols || safeMatrix[r][c]){
             return
-
+            
         }
         if (safeMatrix[r][c]) { return }
-            
+        
         if (woolLocations[r][c] == "0") { return }
-            
+        
         safeMatrix[r][c] = true
         
         recursiveCheck(r: r + 1, c: c, rows: rows, cols: cols, safeMatrix: &safeMatrix)
         recursiveCheck(r: r - 1, c: c, rows: rows, cols: cols, safeMatrix: &safeMatrix)
         recursiveCheck(r: r, c: c + 1, rows: rows, cols: cols, safeMatrix: &safeMatrix)
         recursiveCheck(r: r, c: c - 1, rows: rows, cols: cols, safeMatrix: &safeMatrix)
-
+        
     }
     
     func getNode(r: Int, c: Int) -> WoolThing{
         return woolNodesMatrix[r][c]!
     }
-
+    
+    func applyColorToWool(_ color: Color) {
+        for row in woolNodesMatrix {
+            for wool in row {
+                wool?.setColor(color)
+            }
+        }
+    }
+    
+    func setColorMode(color: Color) {
+        selectedFunction = "color"
+        selectedColor = color
+    }
+    
+    func setShaveMode() {
+        selectedFunction = "shave"
+    }
 }
