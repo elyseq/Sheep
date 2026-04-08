@@ -24,11 +24,11 @@ class ColorFunction : Button {
          }
 
          if colorName == "red" {
-             woolController.setColorMode(color: Color(r: 1.0, g: 0.0, b: 0.0, a: 1.0))
+             woolController.setColorMode(color: Color(r: 1.0, g: 0.0, b: 0.0, a: 0.8))
          } else if colorName == "blue" {
-             woolController.setColorMode(color: Color(r: 0.0, g: 0.0, b: 1.0, a: 1.0))
+             woolController.setColorMode(color: Color(r: 0.0, g: 0.0, b: 1.0, a: 0.8))
          } else if colorName == "green" {
-             woolController.setColorMode(color: Color(r: 0.0, g: 1.0, b: 0.0, a: 1.0))
+             woolController.setColorMode(color: Color(r: 0.0, g: 1.0, b: 0.0, a: 0.8))
          }
      }
 }

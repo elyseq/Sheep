@@ -11,7 +11,7 @@ class ShaveFunction : Button {
     
     override func _ready() {
         self.pressed.connect {
-//            chooseShave()
+            chooseShave()
         }
         func chooseShave() {
             guard let woolController = getNode(path: NodePath("/root/SceneBarn/WoolController")) as? WoolController else {
