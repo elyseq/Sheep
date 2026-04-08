@@ -20,6 +20,13 @@ class ShaveFunction : Button {
             }
             
             woolController.setShaveMode()
+            
+            guard let panel = getNode(path: NodePath("/root/SceneBarn/colorPanel")) as? SidebarPanel else {
+                GD.print("Could not find colorPanel")
+                return
+            }
+            
+            panel.panelDisappear()
         }
     }
 }
