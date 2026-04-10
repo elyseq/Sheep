@@ -34,8 +34,7 @@ offset_bottom = 978.0
 scale = Vector2(0.35, 0.35)
 icon = ExtResource("3_asthk")
 
-[node name="SidebarButtonShave" type="SidebarButton" parent="." unique_id=427100759]
-function_name = "shave"
+[node name="SidebarButtonShave" type="ShaveFunction" parent="." unique_id=1999481116]
 offset_left = 36.0
 offset_top = 299.0
 offset_right = 548.0
