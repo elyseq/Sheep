@@ -1,9 +1,16 @@
 [gd_scene format=3 uid="uid://bbqjljhld2v2u"]
 
 [ext_resource type="Texture2D" uid="uid://cie20k6j82drv" path="res://assets/barnimgNeedreplace.png" id="1_uyymv"]
-[ext_resource type="Texture2D" uid="uid://dtdhdd0aotmf3" path="res://assets/color-icon.PNG" id="2_lbu2r"]
 [ext_resource type="Texture2D" uid="uid://dsclqubop3vn1" path="res://assets/background.jpg" id="2_v1lp3"]
-[ext_resource type="Texture2D" uid="uid://cjf73vwj1sa3a" path="res://assets/shaving-icon.png" id="3_4yfq6"]
+[ext_resource type="Texture2D" uid="uid://ddnc3t78cdq3a" path="res://assets/colorButton.png" id="3_asthk"]
+[ext_resource type="Texture2D" uid="uid://c45omcd2kk127" path="res://assets/shaveButton.png" id="4_8jfxg"]
+[ext_resource type="Texture2D" uid="uid://bivfov7m5wdvp" path="res://assets/redButton.png" id="5_lgsxb"]
+[ext_resource type="Texture2D" uid="uid://ce41wkqi2ppas" path="res://assets/orangeButton.png" id="6_p52js"]
+[ext_resource type="Texture2D" uid="uid://cm5qh4r22qhix" path="res://assets/yellowButton.png" id="7_74jdp"]
+[ext_resource type="Texture2D" uid="uid://bqdt6sj1g1622" path="res://assets/greenButton.png" id="8_m37kl"]
+[ext_resource type="Texture2D" uid="uid://cwydkfy3m0s0h" path="res://assets/blueButton.png" id="9_oxekk"]
+[ext_resource type="Texture2D" uid="uid://db4uwf7j6xqui" path="res://assets/purpleButton.png" id="10_ft452"]
+[ext_resource type="Texture2D" uid="uid://mcb5fukgkk8a" path="res://assets/pinkButton.png" id="11_6ty18"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uyymv"]
 bg_color = Color(0.09, 0.09, 0.09, 0.4745098)
@@ -24,107 +31,114 @@ offset_bottom = 8.0
 scale = Vector2(0.13760987, 0.12656853)
 icon = ExtResource("2_v1lp3")
 
-[node name="SidebarButtonColor" type="SidebarButton" parent="." unique_id=1156635172]
+[node name="decorationPanel" type="SidebarPanel" parent="." unique_id=590645921]
+offset_left = 30.0
+offset_top = 284.0
+offset_right = 224.0
+offset_bottom = 665.0
+
+[node name="sidebarButtonColor" type="SidebarButton" parent="decorationPanel" unique_id=431606632]
 function_name = "color"
-offset_left = 56.0
-offset_top = 509.0
-offset_right = 2112.0
-offset_bottom = 2565.0
-scale = Vector2(0.08101292, 0.072900444)
-icon = ExtResource("2_lbu2r")
+layout_mode = 0
+offset_left = 6.0
+offset_top = 191.0
+offset_right = 518.0
+offset_bottom = 694.0
+scale = Vector2(0.35, 0.35)
+icon = ExtResource("3_asthk")
+flat = true
+
+[node name="sidebarButtonShave" type="SidebarButton" parent="decorationPanel" unique_id=427100759]
+function_name = "shave"
+layout_mode = 0
+offset_left = 6.0
+offset_top = 14.999999
+offset_right = 518.0
+offset_bottom = 518.0
+scale = Vector2(0.35, 0.35)
+icon = ExtResource("4_8jfxg")
 flat = true
 
 [node name="colorPanel" type="SidebarPanel" parent="." unique_id=874791387]
 visible = false
-offset_left = 399.0
-offset_top = 18.0
-offset_right = 1896.0
-offset_bottom = 182.0
+offset_left = 476.0
+offset_top = 29.0
+offset_right = 1500.0
+offset_bottom = 194.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_uyymv")
 
-[node name="redButton" type="ColorFunction" parent="colorPanel" unique_id=1260470624]
+[node name="redButton" type="ColorFunction" parent="colorPanel" unique_id=1910094079]
 color_name = "red"
 layout_mode = 0
-offset_left = 25.0
-offset_top = 30.0
-offset_right = 210.0
-offset_bottom = 130.0
-theme_override_font_sizes/font_size = 35
-text = "red"
+offset_left = 17.0
+offset_top = 20.0
+offset_right = 345.0
+offset_bottom = 341.0
+scale = Vector2(0.4, 0.4)
+icon = ExtResource("5_lgsxb")
+flat = true
 
-[node name="orangeButton" type="ColorFunction" parent="colorPanel" unique_id=190900680]
-color_name = "orange"
+[node name="orangeButton" type="ColorFunction" parent="colorPanel" unique_id=808991442]
 layout_mode = 0
-offset_left = 235.0
-offset_top = 30.0
-offset_right = 420.0
-offset_bottom = 130.0
-theme_override_font_sizes/font_size = 36
-text = "orange"
+offset_left = 160.0
+offset_top = 20.0
+offset_right = 488.0
+offset_bottom = 341.0
+scale = Vector2(0.4, 0.4)
+icon = ExtResource("6_p52js")
+flat = true
 
-[node name="yellowButton" type="ColorFunction" parent="colorPanel" unique_id=883226758]
-color_name = "yellow"
+[node name="yellowButton" type="ColorFunction" parent="colorPanel" unique_id=941045030]
 layout_mode = 0
-offset_left = 445.0
-offset_top = 30.0
-offset_right = 630.0
-offset_bottom = 130.0
-theme_override_font_sizes/font_size = 35
-text = "yellow"
+offset_left = 297.0
+offset_top = 21.0
+offset_right = 625.0
+offset_bottom = 342.0
+scale = Vector2(0.4, 0.4)
+icon = ExtResource("7_74jdp")
+flat = true
 
-[node name="greenButton" type="ColorFunction" parent="colorPanel" unique_id=968197974]
-color_name = "green"
+[node name="greenButton" type="ColorFunction" parent="colorPanel" unique_id=1879817039]
 layout_mode = 0
-offset_left = 655.0
-offset_top = 30.0
-offset_right = 840.0
-offset_bottom = 130.0
-theme_override_font_sizes/font_size = 35
-text = "green"
+offset_left = 442.0
+offset_top = 22.0
+offset_right = 770.0
+offset_bottom = 343.0
+scale = Vector2(0.4, 0.4)
+icon = ExtResource("8_m37kl")
+flat = true
 
-[node name="blueButton" type="ColorFunction" parent="colorPanel" unique_id=361057262]
-color_name = "blue"
+[node name="blueButton" type="ColorFunction" parent="colorPanel" unique_id=1019955173]
 layout_mode = 0
-offset_left = 865.0
-offset_top = 30.0
-offset_right = 1050.0
-offset_bottom = 130.0
-theme_override_font_sizes/font_size = 35
-text = "blue"
+offset_left = 586.0
+offset_top = 20.0
+offset_right = 914.0
+offset_bottom = 341.0
+scale = Vector2(0.4, 0.4)
+icon = ExtResource("9_oxekk")
+flat = true
 
-[node name="purpleButton" type="ColorFunction" parent="colorPanel" unique_id=131911647]
-color_name = "purple"
+[node name="purpleButton" type="ColorFunction" parent="colorPanel" unique_id=1074793611]
 layout_mode = 0
-offset_left = 1075.0
-offset_top = 30.0
-offset_right = 1260.0
-offset_bottom = 130.0
-theme_override_font_sizes/font_size = 35
-text = "purple"
+offset_left = 729.0
+offset_top = 20.0
+offset_right = 1057.0
+offset_bottom = 341.0
+scale = Vector2(0.4, 0.4)
+icon = ExtResource("10_ft452")
+flat = true
 
-[node name="pinkButton" type="ColorFunction" parent="colorPanel" unique_id=1408384776]
-color_name = "pink"
+[node name="pinkButton" type="ColorFunction" parent="colorPanel" unique_id=1219949709]
 layout_mode = 0
-offset_left = 1285.0
-offset_top = 30.0
-offset_right = 1470.0
-offset_bottom = 130.0
-theme_override_font_sizes/font_size = 35
-text = "pink"
+offset_left = 874.0
+offset_top = 20.0
+offset_right = 1202.0
+offset_bottom = 341.0
+scale = Vector2(0.4, 0.4)
+icon = ExtResource("11_6ty18")
+flat = true
 
 [node name="SidebarButtonDecoration" type="SidebarButton" parent="." unique_id=1818296298]
 visible = false
 offset_right = 8.0
 offset_bottom = 8.0
-
-[node name="decorationPanel" type="SidebarPanel" parent="." unique_id=590645921]
-visible = false
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="sidebarButtonShave" type="ShaveFunction" parent="." unique_id=823735988]
-offset_left = 53.0
-offset_top = 317.0
-offset_right = 189.0
-offset_bottom = 453.0
-icon = ExtResource("3_4yfq6")
