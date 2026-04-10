@@ -44,7 +44,8 @@ class WoolChunkController: Area2D {
             if woolController.selectedFunction == "color" {
                 sprite?.modulate = woolController.selectedColor
                 return
-            } else {
+            }
+            if woolController.selectedFunction == "shave" {
                 guard let tween = createTween() else {
                     GD.print("Could not create tween")
                     return
