@@ -24,23 +24,6 @@ offset_bottom = 8.0
 scale = Vector2(0.13760987, 0.12656853)
 icon = ExtResource("2_v1lp3")
 
-[node name="ColorButton" type="Control" parent="." unique_id=20955943]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 1703.0
-offset_top = 32.0
-offset_right = 1892.0
-offset_bottom = 187.0
-
-[node name="ColorPickerButton" type="ColorPickerButton" parent="ColorButton" unique_id=1999863699]
-layout_mode = 0
-offset_left = 12.0
-offset_top = 12.0
-offset_right = 179.0
-offset_bottom = 145.0
-edit_alpha = false
-edit_intensity = false
-
 [node name="SidebarButtonColor" type="SidebarButton" parent="." unique_id=1156635172]
 function_name = "color"
 offset_left = 56.0
@@ -53,42 +36,81 @@ flat = true
 
 [node name="colorPanel" type="SidebarPanel" parent="." unique_id=874791387]
 visible = false
-offset_left = 243.0
-offset_top = 35.0
-offset_right = 1536.0
-offset_bottom = 188.0
+offset_left = 399.0
+offset_top = 18.0
+offset_right = 1896.0
+offset_bottom = 182.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_uyymv")
 
-[node name="redButton" type="ColorFunction" parent="colorPanel" unique_id=1385902745]
+[node name="redButton" type="ColorFunction" parent="colorPanel" unique_id=1260470624]
 color_name = "red"
 layout_mode = 0
-offset_left = 45.0
-offset_top = 29.0
-offset_right = 80.0
-offset_bottom = 60.0
-scale = Vector2(4.4158425, 3.3505166)
-text = "red
-"
+offset_left = 25.0
+offset_top = 30.0
+offset_right = 210.0
+offset_bottom = 130.0
+theme_override_font_sizes/font_size = 35
+text = "red"
 
-[node name="blueButton" type="ColorFunction" parent="colorPanel" unique_id=1555123773]
-color_name = "blue"
+[node name="orangeButton" type="ColorFunction" parent="colorPanel" unique_id=190900680]
+color_name = "orange"
 layout_mode = 0
-offset_left = 259.0
-offset_top = 28.0
-offset_right = 301.0
-offset_bottom = 59.0
-scale = Vector2(4.5264335, 3.4844308)
-text = "blue"
+offset_left = 235.0
+offset_top = 30.0
+offset_right = 420.0
+offset_bottom = 130.0
+theme_override_font_sizes/font_size = 36
+text = "orange"
 
-[node name="greenButton" type="ColorFunction" parent="colorPanel" unique_id=76911267]
+[node name="yellowButton" type="ColorFunction" parent="colorPanel" unique_id=883226758]
+color_name = "yellow"
+layout_mode = 0
+offset_left = 445.0
+offset_top = 30.0
+offset_right = 630.0
+offset_bottom = 130.0
+theme_override_font_sizes/font_size = 35
+text = "yellow"
+
+[node name="greenButton" type="ColorFunction" parent="colorPanel" unique_id=968197974]
 color_name = "green"
 layout_mode = 0
-offset_left = 528.0
-offset_top = 40.0
-offset_right = 581.0
-offset_bottom = 71.0
-scale = Vector2(2.7745988, 2.781302)
+offset_left = 655.0
+offset_top = 30.0
+offset_right = 840.0
+offset_bottom = 130.0
+theme_override_font_sizes/font_size = 35
 text = "green"
+
+[node name="blueButton" type="ColorFunction" parent="colorPanel" unique_id=361057262]
+color_name = "blue"
+layout_mode = 0
+offset_left = 865.0
+offset_top = 30.0
+offset_right = 1050.0
+offset_bottom = 130.0
+theme_override_font_sizes/font_size = 35
+text = "blue"
+
+[node name="purpleButton" type="ColorFunction" parent="colorPanel" unique_id=131911647]
+color_name = "purple"
+layout_mode = 0
+offset_left = 1075.0
+offset_top = 30.0
+offset_right = 1260.0
+offset_bottom = 130.0
+theme_override_font_sizes/font_size = 35
+text = "purple"
+
+[node name="pinkButton" type="ColorFunction" parent="colorPanel" unique_id=1408384776]
+color_name = "pink"
+layout_mode = 0
+offset_left = 1285.0
+offset_top = 30.0
+offset_right = 1470.0
+offset_bottom = 130.0
+theme_override_font_sizes/font_size = 35
+text = "pink"
 
 [node name="SidebarButtonDecoration" type="SidebarButton" parent="." unique_id=1818296298]
 visible = false
