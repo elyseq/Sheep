@@ -28,5 +28,6 @@ class ColorChanger: Control {
     
     func onColorChanged(_ color: Color) {
         woolController?.applyColorToWool(color)
+        GD.print("tried to apply color")
     }
 }
