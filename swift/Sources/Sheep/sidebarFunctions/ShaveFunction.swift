@@ -9,15 +9,11 @@ import SwiftGodot
 @Godot
 class ShaveFunction : Button {
     
-    override func _ready() {
-        self.pressed.connect {
-            chooseShave()
+    func chooseShave() {
+        guard let woolController = getNode(path: NodePath("/root/SceneBarn/WoolController")) as? WoolController else {
+            GD.print("Could not find WoolController")
+            return
         }
-        func chooseShave() {
-            guard let woolController = getNode(path: NodePath("/root/SceneBarn/WoolController")) as? WoolController else {
-                GD.print("Could not find WoolController")
-                return
-            }
             
             woolController.setShaveMode()
             
@@ -27,6 +23,12 @@ class ShaveFunction : Button {
             }
             
             panel.panelDisappear()
+    }
+    
+    override func _ready() {
+        self.pressed.connect {
+            self.chooseShave()
         }
+        
     }
 }
