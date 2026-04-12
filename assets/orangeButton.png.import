@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5ob8jq4ynxu5"
-path="res://.godot/imported/cloudshape.png-689f9b97921a79e76f985f7a9c537892.ctex"
+uid="uid://ce41wkqi2ppas"
+path="res://.godot/imported/orangeButton.png-cbbcdc319f624b50b0f2caba823fa599.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cloudshape.png"
-dest_files=["res://.godot/imported/cloudshape.png-689f9b97921a79e76f985f7a9c537892.ctex"]
+source_file="res://assets/orangeButton.png"
+dest_files=["res://.godot/imported/orangeButton.png-cbbcdc319f624b50b0f2caba823fa599.ctex"]
 
 [params]
 

@@ -7,10 +7,16 @@ import SwiftGodot
     WoolController.self,
     WoolThing.self,
     WoolChunkController.self,
-    sceneSwitch.self,
+    MainToBarnSceneSwitch.self,
     penSceneSwitch.self,
     WalkingSheep.self,
-    WalkingSheepSpawner.self])
+    WalkingSheepSpawner.self,
+    ColorChanger.self,
+    ColorFunction.self,
+    ShaveFunction.self,
+    SidebarButton.self,
+    SidebarPanel.self,
+])
 
 @Godot
 class MainScene: Node2D {

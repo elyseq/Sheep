@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5ob8jq4ynxu5"
-path="res://.godot/imported/cloudshape.png-689f9b97921a79e76f985f7a9c537892.ctex"
+uid="uid://gmm66t1d5nqf"
+path="res://.godot/imported/barn.png-4d1a02cc3d336d9749e258d8ffe11e5e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cloudshape.png"
-dest_files=["res://.godot/imported/cloudshape.png-689f9b97921a79e76f985f7a9c537892.ctex"]
+source_file="res://assets/barn.png"
+dest_files=["res://.godot/imported/barn.png-4d1a02cc3d336d9749e258d8ffe11e5e.ctex"]
 
 [params]
 

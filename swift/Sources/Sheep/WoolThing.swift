@@ -9,9 +9,18 @@ import SwiftGodot
 @Godot
 class WoolThing: CharacterBody2D {
     
+    var chunk: WoolChunkController = WoolChunkController()
+    
     override func _ready () {
-        let chunk = WoolChunkController()
         self.addChild(node: chunk)
         self.inputPickable = true
+    }
+    
+    func setColor(_ color: Color) {
+        chunk.modulate = color
+    }
+    
+    func getSprite() -> Sprite2D? {
+        return(chunk.getSprite())
     }
 }

@@ -1,11 +1,24 @@
 [gd_scene format=3 uid="uid://bbqjljhld2v2u"]
 
 [ext_resource type="Texture2D" uid="uid://cie20k6j82drv" path="res://assets/barnimgNeedreplace.png" id="1_uyymv"]
-[ext_resource type="Texture2D" uid="uid://dsclqubop3vn1" path="res://assets/background.jpg" id="2_lbu2r"]
+[ext_resource type="Texture2D" uid="uid://ddnc3t78cdq3a" path="res://assets/colorButton.png" id="3_asthk"]
+[ext_resource type="Texture2D" uid="uid://c45omcd2kk127" path="res://assets/shaveButton.png" id="4_8jfxg"]
+[ext_resource type="Texture2D" uid="uid://bivfov7m5wdvp" path="res://assets/redButton.png" id="5_lgsxb"]
+[ext_resource type="Texture2D" uid="uid://ce41wkqi2ppas" path="res://assets/orangeButton.png" id="6_p52js"]
+[ext_resource type="Texture2D" uid="uid://cm5qh4r22qhix" path="res://assets/yellowButton.png" id="7_74jdp"]
+[ext_resource type="Texture2D" uid="uid://bqdt6sj1g1622" path="res://assets/greenButton.png" id="8_m37kl"]
+[ext_resource type="Texture2D" uid="uid://cwydkfy3m0s0h" path="res://assets/blueButton.png" id="9_oxekk"]
+[ext_resource type="Texture2D" uid="uid://db4uwf7j6xqui" path="res://assets/purpleButton.png" id="10_ft452"]
+[ext_resource type="Texture2D" uid="uid://mcb5fukgkk8a" path="res://assets/pinkButton.png" id="11_6ty18"]
+[ext_resource type="Texture2D" uid="uid://gmm66t1d5nqf" path="res://assets/barn.png" id="11_asthk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uyymv"]
+bg_color = Color(0.09, 0.09, 0.09, 0.4745098)
 
 [node name="SceneBarn" type="Node2D" unique_id=1642393439]
 
 [node name="barnBG" type="Sprite2D" parent="." unique_id=690342074]
+z_index = -2
 position = Vector2(958.00006, 544.00006)
 scale = Vector2(0.7596838, 0.7063075)
 texture = ExtResource("1_uyymv")
@@ -13,8 +26,117 @@ texture = ExtResource("1_uyymv")
 [node name="WoolController" type="WoolController" parent="." unique_id=277431185]
 position = Vector2(6, 14)
 
-[node name="penSceneSwitch" type="penSceneSwitch" parent="." unique_id=544739832]
+[node name="sidebarButtonColor" type="SidebarButton" parent="." unique_id=431606632]
+function_name = "color"
+offset_left = 36.0
+offset_top = 475.0
+offset_right = 548.0
+offset_bottom = 978.0
+scale = Vector2(0.35, 0.35)
+icon = ExtResource("3_asthk")
+
+[node name="SidebarButtonShave" type="ShaveFunction" parent="." unique_id=1999481116]
+offset_left = 36.0
+offset_top = 299.0
+offset_right = 548.0
+offset_bottom = 802.0
+scale = Vector2(0.35, 0.35)
+icon = ExtResource("4_8jfxg")
+
+[node name="decorationPanel" type="SidebarPanel" parent="." unique_id=590645921]
+visible = false
+offset_left = 30.0
+offset_top = 284.0
+offset_right = 224.0
+offset_bottom = 665.0
+
+[node name="colorPanel" type="SidebarPanel" parent="." unique_id=874791387]
+visible = false
+offset_left = 476.0
+offset_top = 29.0
+offset_right = 1500.0
+offset_bottom = 194.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_uyymv")
+
+[node name="redButton" type="ColorFunction" parent="colorPanel" unique_id=1910094079]
+color_name = "red"
+layout_mode = 0
+offset_left = 17.0
+offset_top = 20.0
+offset_right = 345.0
+offset_bottom = 341.0
+scale = Vector2(0.4, 0.4)
+icon = ExtResource("5_lgsxb")
+
+[node name="orangeButton" type="ColorFunction" parent="colorPanel" unique_id=808991442]
+color_name = "orange"
+layout_mode = 0
+offset_left = 160.0
+offset_top = 20.0
+offset_right = 488.0
+offset_bottom = 341.0
+scale = Vector2(0.4, 0.4)
+icon = ExtResource("6_p52js")
+
+[node name="yellowButton" type="ColorFunction" parent="colorPanel" unique_id=941045030]
+color_name = "yellow"
+layout_mode = 0
+offset_left = 297.0
+offset_top = 21.0
+offset_right = 625.0
+offset_bottom = 342.0
+scale = Vector2(0.4, 0.4)
+icon = ExtResource("7_74jdp")
+
+[node name="greenButton" type="ColorFunction" parent="colorPanel" unique_id=1879817039]
+color_name = "green"
+layout_mode = 0
+offset_left = 442.0
+offset_top = 22.0
+offset_right = 770.0
+offset_bottom = 343.0
+scale = Vector2(0.4, 0.4)
+icon = ExtResource("8_m37kl")
+
+[node name="blueButton" type="ColorFunction" parent="colorPanel" unique_id=1019955173]
+color_name = "blue"
+layout_mode = 0
+offset_left = 586.0
+offset_top = 20.0
+offset_right = 914.0
+offset_bottom = 341.0
+scale = Vector2(0.4, 0.4)
+icon = ExtResource("9_oxekk")
+
+[node name="purpleButton" type="ColorFunction" parent="colorPanel" unique_id=1074793611]
+color_name = "purple"
+layout_mode = 0
+offset_left = 729.0
+offset_top = 20.0
+offset_right = 1057.0
+offset_bottom = 341.0
+scale = Vector2(0.4, 0.4)
+icon = ExtResource("10_ft452")
+
+[node name="pinkButton" type="ColorFunction" parent="colorPanel" unique_id=1219949709]
+color_name = "pink"
+layout_mode = 0
+offset_left = 874.0
+offset_top = 20.0
+offset_right = 1202.0
+offset_bottom = 341.0
+scale = Vector2(0.4, 0.4)
+icon = ExtResource("11_6ty18")
+
+[node name="SidebarButtonDecoration" type="SidebarButton" parent="." unique_id=1818296298]
+visible = false
 offset_right = 8.0
 offset_bottom = 8.0
-scale = Vector2(0.13760987, 0.12656853)
-icon = ExtResource("2_lbu2r")
+
+[node name="penSceneSwitch" type="penSceneSwitch" parent="." unique_id=577819439]
+offset_left = 9.0
+offset_top = 37.0
+offset_right = 601.0
+offset_bottom = 472.0
+scale = Vector2(0.5, 0.5)
+icon = ExtResource("11_asthk")

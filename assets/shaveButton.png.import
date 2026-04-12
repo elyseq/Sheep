@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5ob8jq4ynxu5"
-path="res://.godot/imported/cloudshape.png-689f9b97921a79e76f985f7a9c537892.ctex"
+uid="uid://c45omcd2kk127"
+path="res://.godot/imported/shaveButton.png-64353166af286aac4a9141879876b5ef.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cloudshape.png"
-dest_files=["res://.godot/imported/cloudshape.png-689f9b97921a79e76f985f7a9c537892.ctex"]
+source_file="res://assets/shaveButton.png"
+dest_files=["res://.godot/imported/shaveButton.png-64353166af286aac4a9141879876b5ef.ctex"]
 
 [params]
 
