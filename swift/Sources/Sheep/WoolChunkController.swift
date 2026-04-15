@@ -46,7 +46,7 @@ class WoolChunkController: Area2D {
             }
             
             if woolController.selectedFunction == "color" {
-                sprite.modulate = woolController.selectedColor
+                sprite.modulate = woolController.selectedColor //changes color
                 return
             }
             if woolController.selectedFunction == "shave" {

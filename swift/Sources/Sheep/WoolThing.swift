@@ -16,9 +16,9 @@ class WoolThing: CharacterBody2D {
         self.inputPickable = true
     }
     
-    func setColor(_ color: Color) {
-        chunk.modulate = color
-    }
+//    func setColor(_ color: Color) {
+//        chunk.modulate = color
+//    }
     
     func getSprite() -> Sprite2D? {
         return(chunk.getSprite())

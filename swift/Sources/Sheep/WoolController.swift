@@ -150,15 +150,15 @@ class WoolController: CharacterBody2D {
         return woolNodesMatrix[r][c]!
     }
     
-    func applyColorToWool(_ color: Color) {
-        for row in woolNodesMatrix {
-            for wool in row {
-                wool?.setColor(color)
-            }
-        }
-    }
+//    func applyColorToWool(_ color: Color) {
+//        for row in woolNodesMatrix {
+//            for wool in row {
+//                //wool?.setColor(color)
+//            }
+//        }
+//    }
     
-    func setColorMode(color: Color) {
+    func setColorMode(color: Color) { //changes color
         selectedFunction = "color"
         selectedColor = color
     }
