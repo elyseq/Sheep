@@ -46,6 +46,7 @@ class WoolChunkController: Area2D {
                 return
             }
             if woolController.selectedFunction == "shave" {
+//            else{
                 guard let tween = createTween() else {
                     GD.print("Could not create tween")
                     return

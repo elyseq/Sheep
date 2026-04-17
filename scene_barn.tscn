@@ -33,6 +33,7 @@ offset_right = 548.0
 offset_bottom = 978.0
 scale = Vector2(0.35, 0.35)
 icon = ExtResource("3_asthk")
+flat = true
 
 [node name="SidebarButtonShave" type="ShaveFunction" parent="." unique_id=1999481116]
 offset_left = 36.0
@@ -41,6 +42,7 @@ offset_right = 548.0
 offset_bottom = 802.0
 scale = Vector2(0.35, 0.35)
 icon = ExtResource("4_8jfxg")
+flat = true
 
 [node name="decorationPanel" type="SidebarPanel" parent="." unique_id=590645921]
 visible = false
@@ -66,6 +68,7 @@ offset_right = 345.0
 offset_bottom = 341.0
 scale = Vector2(0.4, 0.4)
 icon = ExtResource("5_lgsxb")
+flat = true
 
 [node name="orangeButton" type="ColorFunction" parent="colorPanel" unique_id=808991442]
 color_name = "orange"
@@ -76,6 +79,7 @@ offset_right = 488.0
 offset_bottom = 341.0
 scale = Vector2(0.4, 0.4)
 icon = ExtResource("6_p52js")
+flat = true
 
 [node name="yellowButton" type="ColorFunction" parent="colorPanel" unique_id=941045030]
 color_name = "yellow"
@@ -86,6 +90,7 @@ offset_right = 625.0
 offset_bottom = 342.0
 scale = Vector2(0.4, 0.4)
 icon = ExtResource("7_74jdp")
+flat = true
 
 [node name="greenButton" type="ColorFunction" parent="colorPanel" unique_id=1879817039]
 color_name = "green"
@@ -96,6 +101,7 @@ offset_right = 770.0
 offset_bottom = 343.0
 scale = Vector2(0.4, 0.4)
 icon = ExtResource("8_m37kl")
+flat = true
 
 [node name="blueButton" type="ColorFunction" parent="colorPanel" unique_id=1019955173]
 color_name = "blue"
@@ -106,6 +112,7 @@ offset_right = 914.0
 offset_bottom = 341.0
 scale = Vector2(0.4, 0.4)
 icon = ExtResource("9_oxekk")
+flat = true
 
 [node name="purpleButton" type="ColorFunction" parent="colorPanel" unique_id=1074793611]
 color_name = "purple"
@@ -116,6 +123,7 @@ offset_right = 1057.0
 offset_bottom = 341.0
 scale = Vector2(0.4, 0.4)
 icon = ExtResource("10_ft452")
+flat = true
 
 [node name="pinkButton" type="ColorFunction" parent="colorPanel" unique_id=1219949709]
 color_name = "pink"
@@ -126,6 +134,7 @@ offset_right = 1202.0
 offset_bottom = 341.0
 scale = Vector2(0.4, 0.4)
 icon = ExtResource("11_6ty18")
+flat = true
 
 [node name="SidebarButtonDecoration" type="SidebarButton" parent="." unique_id=1818296298]
 visible = false
@@ -139,3 +148,4 @@ offset_right = 601.0
 offset_bottom = 472.0
 scale = Vector2(0.5, 0.5)
 icon = ExtResource("11_asthk")
+flat = true

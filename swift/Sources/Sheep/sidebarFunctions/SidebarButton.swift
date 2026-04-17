@@ -20,7 +20,8 @@ class SidebarButton : Button {
 
         self.pressed.connect{
             self.panelVisibility()
-            }
+            self.selectFunction()
+        }
     }
 
     func panelVisibility() {
@@ -34,4 +35,16 @@ class SidebarButton : Button {
         }
         
     }
+    func selectFunction() {
+           guard let woolController = getNode(path: NodePath("/root/SceneBarn/WoolController")) as? WoolController else {
+               GD.print("Could not find WoolController")
+               return
+           }
+
+           if functionName == "color" {
+               woolController.setColorMode(color: Color(r: 1.0, g: 1.0, b: 1.0, a: 1.0))
+           } else if functionName == "shave" {
+               woolController.setShaveMode()
+           }
+       }
 }
