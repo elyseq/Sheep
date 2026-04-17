@@ -8,10 +8,11 @@ import SwiftGodot
 
 @Godot
 class WoolChunkController: Area2D {
-    var sprite : Sprite2D?
+    var shadowNode: Node? = nil // Store the black wool here
+    var sprite : Sprite2D = Sprite2D()
+    
     override func _ready() {
-        let sprite = Sprite2D()
-        self.sprite = sprite
+        
         sprite.texture = GD.load(path: "res://assets/cloudshape.png") as? Texture2D
         sprite.scale = Vector2(x: 0.07, y: 0.07)
 
@@ -20,7 +21,7 @@ class WoolChunkController: Area2D {
         
         let collision = CollisionShape2D()
         let circle = CircleShape2D()
-        circle.radius = 10 //copied this from another example idk what this is doing tbh
+        circle.radius = 7 //copied this from another example idk what this is doing tbh
         collision.shape = circle
         addChild(node: collision)
         
@@ -28,9 +29,16 @@ class WoolChunkController: Area2D {
         self.mouseEntered.connect(onMouseEntered)
     }
     
+    
+    
+    func getSprite() -> Sprite2D? {
+        return(sprite)
+    }
+
     func onMouseEntered() {
         // Check if the left mouse button is held down while entering
         if Input.isMouseButtonPressed(button: .left) {
+            //isDragging = true
             self.zIndex = 100
             guard let woolThing = self.getParent() as? WoolThing else {
                 return
@@ -42,7 +50,7 @@ class WoolChunkController: Area2D {
             }
             
             if woolController.selectedFunction == "color" {
-                sprite?.modulate = woolController.selectedColor
+                sprite.modulate = woolController.selectedColor //changes color
                 return
             }
             if woolController.selectedFunction == "shave" {
@@ -92,12 +100,11 @@ class WoolChunkController: Area2D {
 
                     woolController.woolLocations[row][col] = "0"
                     woolController.checkForFloating(row: row, col: col)
-
+                    self.shadowNode?.queueFree()
                     self.queueFree()
                     woolThing.queueFree() // Remove the parent wrapper as well
                 }
             }
         }
     }
-
 }

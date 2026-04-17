@@ -21,6 +21,10 @@ class WoolController: CharacterBody2D {
     var selectedFunction : String = ""
     var selectedColor: Color = Color(r: 0.0, g: 0.0, b: 0.0, a: 0.0)
     
+    var animatedSprite: AnimatedSprite2D?
+    var isDragging: Bool = false
+    var animationCooldown: Double = 0.0 // wait time
+    
     override func _ready() {
         // Sheep Body
         let sheepbody = Sprite2D()
@@ -38,8 +42,22 @@ class WoolController: CharacterBody2D {
                 let xpos = 10 * x - 190
                 if(woolLocations[y][x] == "1" || woolLocations[y][x] == "2"){
                     let wool = makeWoolNode(Vector2(x: Float(xpos), y: Float(ypos)))
+//                    let blackwool = wool.duplicate() as! WoolThing
+//                    blackwool.scale = Vector2(x: 1.25, y: 1.25)
+//                    blackwool.modulate = Color(r: 0.0, g: 0.0, b: 0.0) // makes these ones black
+//                    blackwool.zIndex = -1
+//                    
+//                    if let blackController = blackwool.getChild(idx: 0) as? WoolChunkController {
+//                        blackController.inputPickable = false
+//                    }
+//
+//                    if let whiteController = wool.getChild(idx: 0) as? WoolChunkController {
+//                        whiteController.shadowNode = blackwool
+//                    }
+                
                     woolNodesMatrix[y][x] = wool as? WoolThing
                     sheepbody.addChild(node: wool)
+                    //sheepbody.addChild(node: blackwool)
                 }
                 
             }
@@ -47,13 +65,69 @@ class WoolController: CharacterBody2D {
         }
         
         // Sheep Head
+        guard let frames = GD.load(path: "res://assets/sheep_frames.tres") as? SpriteFrames else {
+            GD.print("Failed to load sprite frames")
+            return
+        }
+        animatedSprite = AnimatedSprite2D()
+        animatedSprite?.position = Vector2(x: 1100, y: 700)
+        animatedSprite?.scale = Vector2(x: 3, y: 3)
+        
         let sheephead = Sprite2D()
         sheephead.texture = GD.load(path: "res://assets/sheepHead.png") as? Texture2D
         sheephead.position = Vector2(x: 1100, y: 700)
         sheephead.scale = Vector2(x: 2, y: 2)
+        
+        
+        animatedSprite?.spriteFrames = frames
+        addChild(node: animatedSprite!)
+        
         addChild(node:sheephead)
     }
-    func makeWoolNode (_ pos: Vector2) -> Node {
+    
+    override func _process(delta: Double) {
+        if isDragging {
+            animationCooldown -= delta
+            
+            if animationCooldown <= 0 {
+                triggerRandomAnimation()
+                animationCooldown = Double.random(in: 1.0...3.0)
+            }
+        }
+    }
+    
+    override func _input(event: InputEvent) {
+        if event is InputEventMouseMotion && Input.isMouseButtonPressed(button: .left) {
+            isDragging = true
+        } else if event is InputEventMouseButton {
+            let mouseEvent = event as! InputEventMouseButton
+            if !mouseEvent.pressed {
+                isDragging = false
+            }
+        }
+    }
+    
+    func triggerRandomAnimation() {
+        let choice = Float.random(in: 0...1)
+        
+        if choice > 0.65 {
+            playBlink()
+        } else {
+            playEarTwitch()
+        }
+    }
+    
+    func playBlink() {
+        animatedSprite?.play(name: "blink")
+        //GD.print("blink")
+    }
+
+    func playEarTwitch() {
+        animatedSprite?.play(name: "twitch")
+        //GD.print("twitch")
+    }
+    
+    func makeWoolNode (_ pos: Vector2) -> WoolThing {
         let n = WoolThing()
         n.position = pos
         n.rotation = Double.random(in:0.0...360.0)
@@ -93,17 +167,21 @@ class WoolController: CharacterBody2D {
                     
                     woolLocations[r][c] = "0"
                     
-                    //remove the actual node from the scene
+                 //   remove the actual node from the scene
                     if let node = woolNodesMatrix[r][c] {
                         GD.print("trying to queue free")
                         let tween = createTween()
-                        var xMovement:Float = Float(Bool.random() ? Double.random(in: -110 ... -90) : Double.random(in: 90 ... 110))
-                        tween?.tweenProperty(object: node, property: "global_position", finalVal: Variant(Vector2(x: node.globalPosition.x + xMovement, y: node.globalPosition.y-60)), duration: 0.18)
-                        tween?.parallel()?.tweenProperty(object: node, property: "rotation", finalVal: Variant(node.rotation+3.14), duration: 0.18)
-                        tween?.tweenProperty(object: node, property: "global_position", finalVal: Variant(Vector2(x: node.globalPosition.x + xMovement , y: node.globalPosition.y+300)), duration: 0.5)
-                        tween?.parallel()?.tweenProperty(object: node, property: "modulate", finalVal: Variant(Color(r: 1, g: 1, b: 1, a: 0)), duration: 1.7)
+//                        var xMovement:Float = Float(Bool.random() ? Double.random(in: -110 ... -90) : Double.random(in: 90 ... 110))
+//                        tween?.tweenProperty(object: node, property: "global_position", finalVal: Variant(Vector2(x: node.globalPosition.x + xMovement, y: node.globalPosition.y-60)), duration: 0.18)
+                        tween?.tweenProperty(object: node, property: "scale", finalVal: Variant(Vector2(x: 1.5,y: 1.5)), duration: 0.1)
+                        tween?.tweenProperty(object: node, property: "rotation", finalVal: Variant(Bool.random() ? node.rotation+3*3.14 : node.rotation-3*3.14), duration: 0.5)
+//                        tween?.tweenProperty(object: node, property: "global_position", finalVal: Variant(Vector2(x: node.globalPosition.x + xMovement , y: node.globalPosition.y+300)), duration: 0.5)
+                        tween?.parallel()?.tweenProperty(object: node, property: "modulate", finalVal: Variant(Color(r: 1, g: 1, b: 1, a: 0)), duration: Double.random(in: 0.5 ... 1.0) )
+                        tween?.parallel()?.tweenProperty(object: node, property: "scale", finalVal: Variant(Vector2(x: 0.5,y: 0.5)), duration: 0.3)
+
                     }
-                    
+                    let node = woolNodesMatrix[r][c]
+                  //  node?.queueFree()
                     woolNodesMatrix[r][c] = nil
                 }
             }
@@ -132,15 +210,15 @@ class WoolController: CharacterBody2D {
         return woolNodesMatrix[r][c]!
     }
     
-    func applyColorToWool(_ color: Color) {
-        for row in woolNodesMatrix {
-            for wool in row {
-                wool?.setColor(color)
-            }
-        }
-    }
+//    func applyColorToWool(_ color: Color) {
+//        for row in woolNodesMatrix {
+//            for wool in row {
+//                //wool?.setColor(color)
+//            }
+//        }
+//    }
     
-    func setColorMode(color: Color) {
+    func setColorMode(color: Color) { //changes color
         selectedFunction = "color"
         selectedColor = color
     }

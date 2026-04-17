@@ -18,7 +18,7 @@ public class WalkingSheepSpawner: CharacterBody2D {
         var scaleNum : Float = 0.4
         var positionY : Float = -200
         var level : Float = 0
-        var speed: Float = 50
+        var speed: Float = 25
         
         for i in 0..<4 {
             let direction: Float = Bool.random() ? 1.0 : -1.0
