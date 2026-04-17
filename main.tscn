@@ -1,29 +1,37 @@
 [gd_scene format=3 uid="uid://bl105vstqmhgy"]
 
 [ext_resource type="Texture2D" uid="uid://dsclqubop3vn1" path="res://assets/background.jpg" id="1_0xm2m"]
-[ext_resource type="Texture2D" uid="uid://ca2r6q742bax" path="res://assets/barnTransparentBG.png" id="4_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://cxgan3vlcgkvl" path="res://assets/penBackground.jpg" id="2_0xm2m"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_h2yge"]
-a = Vector2(-225, 336)
-b = Vector2(104.54297, -265)
+a = Vector2(-243.93356, 283)
+b = Vector2(111.51251, -258)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_1bvp3"]
 a = Vector2(-85, -239)
-b = Vector2(197, 323)
+b = Vector2(248.91174, 300)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_h2yge"]
-size = Vector2(280, 240)
+[sub_resource type="Gradient" id="Gradient_h2yge"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_1bvp3"]
+gradient = SubResource("Gradient_h2yge")
 
 [node name="PenScene" type="Node2D" unique_id=1221304897]
 scale = Vector2(1.0043718, 1)
 
+[node name="PenBackground" type="Sprite2D" parent="." unique_id=257856314]
+position = Vector2(964.78217, 479.00006)
+scale = Vector2(0.78704196, 0.73323166)
+texture = ExtResource("2_0xm2m")
+
 [node name="background" type="Sprite2D" parent="." unique_id=1340833516]
+visible = false
 position = Vector2(941.8823, 556)
 scale = Vector2(0.7410254, 0.6731707)
 texture = ExtResource("1_0xm2m")
 
 [node name="leftPenWall" type="StaticBody2D" parent="." unique_id=1266156243]
-position = Vector2(345.4896, 837)
+position = Vector2(291.72464, 824)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="leftPenWall" unique_id=1202446268]
 shape = SubResource("SegmentShape2D_h2yge")
@@ -32,23 +40,19 @@ shape = SubResource("SegmentShape2D_h2yge")
 position = Vector2(1736, 1077)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="rightPenWall" unique_id=1493300971]
-position = Vector2(-173.8294, -226)
+position = Vector2(-116.08186, -274)
 shape = SubResource("SegmentShape2D_1bvp3")
 
 [node name="Spawnpoint" type="Node2D" parent="." unique_id=1626801168]
 position = Vector2(2.08165e-12, -336)
 
-[node name="TouchScreenButton" type="TouchScreenButton" parent="." unique_id=288178666]
-position = Vector2(1677.6656, 475)
-shape = SubResource("RectangleShape2D_h2yge")
-
 [node name="sceneSwitch" type="MainToBarnSceneSwitch" parent="." unique_id=679890085]
-offset_left = 1466.5884
-offset_top = 332.00003
-offset_right = 3522.5884
-offset_bottom = 2388.0
+offset_left = 1459.6189
+offset_top = 139.0
+offset_right = 3771.9421
+offset_bottom = 1836.7107
 scale = Vector2(0.17309445, 0.1608048)
-icon = ExtResource("4_1bvp3")
+icon = SubResource("GradientTexture1D_1bvp3")
 flat = true
 
 [node name="WalkingSheepSpawner" type="WalkingSheepSpawner" parent="." unique_id=1828825578]
