@@ -21,6 +21,10 @@ class WoolController: CharacterBody2D {
     var selectedFunction : String = ""
     var selectedColor: Color = Color(r: 0.0, g: 0.0, b: 0.0, a: 0.0)
     
+    var animatedSprite: AnimatedSprite2D?
+    var isDragging: Bool = false
+    var animationCooldown: Double = 0.0 // wait time
+    
     override func _ready() {
         // Sheep Body
         let sheepbody = Sprite2D()
@@ -61,12 +65,68 @@ class WoolController: CharacterBody2D {
         }
         
         // Sheep Head
+        guard let frames = GD.load(path: "res://assets/sheep_frames.tres") as? SpriteFrames else {
+            GD.print("Failed to load sprite frames")
+            return
+        }
+        animatedSprite = AnimatedSprite2D()
+        animatedSprite?.position = Vector2(x: 1100, y: 700)
+        animatedSprite?.scale = Vector2(x: 3, y: 3)
+        
         let sheephead = Sprite2D()
         sheephead.texture = GD.load(path: "res://assets/sheepHead.png") as? Texture2D
         sheephead.position = Vector2(x: 1100, y: 700)
         sheephead.scale = Vector2(x: 2, y: 2)
+        
+        
+        animatedSprite?.spriteFrames = frames
+        addChild(node: animatedSprite!)
+        
         addChild(node:sheephead)
     }
+    
+    override func _process(delta: Double) {
+        if isDragging {
+            animationCooldown -= delta
+            
+            if animationCooldown <= 0 {
+                triggerRandomAnimation()
+                animationCooldown = Double.random(in: 1.0...3.0)
+            }
+        }
+    }
+    
+    override func _input(event: InputEvent) {
+        if event is InputEventMouseMotion && Input.isMouseButtonPressed(button: .left) {
+            isDragging = true
+        } else if event is InputEventMouseButton {
+            let mouseEvent = event as! InputEventMouseButton
+            if !mouseEvent.pressed {
+                isDragging = false
+            }
+        }
+    }
+    
+    func triggerRandomAnimation() {
+        let choice = Float.random(in: 0...1)
+        
+        if choice > 0.65 {
+            playBlink()
+        } else {
+            playEarTwitch()
+        }
+    }
+    
+    func playBlink() {
+        animatedSprite?.play(name: "blink")
+        //GD.print("blink")
+    }
+
+    func playEarTwitch() {
+        animatedSprite?.play(name: "twitch")
+        //GD.print("twitch")
+    }
+    
     func makeWoolNode (_ pos: Vector2) -> WoolThing {
         let n = WoolThing()
         n.position = pos

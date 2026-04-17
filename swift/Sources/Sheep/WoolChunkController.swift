@@ -11,9 +11,6 @@ class WoolChunkController: Area2D {
     var shadowNode: Node? = nil // Store the black wool here
     var sprite : Sprite2D = Sprite2D()
     
-    var isDragging: Bool = false
-    var animationCooldown: Double = 0.0 // wait time
-    
     override func _ready() {
         
         sprite.texture = GD.load(path: "res://assets/cloudshape.png") as? Texture2D
@@ -32,16 +29,7 @@ class WoolChunkController: Area2D {
         self.mouseEntered.connect(onMouseEntered)
     }
     
-    override func _process(delta: Double) {
-        if isDragging {
-            animationCooldown -= delta
-            
-            if animationCooldown <= 0 {
-                triggerRandomAnimation()
-                animationCooldown = Double.random(in: 1.0...3.0)
-            }
-        }
-    }
+    
     
     func getSprite() -> Sprite2D? {
         return(sprite)
@@ -50,7 +38,7 @@ class WoolChunkController: Area2D {
     func onMouseEntered() {
         // Check if the left mouse button is held down while entering
         if Input.isMouseButtonPressed(button: .left) {
-            isDragging = true
+            //isDragging = true
             self.zIndex = 100
             guard let woolThing = self.getParent() as? WoolThing else {
                 return
@@ -116,31 +104,6 @@ class WoolChunkController: Area2D {
                     woolThing.queueFree() // Remove the parent wrapper as well
                 }
             }
-        } else {
-            isDragging = false
         }
     }
-    
-    func triggerRandomAnimation() {
-        let choice = Float.random(in: 0...1)
-        
-        if choice > 0.65 {
-            playBlink()
-        } else {
-            playEarTwitch()
-        }
-    }
-    
-    func playBlink() {
-        if let sprite = getNode(path: "AnimatedSprite2D") as? AnimatedSprite2D {
-            sprite.play(name: "blink")
-        }
-    }
-    
-    func playEarTwitch() {
-        if let sprite = getNode(path: "AnimatedSprite2D") as? AnimatedSprite2D {
-            sprite.play(name: "twitch")
-        }
-    }
-
 }

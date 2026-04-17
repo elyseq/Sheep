@@ -89,9 +89,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_l5irb")
 }],
-"loop": true,
+"loop": false,
 "name": &"blink",
-"speed": 5.0
+"speed": 7.0
 }, {
 "frames": [],
 "loop": true,
