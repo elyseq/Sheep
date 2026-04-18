@@ -1,6 +1,27 @@
 [gd_resource type="SpriteFrames" format=3 uid="uid://m2iww7d32625"]
 
+[ext_resource type="Texture2D" uid="uid://bc3teea5itciu" path="res://assets/sheepWalk_14-removebg-preview.png" id="1_c7kuk"]
 [ext_resource type="Texture2D" uid="uid://cxs4ac11rnmo7" path="res://assets/walkAnimationGrid.png" id="1_lxh3h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ek8vv"]
+atlas = ExtResource("1_c7kuk")
+region = Rect2(6, 0, 117, 416)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_emkom"]
+atlas = ExtResource("1_c7kuk")
+region = Rect2(123, 0, 117, 416)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_65qxc"]
+atlas = ExtResource("1_c7kuk")
+region = Rect2(240, 0, 117, 416)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vepy1"]
+atlas = ExtResource("1_c7kuk")
+region = Rect2(357, 0, 117, 416)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5irb"]
+atlas = ExtResource("1_c7kuk")
+region = Rect2(474, 0, 117, 416)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c7kuk"]
 atlas = ExtResource("1_lxh3h")
@@ -52,9 +73,34 @@ region = Rect2(1940, 696, 388, 619)
 
 [resource]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ek8vv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_emkom")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_65qxc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vepy1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l5irb")
+}],
+"loop": false,
+"name": &"blink",
+"speed": 7.0
+}, {
 "frames": [],
 "loop": true,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"twitch",
 "speed": 5.0
 }, {
 "frames": [{

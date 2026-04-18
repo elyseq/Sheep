@@ -42,6 +42,8 @@ class WoolChunkController: Area2D {
         self.mouseEntered.connect(onMouseEntered)
     }
     
+    
+    
     func getSprite() -> Sprite2D? {
         return(sprite)
     }
@@ -92,7 +94,7 @@ class WoolChunkController: Area2D {
             }
             
             if woolController.selectedFunction == "color" {
-                sprite.modulate = woolController.selectedColor
+                sprite.modulate = woolController.selectedColor //changes color
                 return
             }
             if woolController.selectedFunction == "shave" {
@@ -149,5 +151,4 @@ class WoolChunkController: Area2D {
             }
         }
     }
-
 }
