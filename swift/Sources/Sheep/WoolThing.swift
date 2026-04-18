@@ -23,4 +23,7 @@ class WoolThing: CharacterBody2D {
     func getSprite() -> Sprite2D? {
         return(chunk.getSprite())
     }
+    func getChunk() -> WoolChunkController {
+        return(self.chunk)
+    }
 }
