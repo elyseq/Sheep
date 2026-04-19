@@ -82,15 +82,16 @@ class WoolController: CharacterBody2D {
         sheephead.position = Vector2(x: 1100, y: 700)
         sheephead.scale = Vector2(x: 2, y: 2)
         sheephead.zIndex = 250
-        addChild(node:sheephead)
-    }
-    func makeWoolNode (_ pos: Vector2) -> WoolChunkController {
-        
-        
         animatedSprite?.spriteFrames = frames
         addChild(node: animatedSprite!)
         
         addChild(node:sheephead)
+    }
+    func makeWoolNode (_ pos: Vector2) -> WoolChunkController {
+        let n = WoolThing()
+        n.position = pos
+        n.rotation = Double.random(in:0.0...360.0)
+        return n.getChunk()
     }
     
     override func _process(delta: Double) {
@@ -135,12 +136,6 @@ class WoolController: CharacterBody2D {
         //GD.print("twitch")
     }
     
-    func makeWoolNode (_ pos: Vector2) -> WoolThing {
-        let n = WoolThing()
-        n.position = pos
-        n.rotation = Double.random(in:0.0...360.0)
-        return n.getChunk()
-    }
     
     func readFile(fileName: String) -> [[String]] {
         let path = "res://assets/\(fileName)"
