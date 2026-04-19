@@ -26,6 +26,7 @@ class WoolController: CharacterBody2D {
     var animationCooldown: Double = 0.0 // wait time
     
     override func _ready() {
+           
         // Sheep Body
         let sheepbody = Sprite2D()
         sheepbody.texture = GD.load(path: "res://assets/sheepBody.png") as? Texture2D
