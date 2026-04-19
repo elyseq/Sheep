@@ -21,10 +21,6 @@ class WoolController: CharacterBody2D {
     var selectedFunction : String = ""
     var selectedColor: Color = Color(r: 0.0, g: 0.0, b: 0.0, a: 0.0)
     
-    var animatedSprite: AnimatedSprite2D?
-    var isDragging: Bool = false
-    var animationCooldown: Double = 0.0 // wait time
-    
     override func _ready() {
         // Sheep Body
         let sheepbody = Sprite2D()
@@ -69,35 +65,33 @@ class WoolController: CharacterBody2D {
         }
         
         // Sheep Head
+<<<<<<< HEAD
         guard let frames = GD.load(path: "res://assets/sheep_frames.tres") as? SpriteFrames else {
             GD.print("Failed to load sprite frames")
             return
         }
         
+=======
+>>>>>>> parent of 33755ae (Merge branch 'main' of https://github.com/elyseq/Sheep)
         let sheephead = Sprite2D()
-        sheephead.texture = GD.load(path: "res://assets/head.png") as? Texture2D
+        sheephead.texture = GD.load(path: "res://assets/sheepHead.png") as? Texture2D
         sheephead.position = Vector2(x: 1100, y: 700)
-        sheephead.scale = Vector2(x: 1, y: 1)
+        sheephead.scale = Vector2(x: 2, y: 2)
         sheephead.zIndex = 250
         addChild(node:sheephead)
+    }
+    func makeWoolNode (_ pos: Vector2) -> WoolChunkController {
+<<<<<<< HEAD
         
         animatedSprite = AnimatedSprite2D()
-        animatedSprite?.position = Vector2(x: 1100, y: 700)
-        animatedSprite?.scale = Vector2(x: 1, y: 1)
+        animatedSprite?.position = Vector2(x: 750, y: 455)
+        animatedSprite?.scale = Vector2(x: 2.75, y: 2.75)
         
         animatedSprite?.spriteFrames = frames
         
         addChild(node:sheephead)
         addChild(node: animatedSprite!)
     }
-    
-    func makeWoolNode (_ pos: Vector2) -> WoolThing {
-            let n = WoolThing()
-            n.position = pos
-            n.rotation = Double.random(in:0.0...360.0)
-            return n
-    }
-    
     
     override func _process(delta: Double) {
         if isDragging {
@@ -141,7 +135,9 @@ class WoolController: CharacterBody2D {
         //GD.print("twitch")
     }
     
-    func makeWoolNode (_ pos: Vector2) -> WoolChunkController {
+    func makeWoolNode (_ pos: Vector2) -> WoolThing {
+=======
+>>>>>>> parent of 33755ae (Merge branch 'main' of https://github.com/elyseq/Sheep)
         let n = WoolThing()
         n.position = pos
         n.rotation = Double.random(in:0.0...360.0)
@@ -225,15 +221,15 @@ class WoolController: CharacterBody2D {
         return woolNodesMatrix[r][c]!
     }
     
-//    func applyColorToWool(_ color: Color) {
-//        for row in woolNodesMatrix {
-//            for wool in row {
-//                //wool?.setColor(color)
-//            }
-//        }
-//    }
+    func applyColorToWool(_ color: Color) {
+        for row in woolNodesMatrix {
+            for wool in row {
+                wool?.getSprite()?.modulate = color
+            }
+        }
+    }
     
-    func setColorMode(color: Color) { //changes color
+    func setColorMode(color: Color) {
         selectedFunction = "color"
         selectedColor = color
     }

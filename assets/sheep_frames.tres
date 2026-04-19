@@ -1,11 +1,15 @@
 [gd_resource type="SpriteFrames" format=3 uid="uid://m2iww7d32625"]
 
+<<<<<<< HEAD
 [ext_resource type="Texture2D" uid="uid://v8oaiww1ttgj" path="res://assets/head.png" id="1_6h5ej"]
 [ext_resource type="Texture2D" uid="uid://cxs4ac11rnmo7" path="res://assets/walkAnimationGrid.png" id="1_lxh3h"]
 [ext_resource type="Texture2D" uid="uid://cko66uac62dyg" path="res://assets/halfBlink-removebg-preview.png" id="2_2pwi8"]
 [ext_resource type="Texture2D" uid="uid://ir6cxb2bfsc0" path="res://assets/blink-removebg-preview.png" id="3_ul53r"]
 [ext_resource type="Texture2D" uid="uid://d05k73tu5tmfm" path="res://assets/twitch2-removebg-preview.png" id="4_mb677"]
 [ext_resource type="Texture2D" uid="uid://bp6fx6ql8xagn" path="res://assets/twitch1-removebg-preview.png" id="5_fkdg0"]
+=======
+[ext_resource type="Texture2D" uid="uid://cxs4ac11rnmo7" path="res://assets/walkAnimationGrid.png" id="1_lxh3h"]
+>>>>>>> parent of 33755ae (Merge branch 'main' of https://github.com/elyseq/Sheep)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c7kuk"]
 atlas = ExtResource("1_lxh3h")
@@ -57,6 +61,7 @@ region = Rect2(1940, 696, 388, 619)
 
 [resource]
 animations = [{
+<<<<<<< HEAD
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_6h5ej")
@@ -77,11 +82,14 @@ animations = [{
 "name": &"blink",
 "speed": 7.0
 }, {
+=======
+>>>>>>> parent of 33755ae (Merge branch 'main' of https://github.com/elyseq/Sheep)
 "frames": [],
 "loop": true,
 "name": &"default",
 "speed": 5.0
 }, {
+<<<<<<< HEAD
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_6h5ej")
@@ -99,6 +107,8 @@ animations = [{
 "name": &"twitch",
 "speed": 5.0
 }, {
+=======
+>>>>>>> parent of 33755ae (Merge branch 'main' of https://github.com/elyseq/Sheep)
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_c7kuk")
