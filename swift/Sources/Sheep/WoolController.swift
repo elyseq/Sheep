@@ -70,6 +70,9 @@ class WoolController: CharacterBody2D {
             GD.print("Failed to load sprite frames")
             return
         }
+        animatedSprite = AnimatedSprite2D()
+        animatedSprite?.position = Vector2(x: 1100, y: 700)
+        animatedSprite?.scale = Vector2(x: 3, y: 3)
         
 =======
 >>>>>>> parent of 33755ae (Merge branch 'main' of https://github.com/elyseq/Sheep)
@@ -83,14 +86,11 @@ class WoolController: CharacterBody2D {
     func makeWoolNode (_ pos: Vector2) -> WoolChunkController {
 <<<<<<< HEAD
         
-        animatedSprite = AnimatedSprite2D()
-        animatedSprite?.position = Vector2(x: 750, y: 455)
-        animatedSprite?.scale = Vector2(x: 2.75, y: 2.75)
         
         animatedSprite?.spriteFrames = frames
+        addChild(node: animatedSprite!)
         
         addChild(node:sheephead)
-        addChild(node: animatedSprite!)
     }
     
     override func _process(delta: Double) {
@@ -99,7 +99,7 @@ class WoolController: CharacterBody2D {
             
             if animationCooldown <= 0 {
                 triggerRandomAnimation()
-                animationCooldown = Double.random(in: 1.0...2.0)
+                animationCooldown = Double.random(in: 1.0...3.0)
             }
         }
     }
