@@ -16,6 +16,7 @@ import SwiftGodot
     ShaveFunction.self,
     SidebarButton.self,
     SidebarPanel.self,
+    BrushSize.self,
 ])
 
 @Godot

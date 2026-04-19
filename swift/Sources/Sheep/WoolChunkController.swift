@@ -8,20 +8,33 @@ import SwiftGodot
 
 @Godot
 class WoolChunkController: Area2D {
-    var shadowNode: Node? = nil // Store the black wool here
+    var shadowSprite: Sprite2D = Sprite2D() // Store the black wool here
     var sprite : Sprite2D = Sprite2D()
-    
+    var player: AudioStreamPlayer!
+    var collision = CollisionShape2D()
     override func _ready() {
-        
+        player = AudioStreamPlayer()
+        addChild(node: player)
+        player.stream = GD.load(path: "res://assets/shearingSound.mp3")
+        player.volumeDb = -65.0
+        player.play()
+        player.streamPaused = true
         sprite.texture = GD.load(path: "res://assets/cloudshape.png") as? Texture2D
         sprite.scale = Vector2(x: 0.07, y: 0.07)
-
-        self.modulate = Color(r: 0.965, g: 0.945, b: 0.898) // makes clouds/wool the color of head
-        addChild(node: sprite)
         
-        let collision = CollisionShape2D()
+        shadowSprite.texture = GD.load(path: "res://assets/cloudshape.png") as? Texture2D
+        shadowSprite.scale = Vector2(x: 0.08, y: 0.08)
+
+        
+        sprite.modulate = Color(r: 0.965, g: 0.945, b: 0.898) // makes clouds/wool the color of head
+        shadowSprite.modulate = Color(r:0.0, g: 0.0, b: 0.0)
+        shadowSprite.zIndex = 1
+        sprite.zIndex = 50
+        addChild(node: sprite)
+        addChild(node: shadowSprite)
+        
         let circle = CircleShape2D()
-        circle.radius = 7 //copied this from another example idk what this is doing tbh
+        circle.radius = 7 //changes brush size!
         collision.shape = circle
         addChild(node: collision)
         
@@ -34,12 +47,43 @@ class WoolChunkController: Area2D {
     func getSprite() -> Sprite2D? {
         return(sprite)
     }
+    func getShadowSprite() -> Sprite2D? {
+        return(shadowSprite)
+    }
+    func changeCollisionSize(value: Double) {
+        let circle = CircleShape2D()
+        circle.radius = value //changes brush size!
+        collision.shape = circle
+    }
+    override func _input(event: InputEvent?) {
+            guard let mouseEvent = event as? InputEventMouseButton else { return }
+            
+            if mouseEvent.isPressed() && mouseEvent.buttonIndex == .left {
+                guard let woolThing = self.getParent() as? WoolThing else {
+                    return
+                }
+                guard let woolController = woolThing.getParent()?.getParent() as? WoolController else {
+                    GD.print("Could not find WoolController")
+                    return
+                }
 
+                if woolController.selectedFunction == "shave" {
+                    player.streamPaused = false
+                }
+            }
+        if !mouseEvent.isPressed(){
+            
+            player.streamPaused = true
+        }
+            
+    }
+   
+    
     func onMouseEntered() {
         // Check if the left mouse button is held down while entering
         if Input.isMouseButtonPressed(button: .left) {
-            //isDragging = true
-            self.zIndex = 100
+            
+          //  self.zIndex = 100
             guard let woolThing = self.getParent() as? WoolThing else {
                 return
             }
@@ -95,11 +139,12 @@ class WoolChunkController: Area2D {
 
                  
                     let row = Int((woolThing.position.y + 100) / 7)
-                    let col = Int((woolThing.position.x + 190) / 10)
+                    let col = Int((woolThing.position.x + 195) / 10)
 
                     woolController.woolLocations[row][col] = "0"
+                    woolController.woolNodesMatrix[row][col] = nil
                     woolController.checkForFloating(row: row, col: col)
-                    self.shadowNode?.queueFree()
+                    self.shadowSprite.queueFree()
                     self.queueFree()
                     woolThing.queueFree() // Remove the parent wrapper as well
                 }
