@@ -21,13 +21,15 @@ class WoolController: CharacterBody2D {
     var selectedFunction : String = ""
     var selectedColor: Color = Color(r: 0.0, g: 0.0, b: 0.0, a: 0.0)
     
+    var sheepbody = Sprite2D()
+    
     var animatedSprite: AnimatedSprite2D?
     var isDragging: Bool = false
     var animationCooldown: Double = 0.0 // wait time
     
     override func _ready() {
         // Sheep Body
-        let sheepbody = Sprite2D()
+        sheepbody = Sprite2D()
         sheepbody.texture = GD.load(path: "res://assets/sheepBody.png") as? Texture2D
         sheepbody.position = Vector2(x: 1100, y: 700)
         sheepbody.scale = Vector2(x: 2, y: 2)
@@ -69,23 +71,24 @@ class WoolController: CharacterBody2D {
         }
         
         // Sheep Head
-        guard let frames = GD.load(path: "res://assets/sheep_frames.tres") as? SpriteFrames else {
+        guard let frames = GD.load(path: "res://sheep_animations.tres") as? SpriteFrames else {
             GD.print("Failed to load sprite frames")
             return
         }
         animatedSprite = AnimatedSprite2D()
-        animatedSprite?.position = Vector2(x: 1100, y: 700)
-        animatedSprite?.scale = Vector2(x: 3, y: 3)
+        animatedSprite?.position = Vector2(x: 785, y: 505)
+        animatedSprite?.scale = Vector2(x: 0.525, y: 0.525)
         
         let sheephead = Sprite2D()
-        sheephead.texture = GD.load(path: "res://assets/sheepHead.png") as? Texture2D
-        sheephead.position = Vector2(x: 1100, y: 700)
-        sheephead.scale = Vector2(x: 2, y: 2)
+        sheephead.texture = GD.load(path: "res://assets/head.png") as? Texture2D
+        sheephead.position = Vector2(x: 785, y: 505)
+        sheephead.scale = Vector2(x: 0.525, y: 0.525)
         sheephead.zIndex = 250
-        animatedSprite?.spriteFrames = frames
-        addChild(node: animatedSprite!)
-        
         addChild(node:sheephead)
+        
+        animatedSprite?.spriteFrames = frames
+        animatedSprite?.zIndex = 250
+        addChild(node: animatedSprite!)
     }
     func makeWoolNode (_ pos: Vector2) -> WoolChunkController {
         let n = WoolThing()
@@ -100,7 +103,7 @@ class WoolController: CharacterBody2D {
             
             if animationCooldown <= 0 {
                 triggerRandomAnimation()
-                animationCooldown = Double.random(in: 1.0...3.0)
+                animationCooldown = Double.random(in: 0.75...1.75)
             }
         }
     }
@@ -119,7 +122,7 @@ class WoolController: CharacterBody2D {
     func triggerRandomAnimation() {
         let choice = Float.random(in: 0...1)
         
-        if choice > 0.65 {
+        if choice > 0.30 {
             playBlink()
         } else {
             playEarTwitch()
@@ -214,15 +217,50 @@ class WoolController: CharacterBody2D {
         return woolNodesMatrix[r][c]!
     }
     
-//    func applyColorToWool(_ color: Color) {
-//        for row in woolNodesMatrix {
-//            for wool in row {
-//                //wool?.setColor(color)
-//            }
-//        }
-//    }
+    func applyColorToWool(_ color: Color) {
+        for row in woolNodesMatrix {
+            for wool in row {
+                wool?.getSprite()?.modulate = color
+            }
+        }
+    }
     
-    func setColorMode(color: Color) { //changes color
+    func redo(){
+        self.woolLocations = readFile(fileName: "sheepmatrix.txt")
+        for y in 0...woolLocations.count-1{
+            woolNodesMatrix.append(Array(repeating: nil, count: woolLocations[y].count))
+            let ypos = 7 * y - 100
+            for x in 0...woolLocations[y].count-1{
+                let xpos = 10 * x - 195
+                if(woolLocations[y][x] == "1" || woolLocations[y][x] == "2"){
+                    let woolWrapper = WoolThing()
+                    //let wool = makeWoolNode(Vector2(x: Float(xpos), y: Float(ypos)))
+                    woolWrapper.position = Vector2(x: Float(xpos), y: Float(ypos))
+                    woolWrapper.rotation = Double.random(in: 0.0...360.0)
+                    woolWrapper.zIndex = 200-abs(Int32(woolWrapper.position.distanceTo(Vector2(x: -70, y: -20))))
+                    let wool = woolWrapper.getChunk()
+                    
+                    //let blackwool = wool.duplicate() as! WoolThing
+//                    blackwool.scale = Vector2(x: 1.25, y: 1.25)
+//                    blackwool.modulate = Color(r: 0.0, g: 0.0, b: 0.0) // makes these ones black
+//                    blackwool.zIndex = -1
+//
+//                    if let blackController = blackwool.getChild(idx: 0) as? WoolChunkController {
+//                        blackController.inputPickable = false
+//                    }
+//
+                    
+                
+                    woolNodesMatrix[y][x] = wool as? WoolChunkController
+                    sheepbody.addChild(node: woolWrapper)
+                }
+                
+            }
+            
+        }
+    }
+    
+    func setColorMode(color: Color) {
         selectedFunction = "color"
         selectedColor = color
     }

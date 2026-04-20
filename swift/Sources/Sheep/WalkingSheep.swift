@@ -17,7 +17,7 @@ class WalkingSheep: CharacterBody2D {
     
     override func _ready() {
         animatedSprite = AnimatedSprite2D()
-        guard let frames = GD.load(path: "res://assets/sheep_frames.tres") as? SpriteFrames else {
+        guard let frames = GD.load(path: "res://sheep_animations.tres") as? SpriteFrames else {
             // GD.load(path: "res://assets/" + path + ".tres") as? SpriteFrames else { load a different sprite frame for each sheep to have them all start at different walking positions?
             GD.print("Failed to load sprite frames")
             return

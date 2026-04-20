@@ -36,7 +36,7 @@ public class WalkingSheepSpawner: CharacterBody2D {
             scaleNum = scaleNum + 0.1
             positionY = positionY + 100
             level = level + 10
-            speed = speed + 13.5
+            speed = speed + 7.5
         }
     }
 }
