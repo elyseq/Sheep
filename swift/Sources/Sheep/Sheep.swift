@@ -11,7 +11,7 @@ import SwiftGodot
     penSceneSwitch.self,
     WalkingSheep.self,
     WalkingSheepSpawner.self,
-    ColorChanger.self,
+    //ColorChanger.self,
     ColorFunction.self,
     ShaveFunction.self,
     SidebarButton.self,
