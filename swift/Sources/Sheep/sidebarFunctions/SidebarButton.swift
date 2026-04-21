@@ -22,14 +22,8 @@ class SidebarButton : Button {
 
         self.pressed.connect{
             self.panelVisibility()
-<<<<<<< HEAD
-            }
-=======
             self.selectFunction()
         }
-            self.selectThis()
-            
->>>>>>> 6fc2068a1ad2920a70a27f490d53a15f66f02f1c
     }
 
     func panelVisibility() {
