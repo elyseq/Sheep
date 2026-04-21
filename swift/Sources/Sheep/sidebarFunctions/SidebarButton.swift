@@ -11,8 +11,10 @@ class SidebarButton : Button {
     @Export var functionName: String = ""
     var panelSelected: SidebarPanel?
     var clickTime = 0
+    
 
     override func _ready(){
+        
         let panelName = functionName + "Panel"
         let pathName = "/root/SceneBarn/" + panelName
 
@@ -20,6 +22,7 @@ class SidebarButton : Button {
 
         self.pressed.connect{
             self.panelVisibility()
+            self.selectThis()
             }
     }
 
@@ -32,6 +35,12 @@ class SidebarButton : Button {
         } else {
             panel.panelAppear()
         }
-        
     }
+    
+    func selectThis() {
+        if let manager = getNode(path: NodePath("/root/SceneBarn/SelectionManager")) as? SelectionManager {
+            manager.select(button: self)
+        }
+    }
+    
 }

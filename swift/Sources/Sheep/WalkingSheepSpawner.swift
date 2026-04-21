@@ -15,10 +15,10 @@ public class WalkingSheepSpawner: CharacterBody2D {
     public override func _ready() {
         
         //ARRAY OF SHEEP
-        var scaleNum : Float = 0.4
+        var scaleNum : Float = 0.5
         var positionY : Float = -200
         var level : Float = 0
-        var speed: Float = 25
+        var speed: Float = 20
         
         for i in 0..<4 {
             let direction: Float = Bool.random() ? 1.0 : -1.0
@@ -34,9 +34,9 @@ public class WalkingSheepSpawner: CharacterBody2D {
             sheepList.append(sheep)
             
             scaleNum = scaleNum + 0.1
-            positionY = positionY + 100
+            positionY = positionY + 85
             level = level + 10
-            speed = speed + 7.5
+            speed = speed + 5.75
         }
     }
 }
