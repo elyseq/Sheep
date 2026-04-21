@@ -25,7 +25,7 @@ class SidebarButton : Button {
             self.selectFunction()
         }
             self.selectThis()
-            }
+            
     }
 
     func panelVisibility() {
