@@ -22,7 +22,14 @@ class SidebarButton : Button {
 
         self.pressed.connect{
             self.panelVisibility()
+<<<<<<< HEAD
             }
+=======
+            self.selectFunction()
+        }
+            self.selectThis()
+            
+>>>>>>> 6fc2068a1ad2920a70a27f490d53a15f66f02f1c
     }
 
     func panelVisibility() {
@@ -35,5 +42,26 @@ class SidebarButton : Button {
             panel.panelAppear()
         }
     }
+    func selectFunction() {
+           guard let woolController = getNode(path: NodePath("/root/SceneBarn/WoolController")) as? WoolController else {
+               GD.print("Could not find WoolController")
+               return
+           }
+
+           if functionName == "color" {
+               woolController.setColorMode(color: Color(r: 1.0, g: 1.0, b: 1.0, a: 1.0))
+              
+               if let tex = GD.load(path: "res://assets/paint_brush.png") as? Texture2D {
+                       Input.setCustomMouseCursor(
+                           image: tex,
+                           shape: .arrow,
+                           hotspot: Vector2(x: 0, y: 25)
+                       )
+                           }
+               GD.print("SET CURSOR")
+           } else if functionName == "shave" {
+               woolController.setShaveMode()
+           }
+       }
     
 }
