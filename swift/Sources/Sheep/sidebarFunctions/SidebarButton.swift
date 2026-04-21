@@ -48,7 +48,7 @@ class SidebarButton : Button {
                        Input.setCustomMouseCursor(
                            image: tex,
                            shape: .arrow,
-                           hotspot: Vector2(x: 0, y: 0)
+                           hotspot: Vector2(x: 0, y: 25)
                        )
                            }
                GD.print("SET CURSOR")
