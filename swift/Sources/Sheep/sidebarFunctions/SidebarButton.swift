@@ -22,7 +22,6 @@ class SidebarButton : Button {
 
         self.pressed.connect{
             self.panelVisibility()
-            self.selectThis()
             }
     }
 
@@ -34,12 +33,6 @@ class SidebarButton : Button {
             panel.panelDisappear()
         } else {
             panel.panelAppear()
-        }
-    }
-    
-    func selectThis() {
-        if let manager = getNode(path: NodePath("/root/SceneBarn/SelectionManager")) as? SelectionManager {
-            manager.select(button: self)
         }
     }
     

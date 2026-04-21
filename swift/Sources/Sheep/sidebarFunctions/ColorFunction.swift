@@ -45,13 +45,6 @@ class ColorFunction : Button {
     override func _ready() {
         self.pressed.connect {
             self.chooseColor()
-            self.selectThis()
-        }
-    }
-    
-    func selectThis() {
-        if let manager = getNode(path: NodePath("/root/SceneBarn/SelectionManager")) as? SelectionManager {
-            manager.select(button: self)
         }
     }
 }

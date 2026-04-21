@@ -18,8 +18,6 @@ import SwiftGodot
     SidebarPanel.self,
     BrushSize.self,
     redoButton.self,
-    SelectionManager.self,
-    SelectionBox.self,
 ])
 
 @Godot
