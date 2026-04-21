@@ -11,8 +11,10 @@ class SidebarButton : Button {
     @Export var functionName: String = ""
     var panelSelected: SidebarPanel?
     var clickTime = 0
+    
 
     override func _ready(){
+        
         let panelName = functionName + "Panel"
         let pathName = "/root/SceneBarn/" + panelName
 
@@ -22,6 +24,8 @@ class SidebarButton : Button {
             self.panelVisibility()
             self.selectFunction()
         }
+            self.selectThis()
+            }
     }
 
     func panelVisibility() {
@@ -33,7 +37,6 @@ class SidebarButton : Button {
         } else {
             panel.panelAppear()
         }
-        
     }
     func selectFunction() {
            guard let woolController = getNode(path: NodePath("/root/SceneBarn/WoolController")) as? WoolController else {
@@ -56,4 +59,11 @@ class SidebarButton : Button {
                woolController.setShaveMode()
            }
        }
+    
+    func selectThis() {
+        if let manager = getNode(path: NodePath("/root/SceneBarn/SelectionManager")) as? SelectionManager {
+            manager.select(button: self)
+        }
+    }
+    
 }

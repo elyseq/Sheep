@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://db4uwf7j6xqui" path="res://assets/purpleButton.png" id="10_ft452"]
 [ext_resource type="Texture2D" uid="uid://mcb5fukgkk8a" path="res://assets/pinkButton.png" id="11_6ty18"]
 [ext_resource type="Texture2D" uid="uid://gmm66t1d5nqf" path="res://assets/barn.png" id="11_asthk"]
+[ext_resource type="Texture2D" uid="uid://ttnau2urkoj0" path="res://assets/redoButton.png" id="14_p52js"]
 
 [sub_resource type="Theme" id="Theme_lgsxb"]
 
@@ -74,6 +75,14 @@ texture = ExtResource("3_p52js")
 [node name="WoolController" type="WoolController" parent="." unique_id=277431185]
 position = Vector2(6, 14)
 
+[node name="SelectionBox" type="SelectionBox" parent="." unique_id=57280753]
+offset_left = -1.0
+offset_top = 6.0
+offset_right = 39.0
+offset_bottom = 46.0
+
+[node name="SelectionManager" type="SelectionManager" parent="." unique_id=918704628]
+
 [node name="sidebarButtonColor" type="SidebarButton" parent="." unique_id=431606632]
 function_name = "color"
 offset_left = 36.0
@@ -99,6 +108,15 @@ offset_left = 30.0
 offset_top = 284.0
 offset_right = 224.0
 offset_bottom = 665.0
+
+[node name="redoButton" type="redoButton" parent="." unique_id=9702019]
+offset_left = 59.0
+offset_top = 750.0
+offset_right = 572.0
+offset_bottom = 1252.0
+scale = Vector2(0.25, 0.25)
+icon = ExtResource("14_p52js")
+flat = true
 
 [node name="colorPanel" type="SidebarPanel" parent="." unique_id=874791387]
 visible = false
