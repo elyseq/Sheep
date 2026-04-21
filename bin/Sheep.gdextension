@@ -4,7 +4,7 @@ compatibility_minimum = 4.2
 
 [libraries]
 macos.debug = "res://bin/libSheep.dylib"
-
+ios.debug = "res://swift/addons/Sheep/bin/Sheep.xcframework"
 
 [dependencies]
 macos.debug = {"res://bin/libSwiftGodot.dylib" : ""}
