@@ -20,6 +20,11 @@ import SwiftGodot
     redoButton.self,
     SelectionManager.self,
     SelectionBox.self,
+    MenuButtonMy.self,
+    MenuPanel.self,
+    AudioMute.self,
+    InstructionPic.self,
+    InstructionButton.self,
 ])
 
 @Godot
