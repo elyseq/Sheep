@@ -24,8 +24,6 @@ class SidebarButton : Button {
             self.panelVisibility()
             self.selectFunction()
         }
-            self.selectThis()
-            
     }
 
     func panelVisibility() {
@@ -59,11 +57,5 @@ class SidebarButton : Button {
                woolController.setShaveMode()
            }
        }
-    
-    func selectThis() {
-        if let manager = getNode(path: NodePath("/root/SceneBarn/SelectionManager")) as? SelectionManager {
-            manager.select(button: self)
-        }
-    }
     
 }
