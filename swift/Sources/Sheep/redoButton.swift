@@ -10,7 +10,7 @@ import SwiftGodot
 final class redoButton : Button {
     override func _ready() {
         self.pressed.connect {
-            if let woolControl = self.getNode(path: "WoolController") as? WoolController {
+            if let woolControl = self.getNode(path: "/root/SceneBarn/WoolController") as? WoolController {
                 woolControl.redo()
             } else {
                 print("WoolController not found")

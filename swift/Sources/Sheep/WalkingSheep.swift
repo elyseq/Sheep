@@ -23,12 +23,12 @@ class WalkingSheep: CharacterBody2D {
             return
         }
         animatedSprite.spriteFrames = frames
-        animatedSprite.play(name: "walk")
+        animatedSprite.play(name: "walk2")
         self.addChild(node: animatedSprite)
 
         let collision = CollisionShape2D()
         let shape = RectangleShape2D()
-        shape.size = Vector2(x: 275, y: 150)
+        shape.size = Vector2(x: 275, y: 50)
         collision.shape = shape
         self.addChild(node: collision)
         

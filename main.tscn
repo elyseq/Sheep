@@ -3,6 +3,11 @@
 [ext_resource type="Texture2D" uid="uid://dsclqubop3vn1" path="res://assets/background.jpg" id="1_0xm2m"]
 [ext_resource type="Texture2D" uid="uid://cxgan3vlcgkvl" path="res://assets/penBackground.jpg" id="1_1bvp3"]
 [ext_resource type="SpriteFrames" uid="uid://bd1vsjtvhlhym" path="res://sheep_animations.tres" id="4_lquwl"]
+[ext_resource type="Texture2D" uid="uid://di13yhkp10thr" path="res://assets/Mute-Icon.png" id="5_5vw27"]
+[ext_resource type="Texture2D" uid="uid://cvvwqb2vy31wy" path="res://assets/menu-icon.png" id="5_lquwl"]
+[ext_resource type="Texture2D" uid="uid://c68ocfdjw6vdx" path="res://icon.svg" id="6_272bh"]
+[ext_resource type="Texture2D" uid="uid://bhh6jx728nu60" path="res://assets/large circle.svg" id="7_5vw27"]
+[ext_resource type="Texture2D" uid="uid://c1l7mc61bdk41" path="res://assets/instructions.png" id="8_kek77"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_h2yge"]
 a = Vector2(-312.63324, 271)
@@ -66,3 +71,52 @@ position = Vector2(956.817, 793)
 visible = false
 sprite_frames = ExtResource("4_lquwl")
 animation = &"walk"
+
+[node name="MenuButton" type="MenuButtonMy" parent="." unique_id=1669685431]
+offset_left = 1745.3696
+offset_top = 21.0
+offset_right = 1863.3696
+offset_bottom = 147.0
+icon = ExtResource("5_lquwl")
+
+[node name="MenuPanel" type="MenuPanel" parent="." unique_id=2028186624]
+visible = false
+offset_left = 378.34607
+offset_top = 138.0
+offset_right = 418.34607
+offset_bottom = 178.0
+scale = Vector2(28.606707, 20.692648)
+
+[node name="mute" type="AudioMute" parent="MenuPanel" unique_id=1897334706]
+layout_mode = 0
+offset_left = 14.23511
+offset_top = 3.8177812
+offset_right = 92.23511
+offset_bottom = 36.81778
+scale = Vector2(0.16593006, 0.29387215)
+icon = ExtResource("5_5vw27")
+
+[node name="instructions" type="InstructionButton" parent="MenuPanel" unique_id=1089562420]
+layout_mode = 0
+offset_left = 10.093353
+offset_top = 15.077817
+offset_right = 215.09335
+offset_bottom = 123.07782
+scale = Vector2(0.07730476, 0.07715663)
+text = "instructions"
+icon = ExtResource("7_5vw27")
+
+[node name="InstructionNote" type="InstructionPic" parent="MenuPanel/instructions" unique_id=5570548]
+visible = false
+position = Vector2(365.5843, 58.876003)
+scale = Vector2(0.17298028, 0.24174663)
+texture = ExtResource("8_kek77")
+
+[node name="colorBlind" type="MenuButton" parent="MenuPanel" unique_id=389115320]
+layout_mode = 0
+offset_left = 15.836125
+offset_top = 27.014425
+offset_right = 151.83612
+offset_bottom = 163.01442
+scale = Vector2(0.054172784, 0.06906849)
+icon = ExtResource("6_272bh")
