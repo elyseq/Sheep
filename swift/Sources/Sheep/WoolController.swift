@@ -40,7 +40,7 @@ class WoolController: CharacterBody2D {
         self.woolLocations = readFile(fileName: "sheepmatrix.txt")
         for y in 0...woolLocations.count-1{
             woolNodesMatrix.append(Array(repeating: nil, count: woolLocations[y].count))
-            let ypos = 7 * y - 100
+            let ypos = 7 * y - 150
             for x in 0...woolLocations[y].count-1{
                 let xpos = 10 * x - 195
                 if(woolLocations[y][x] == "1" || woolLocations[y][x] == "2"){
@@ -49,6 +49,10 @@ class WoolController: CharacterBody2D {
                     woolWrapper.position = Vector2(x: Float(xpos), y: Float(ypos))
                     woolWrapper.rotation = Double.random(in: 0.0...360.0)
                     woolWrapper.zIndex = 200-abs(Int32(woolWrapper.position.distanceTo(Vector2(x: -70, y: -20))))
+                    if(woolWrapper.position.y < -100){
+                       // woolWrapper.zIndex = 350-abs(Int32(woolWrapper.position.distanceTo(Vector2(x: -70, y: -20))))
+                        woolWrapper.zIndex = 500
+                    }
                     let wool = woolWrapper.getChunk()
                     
                     //let blackwool = wool.duplicate() as! WoolThing
@@ -229,7 +233,7 @@ class WoolController: CharacterBody2D {
         self.woolLocations = readFile(fileName: "sheepmatrix.txt")
         for y in 0...woolLocations.count-1{
             woolNodesMatrix.append(Array(repeating: nil, count: woolLocations[y].count))
-            let ypos = 7 * y - 100
+            let ypos = 7 * y - 90
             for x in 0...woolLocations[y].count-1{
                 let xpos = 10 * x - 195
                 if(woolLocations[y][x] == "1" || woolLocations[y][x] == "2"){
@@ -237,7 +241,8 @@ class WoolController: CharacterBody2D {
                     //let wool = makeWoolNode(Vector2(x: Float(xpos), y: Float(ypos)))
                     woolWrapper.position = Vector2(x: Float(xpos), y: Float(ypos))
                     woolWrapper.rotation = Double.random(in: 0.0...360.0)
-                    woolWrapper.zIndex = 200-abs(Int32(woolWrapper.position.distanceTo(Vector2(x: -70, y: -20))))
+                    let distToCenter = woolWrapper.position.distanceTo(Vector2(x: -70, y: -20)) + .random(in: -50 ... 50)
+                    woolWrapper.zIndex = 200 - abs(Int32(distToCenter))
                     let wool = woolWrapper.getChunk()
                     
                     //let blackwool = wool.duplicate() as! WoolThing

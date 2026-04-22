@@ -136,7 +136,7 @@ class WoolChunkController: Area2D {
                     }
 
                  
-                    let row = Int((woolThing.position.y + 100) / 7)
+                    let row = Int((woolThing.position.y + 150) / 7)
                     let col = Int((woolThing.position.x + 195) / 10)
 
                     woolController.woolLocations[row][col] = "0"
