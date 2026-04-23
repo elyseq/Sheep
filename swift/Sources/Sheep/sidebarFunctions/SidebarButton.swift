@@ -19,8 +19,20 @@ class SidebarButton : Button {
         let pathName = "/root/SceneBarn/" + panelName
 
         panelSelected = getNode(path: NodePath(pathName)) as? SidebarPanel
-
+        
+        let originalScale = self.scale
+        //self.pivotOffset = self.getSize()/2
+            
+        focusEntered.connect {
+            self.scale = Vector2(x: originalScale.x * 1.1, y: originalScale.y * 1.1)
+        }
+        
+        focusExited.connect {
+            self.scale = originalScale
+        }
+        
         self.pressed.connect{
+            self.grabFocus()
             self.panelVisibility()
             self.selectFunction()
         }

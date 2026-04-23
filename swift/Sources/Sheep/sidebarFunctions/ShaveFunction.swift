@@ -42,7 +42,22 @@ class ShaveFunction : Button {
     }
     
     override func _ready() {
+        let pos = self.getPosition()
+        self.setPosition(pos)
+        
+        let originalScale = self.scale
+        //self.pivotOffset = self.getSize()/2
+            
+        focusEntered.connect {
+            self.scale = Vector2(x: originalScale.x * 1.1, y: originalScale.y * 1.1)
+        }
+        
+        focusExited.connect {
+            self.scale = originalScale
+        }
+        
         self.pressed.connect {
+            self.grabFocus()
             self.chooseShave()
         }
         
