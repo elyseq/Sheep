@@ -32,7 +32,7 @@ class ShaveFunction : Button {
 
         woolController.setShaveMode()
 
-        if let tex = GD.load(path: "res://assets/shaver.png") as? Texture2D {
+        if let tex = GD.load(path: "res://assets/razorCursor.png") as? Texture2D {
             Input.setCustomMouseCursor(
                 image: tex,
                 shape: .arrow,
