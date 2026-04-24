@@ -49,7 +49,8 @@ class WoolController: CharacterBody2D {
                     //let wool = makeWoolNode(Vector2(x: Float(xpos), y: Float(ypos)))
                     woolWrapper.position = Vector2(x: Float(xpos), y: Float(ypos))
                     woolWrapper.rotation = Double.random(in: 0.0...360.0)
-                    woolWrapper.zIndex = 200-abs(Int32(woolWrapper.position.distanceTo(Vector2(x: -70, y: -20))))
+                    let distToCenter = woolWrapper.position.distanceTo(Vector2(x: -70, y: -20)) + .random(in: -10 ... 10)
+                    woolWrapper.zIndex = 200 - abs(Int32(distToCenter))
                     if(woolWrapper.position.y < -100){
                        // woolWrapper.zIndex = 350-abs(Int32(woolWrapper.position.distanceTo(Vector2(x: -70, y: -20))))
                         woolWrapper.zIndex = 500
@@ -242,15 +243,20 @@ class WoolController: CharacterBody2D {
         
         for y in 0...woolLocations.count-1 {
             woolNodesMatrix.append(Array(repeating: nil, count: woolLocations[y].count))
-            let ypos = 7 * y - 90
+            let ypos = 7 * y - 150
             for x in 0...woolLocations[y].count-1{
                 let xpos = 10 * x - 195
                 if woolLocations[y][x] == "1" || woolLocations[y][x] == "2" {
                     let woolWrapper = WoolThing()
                     woolWrapper.position = Vector2(x: Float(xpos), y: Float(ypos))
                     woolWrapper.rotation = Double.random(in: 0.0...360.0)
-                    let distToCenter = woolWrapper.position.distanceTo(Vector2(x: -70, y: -20)) + .random(in: -50 ... 50)
+                    let distToCenter = woolWrapper.position.distanceTo(Vector2(x: -70, y: -20)) + .random(in: -10 ... 10)
                     woolWrapper.zIndex = 200 - abs(Int32(distToCenter))
+                    woolWrapper.zIndex = 200 - abs(Int32(distToCenter))
+                    
+                    if(woolWrapper.position.y < -100){
+                        woolWrapper.zIndex = 500
+                    }
                     let wool = woolWrapper.getChunk()
                     
                     woolNodesMatrix[y][x] = wool as? WoolChunkController
