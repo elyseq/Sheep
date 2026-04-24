@@ -30,6 +30,15 @@ final class penSceneSwitch : Button {
                 woolController.setNormalMode()
             } //wasn't here before
             self.getTree()?.changeSceneToFile(path: "res://main.tscn")
+            
+            if let tex = GD.load(path: "res://assets/cursor.png") as? Texture2D {
+                Input.setCustomMouseCursor(
+                    image: tex,
+                    shape: .arrow,
+                    hotspot: Vector2(x: 0, y: 0)
+                )
+                        }
+            GD.print("SET CURSOR")
         
         }
     }
