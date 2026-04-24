@@ -14,6 +14,8 @@ class WalkingSheep: CharacterBody2D {
     var direction: Float = 0
     var animatedSprite: AnimatedSprite2D!
     var woolLayer: Node2D = Node2D()
+    var clickArea: Area2D = Area2D()
+    var canClickSheep: Bool = true
     //var path: String = "" // load a different sprite frame for each sheep to have them all start at different walking positions?
     
     override func _ready() {
@@ -33,6 +35,24 @@ class WalkingSheep: CharacterBody2D {
         collision.shape = shape
         self.addChild(node: collision)
         self.addChild(node: woolLayer)
+        
+        let clickShape = CollisionShape2D()
+        let clickRect = RectangleShape2D()
+        clickRect.size = Vector2(x: 275, y: 150)
+        clickShape.shape = clickRect
+
+        clickArea.addChild(node: clickShape)
+        clickArea.inputPickable = true
+        self.addChild(node: clickArea)
+
+        clickArea.inputEvent.connect { viewport, event, shapeIdx in
+            if self.canClickSheep,
+               let mouseEvent = event as? InputEventMouseButton,
+               mouseEvent.pressed,
+               mouseEvent.buttonIndex == .left {
+                self.getTree()?.changeSceneToFile(path: "res://scene_barn.tscn")
+            }
+        }
         
         
     }
