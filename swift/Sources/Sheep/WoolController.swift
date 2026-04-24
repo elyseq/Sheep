@@ -249,8 +249,12 @@ class WoolController: CharacterBody2D {
                     let woolWrapper = WoolThing()
                     woolWrapper.position = Vector2(x: Float(xpos), y: Float(ypos))
                     woolWrapper.rotation = Double.random(in: 0.0...360.0)
-                    let distToCenter = woolWrapper.position.distanceTo(Vector2(x: -70, y: -20)) + .random(in: -50 ... 50)
-                    woolWrapper.zIndex = 200 - abs(Int32(distToCenter))
+                    
+                    woolWrapper.zIndex = 200 - abs(Int32(woolWrapper.position.distanceTo(Vector2(x: -70, y: -20))))
+                    if woolWrapper.position.y < -100 {
+                        woolWrapper.zIndex = 500
+                    }
+                    
                     let wool = woolWrapper.getChunk()
                     
                     woolNodesMatrix[y][x] = wool as? WoolChunkController
