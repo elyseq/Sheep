@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ca2r6q742bax"
-path="res://.godot/imported/barnTransparentBG.png-d4128315720782bb2f64bd8fd4ecafb8.ctex"
+uid="uid://cuunaaxny0sr7"
+path="res://.godot/imported/colorPanel.png-775baff7300681297c966991ee9a733c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/barnTransparentBG.png"
-dest_files=["res://.godot/imported/barnTransparentBG.png-d4128315720782bb2f64bd8fd4ecafb8.ctex"]
+source_file="res://assets/colorPanel.png"
+dest_files=["res://.godot/imported/colorPanel.png-775baff7300681297c966991ee9a733c.ctex"]
 
 [params]
 

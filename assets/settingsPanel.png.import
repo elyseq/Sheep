@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjf73vwj1sa3a"
-path="res://.godot/imported/shaving-icon.png-e98c4ad927552125a068328915e3c418.ctex"
+uid="uid://bv6rg5t0cbqtv"
+path="res://.godot/imported/settingsPanel.png-e29fe529110c4b7fe82155134dd9acc2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/shaving-icon.png"
-dest_files=["res://.godot/imported/shaving-icon.png-e98c4ad927552125a068328915e3c418.ctex"]
+source_file="res://assets/settingsPanel.png"
+dest_files=["res://.godot/imported/settingsPanel.png-e29fe529110c4b7fe82155134dd9acc2.ctex"]
 
 [params]
 

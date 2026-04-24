@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://hvn3h3m6ougc"
-path="res://.godot/imported/swift.png-c4e3cf49a89d6981572a224b9f128f4d.ctex"
+uid="uid://do8l8pbgvjybb"
+path="res://.godot/imported/barnBackground.png-d96d17d68a4b3649ff46207ca63b75bd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/swift.png"
-dest_files=["res://.godot/imported/swift.png-c4e3cf49a89d6981572a224b9f128f4d.ctex"]
+source_file="res://assets/barnBackground.png"
+dest_files=["res://.godot/imported/barnBackground.png-d96d17d68a4b3649ff46207ca63b75bd.ctex"]
 
 [params]
 

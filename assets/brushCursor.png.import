@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjfudg4hj677u"
-path="res://.godot/imported/shaver.png-4efd7c6fa0df4340c833c41ac43edc49.ctex"
+uid="uid://cojpvvaqc5dtc"
+path="res://.godot/imported/brushCursor.png-6c859ef11fd372ddeabf6bc1cd25e654.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/shaver.png"
-dest_files=["res://.godot/imported/shaver.png-4efd7c6fa0df4340c833c41ac43edc49.ctex"]
+source_file="res://assets/brushCursor.png"
+dest_files=["res://.godot/imported/brushCursor.png-6c859ef11fd372ddeabf6bc1cd25e654.ctex"]
 
 [params]
 

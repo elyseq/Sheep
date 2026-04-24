@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://bbqjljhld2v2u"]
 
-[ext_resource type="Texture2D" uid="uid://cie20k6j82drv" path="res://assets/barnimgNeedreplace.png" id="1_uyymv"]
-[ext_resource type="Texture2D" uid="uid://cri8wevioxbbe" path="res://assets/small circle.svg" id="2_lgsxb"]
+[ext_resource type="Texture2D" uid="uid://do8l8pbgvjybb" path="res://assets/barnBackground.png" id="1_p52js"]
+[ext_resource type="Texture2D" uid="uid://cmjxltwymxdh3" path="res://assets/modePanel.png" id="2_74jdp"]
 [ext_resource type="Texture2D" uid="uid://ddnc3t78cdq3a" path="res://assets/colorButton.png" id="3_asthk"]
-[ext_resource type="Texture2D" uid="uid://bhh6jx728nu60" path="res://assets/large circle.svg" id="3_p52js"]
 [ext_resource type="Texture2D" uid="uid://c45omcd2kk127" path="res://assets/shaveButton.png" id="4_8jfxg"]
 [ext_resource type="Texture2D" uid="uid://bivfov7m5wdvp" path="res://assets/redButton.png" id="5_lgsxb"]
+[ext_resource type="Texture2D" uid="uid://cuunaaxny0sr7" path="res://assets/colorPanel.png" id="6_m37kl"]
 [ext_resource type="Texture2D" uid="uid://ce41wkqi2ppas" path="res://assets/orangeButton.png" id="6_p52js"]
 [ext_resource type="Texture2D" uid="uid://cm5qh4r22qhix" path="res://assets/yellowButton.png" id="7_74jdp"]
 [ext_resource type="Texture2D" uid="uid://bqdt6sj1g1622" path="res://assets/greenButton.png" id="8_m37kl"]
@@ -16,34 +16,19 @@
 [ext_resource type="Texture2D" uid="uid://ttnau2urkoj0" path="res://assets/redoButton.png" id="14_p52js"]
 [ext_resource type="Texture2D" uid="uid://u1lie2ngbrcd" path="res://assets/shadow-clipart-lg.png" id="15_74jdp"]
 
-[sub_resource type="Theme" id="Theme_lgsxb"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m37kl"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p52js"]
-bg_color = Color(0.32156864, 0.19215687, 0.12156863, 0.5294118)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(0.970167, 0.7479174, 0.65697956, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-corner_detail = 11
-expand_margin_top = 20.0
-expand_margin_bottom = 20.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_74jdp"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lgsxb"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0, 0, 0, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m37kl"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oxekk"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e4vda"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oxekk"]
@@ -56,92 +41,74 @@ bg_color = Color(0.09, 0.09, 0.09, 0.4745098)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ft452"]
 bg_color = Color(1, 1, 1, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vdxw4"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ty18"]
 bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pv1kx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ftfg2"]
 bg_color = Color(1, 1, 1, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t0ui0"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h5bb7"]
 bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p8a6l"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1p03v"]
 bg_color = Color(1, 1, 1, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hcyfl"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rkl6g"]
 bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_igy4j"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3jbm2"]
 bg_color = Color(1, 1, 1, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fetom"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
 [node name="SceneBarn" type="Node2D" unique_id=1642393439]
 
-[node name="barnBG" type="Sprite2D" parent="." unique_id=690342074]
-z_index = -1000
-position = Vector2(958.00006, 544.00006)
-scale = Vector2(0.7596838, 0.7063075)
-texture = ExtResource("1_uyymv")
-
-[node name="BrushSize" type="BrushSize" parent="barnBG" unique_id=1934042807]
-offset_left = -1182.0708
-offset_top = 141.58131
-offset_right = -916.1708
-offset_bottom = 271.83633
-theme = SubResource("Theme_lgsxb")
-theme_override_styles/slider = SubResource("StyleBoxFlat_p52js")
-theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_74jdp")
-min_value = 5.0
-max_value = 30.0
-step = 5.0
-value = 5.0
-tick_count = 10
-ticks_position = 3
-
-[node name="SizeButton" type="SizeButton" parent="barnBG" unique_id=1042907917]
-slider_path = NodePath("../BrushSize")
-direction = 1
-offset_left = -918.8034
-offset_top = 157.15527
-offset_right = -810.8034
-offset_bottom = 265.15527
-theme_override_styles/pressed = SubResource("StyleBoxFlat_lgsxb")
-icon = ExtResource("3_p52js")
-flat = true
-expand_icon = true
-
-[node name="SizeButton2" type="SizeButton" parent="barnBG" unique_id=1920660958]
-slider_path = NodePath("../BrushSize")
-direction = -1
-offset_left = -1272.8982
-offset_top = 152.9078
-offset_right = -1164.8982
-offset_bottom = 260.9078
-theme_override_styles/pressed = SubResource("StyleBoxFlat_m37kl")
-icon = ExtResource("2_lgsxb")
-flat = true
-expand_icon = true
+[node name="barnBG" type="Sprite2D" parent="." unique_id=1111412829]
+position = Vector2(973, 554)
+scale = Vector2(1.2842876, 1.221108)
+texture = ExtResource("1_p52js")
 
 [node name="WoolController" type="WoolController" parent="." unique_id=277431185]
 position = Vector2(6, 14)
 
+[node name="ModePanel" type="Sprite2D" parent="." unique_id=422418745]
+position = Vector2(1762, 359)
+scale = Vector2(0.741093, 1.1939291)
+texture = ExtResource("2_74jdp")
+
 [node name="sidebarButtonColor" type="SidebarButton" parent="." unique_id=431606632]
 function_name = "color"
-offset_left = 36.0
-offset_top = 475.0
-offset_right = 548.0
-offset_bottom = 978.0
+offset_left = 1675.0
+offset_top = 284.00003
+offset_right = 2187.0
+offset_bottom = 787.0
 scale = Vector2(0.35, 0.35)
 theme_override_styles/pressed = SubResource("StyleBoxFlat_m37kl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_p52js")
 icon = ExtResource("3_asthk")
 flat = true
 
 [node name="SidebarButtonShave" type="ShaveFunction" parent="." unique_id=1999481116]
-offset_left = 36.0
-offset_top = 299.0
-offset_right = 548.0
-offset_bottom = 802.0
+offset_left = 1672.9999
+offset_top = 99.0
+offset_right = 2185.0
+offset_bottom = 602.0
 scale = Vector2(0.35, 0.35)
-theme_override_styles/pressed = SubResource("StyleBoxFlat_oxekk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_74jdp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_oxekk")
 icon = ExtResource("4_8jfxg")
 flat = true
 
@@ -153,11 +120,12 @@ offset_right = 224.0
 offset_bottom = 665.0
 
 [node name="redoButton" type="redoButton" parent="." unique_id=9702019]
-offset_left = 59.0
-offset_top = 750.0
-offset_right = 572.0
-offset_bottom = 1252.0
+offset_left = 1697.0
+offset_top = 470.0
+offset_right = 2210.0
+offset_bottom = 972.0
 scale = Vector2(0.25, 0.25)
+theme_override_styles/hover = SubResource("StyleBoxFlat_e4vda")
 icon = ExtResource("14_p52js")
 flat = true
 
@@ -169,15 +137,21 @@ offset_right = 1500.0
 offset_bottom = 194.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_uyymv")
 
+[node name="ColorPanel" type="Sprite2D" parent="colorPanel" unique_id=1842510255]
+position = Vector2(513, 111.50001)
+scale = Vector2(1.1539179, 1.1459228)
+texture = ExtResource("6_m37kl")
+
 [node name="redButton" type="ColorFunction" parent="colorPanel" unique_id=1910094079]
 color_name = "red"
 layout_mode = 0
 offset_left = 17.0
-offset_top = 20.0
+offset_top = 40.0
 offset_right = 345.0
-offset_bottom = 341.0
+offset_bottom = 361.0
 scale = Vector2(0.4, 0.4)
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ft452")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vdxw4")
 icon = ExtResource("5_lgsxb")
 flat = true
 
@@ -185,11 +159,12 @@ flat = true
 color_name = "orange"
 layout_mode = 0
 offset_left = 160.0
-offset_top = 20.0
+offset_top = 40.0
 offset_right = 488.0
-offset_bottom = 341.0
+offset_bottom = 361.0
 scale = Vector2(0.4, 0.4)
 theme_override_styles/pressed = SubResource("StyleBoxFlat_6ty18")
+theme_override_styles/hover = SubResource("StyleBoxFlat_pv1kx")
 icon = ExtResource("6_p52js")
 flat = true
 
@@ -197,11 +172,12 @@ flat = true
 color_name = "yellow"
 layout_mode = 0
 offset_left = 297.0
-offset_top = 21.0
+offset_top = 40.0
 offset_right = 625.0
-offset_bottom = 342.0
+offset_bottom = 361.0
 scale = Vector2(0.4, 0.4)
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ftfg2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_t0ui0")
 icon = ExtResource("7_74jdp")
 flat = true
 
@@ -209,11 +185,12 @@ flat = true
 color_name = "green"
 layout_mode = 0
 offset_left = 442.0
-offset_top = 22.0
+offset_top = 40.0
 offset_right = 770.0
-offset_bottom = 343.0
+offset_bottom = 361.0
 scale = Vector2(0.4, 0.4)
 theme_override_styles/pressed = SubResource("StyleBoxFlat_h5bb7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_p8a6l")
 icon = ExtResource("8_m37kl")
 flat = true
 
@@ -221,11 +198,12 @@ flat = true
 color_name = "blue"
 layout_mode = 0
 offset_left = 586.0
-offset_top = 20.0
+offset_top = 40.0
 offset_right = 914.0
-offset_bottom = 341.0
+offset_bottom = 361.0
 scale = Vector2(0.4, 0.4)
 theme_override_styles/pressed = SubResource("StyleBoxFlat_1p03v")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hcyfl")
 icon = ExtResource("9_oxekk")
 flat = true
 
@@ -233,11 +211,12 @@ flat = true
 color_name = "purple"
 layout_mode = 0
 offset_left = 729.0
-offset_top = 20.0
+offset_top = 40.0
 offset_right = 1057.0
-offset_bottom = 341.0
+offset_bottom = 361.0
 scale = Vector2(0.4, 0.4)
 theme_override_styles/pressed = SubResource("StyleBoxFlat_rkl6g")
+theme_override_styles/hover = SubResource("StyleBoxFlat_igy4j")
 icon = ExtResource("10_ft452")
 flat = true
 
@@ -245,11 +224,12 @@ flat = true
 color_name = "pink"
 layout_mode = 0
 offset_left = 874.0
-offset_top = 20.0
+offset_top = 40.0
 offset_right = 1202.0
-offset_bottom = 341.0
+offset_bottom = 361.0
 scale = Vector2(0.4, 0.4)
 theme_override_styles/pressed = SubResource("StyleBoxFlat_3jbm2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fetom")
 icon = ExtResource("11_6ty18")
 flat = true
 
@@ -258,12 +238,17 @@ visible = false
 offset_right = 8.0
 offset_bottom = 8.0
 
+[node name="ModePanel2" type="Sprite2D" parent="." unique_id=962141083]
+position = Vector2(192.00006, 161.00012)
+scale = Vector2(0.7713775, 0.48102877)
+texture = ExtResource("2_74jdp")
+
 [node name="penSceneSwitch" type="penSceneSwitch" parent="." unique_id=577819439]
-offset_left = 9.0
-offset_top = 37.0
-offset_right = 601.0
-offset_bottom = 472.0
-scale = Vector2(0.5, 0.5)
+offset_left = 88.99999
+offset_top = 75.0
+offset_right = 681.0
+offset_bottom = 510.0
+scale = Vector2(0.35, 0.35)
 icon = ExtResource("11_asthk")
 flat = true
 

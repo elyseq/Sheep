@@ -26,4 +26,8 @@ class WoolThing: CharacterBody2D {
     func getChunk() -> WoolChunkController {
         return(self.chunk)
     }
+    
+    func getColor() -> Color {
+        return chunk.getColor()
+    }
 }

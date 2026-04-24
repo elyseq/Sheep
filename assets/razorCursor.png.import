@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bomfo178w7cfn"
-path="res://.godot/imported/tileset.png-c50288acd069fa293d7940a084811264.ctex"
+uid="uid://ca4drks46xdtq"
+path="res://.godot/imported/razorCursor.png-9f0469f8a82d52d51248a78ef43d40a8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tileset.png"
-dest_files=["res://.godot/imported/tileset.png-c50288acd069fa293d7940a084811264.ctex"]
+source_file="res://assets/razorCursor.png"
+dest_files=["res://.godot/imported/razorCursor.png-9f0469f8a82d52d51248a78ef43d40a8.ctex"]
 
 [params]
 

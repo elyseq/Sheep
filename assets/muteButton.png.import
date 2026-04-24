@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://di13yhkp10thr"
-path="res://.godot/imported/Mute-Icon.png-48788fa4062ab0e4c31b5180f954e701.ctex"
+uid="uid://boshrsjk5saq7"
+path="res://.godot/imported/muteButton.png-95475c00d2349d3f26ee5bee84092959.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Mute-Icon.png"
-dest_files=["res://.godot/imported/Mute-Icon.png-48788fa4062ab0e4c31b5180f954e701.ctex"]
+source_file="res://assets/muteButton.png"
+dest_files=["res://.godot/imported/muteButton.png-95475c00d2349d3f26ee5bee84092959.ctex"]
 
 [params]
 

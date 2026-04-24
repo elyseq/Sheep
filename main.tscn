@@ -1,13 +1,14 @@
 [gd_scene format=3 uid="uid://bl105vstqmhgy"]
 
-[ext_resource type="Texture2D" uid="uid://dsclqubop3vn1" path="res://assets/background.jpg" id="1_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://cxgan3vlcgkvl" path="res://assets/penBackground.jpg" id="1_0xm2m"]
 [ext_resource type="Texture2D" uid="uid://cxgan3vlcgkvl" path="res://assets/penBackground.jpg" id="1_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://544kddk7yhbs" path="res://assets/settingsButton.png" id="4_kek77"]
 [ext_resource type="SpriteFrames" uid="uid://bd1vsjtvhlhym" path="res://sheep_animations.tres" id="4_lquwl"]
-[ext_resource type="Texture2D" uid="uid://di13yhkp10thr" path="res://assets/Mute-Icon.png" id="5_5vw27"]
-[ext_resource type="Texture2D" uid="uid://cvvwqb2vy31wy" path="res://assets/menu-icon.png" id="5_lquwl"]
-[ext_resource type="Texture2D" uid="uid://c68ocfdjw6vdx" path="res://icon.svg" id="6_272bh"]
+[ext_resource type="Texture2D" uid="uid://bv6rg5t0cbqtv" path="res://assets/settingsPanel.png" id="5_4c57u"]
+[ext_resource type="Texture2D" uid="uid://boshrsjk5saq7" path="res://assets/muteButton.png" id="6_efxa6"]
 [ext_resource type="Texture2D" uid="uid://bhh6jx728nu60" path="res://assets/large circle.svg" id="7_5vw27"]
 [ext_resource type="Texture2D" uid="uid://c1l7mc61bdk41" path="res://assets/instructions.png" id="8_kek77"]
+[ext_resource type="Texture2D" uid="uid://b5y1w2dn0qbbv" path="res://assets/colorBlindButton.png" id="9_dg77c"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_h2yge"]
 a = Vector2(-312.63324, 271)
@@ -19,6 +20,12 @@ b = Vector2(316.61584, 280)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h2yge"]
 size = Vector2(280, 240)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kek77"]
+bg_color = Color(0.6, 0.6, 1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4c57u"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="PenScene" type="Node2D" unique_id=1221304897]
 scale = Vector2(1.0043718, 1)
@@ -73,35 +80,48 @@ sprite_frames = ExtResource("4_lquwl")
 animation = &"walk"
 
 [node name="MenuButton" type="MenuButtonMy" parent="." unique_id=1669685431]
-offset_left = 1745.3696
-offset_top = 21.0
-offset_right = 1863.3696
-offset_bottom = 147.0
-icon = ExtResource("5_lquwl")
+offset_left = 34.847656
+offset_top = 16.0
+offset_right = 364.84766
+offset_bottom = 348.0
+scale = Vector2(0.5, 0.5)
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kek77")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4c57u")
+icon = ExtResource("4_kek77")
+flat = true
 
 [node name="MenuPanel" type="MenuPanel" parent="." unique_id=2028186624]
 visible = false
-offset_left = 378.34607
+offset_left = 544.6191
 offset_top = 138.0
-offset_right = 418.34607
+offset_right = 573.7854
 offset_bottom = 178.0
 scale = Vector2(28.606707, 20.692648)
 
+[node name="SettingsPanel" type="Sprite2D" parent="MenuPanel" unique_id=1513063186]
+position = Vector2(14.443941, 20.248737)
+scale = Vector2(0.06146507, 0.08031839)
+texture = ExtResource("5_4c57u")
+
+[node name="MuteButton" type="Sprite2D" parent="MenuPanel" unique_id=427688358]
+position = Vector2(11.450741, 12.806481)
+scale = Vector2(0.018895894, 0.024871834)
+texture = ExtResource("6_efxa6")
+
 [node name="mute" type="AudioMute" parent="MenuPanel" unique_id=1897334706]
 layout_mode = 0
-offset_left = 14.23511
-offset_top = 3.8177812
-offset_right = 92.23511
-offset_bottom = 36.81778
-scale = Vector2(0.16593006, 0.29387215)
-icon = ExtResource("5_5vw27")
+offset_left = 12.947343
+offset_top = 10.100205
+offset_right = 56.947342
+offset_bottom = 43.100204
+scale = Vector2(0.175, 0.175)
 
 [node name="instructions" type="InstructionButton" parent="MenuPanel" unique_id=1089562420]
 layout_mode = 0
-offset_left = 10.093353
-offset_top = 15.077817
-offset_right = 215.09335
-offset_bottom = 123.07782
+offset_left = 6.09082
+offset_top = 17.542463
+offset_right = 211.09082
+offset_bottom = 125.542465
 scale = Vector2(0.07730476, 0.07715663)
 text = "instructions"
 icon = ExtResource("7_5vw27")
@@ -114,9 +134,9 @@ texture = ExtResource("8_kek77")
 
 [node name="colorBlind" type="MenuButton" parent="MenuPanel" unique_id=389115320]
 layout_mode = 0
-offset_left = 15.836125
-offset_top = 27.014425
-offset_right = 151.83612
-offset_bottom = 163.01442
-scale = Vector2(0.054172784, 0.06906849)
-icon = ExtResource("6_272bh")
+offset_left = 12.112028
+offset_top = 28.029278
+offset_right = 320.11203
+offset_bottom = 351.02927
+scale = Vector2(0.015, 0.02)
+icon = ExtResource("9_dg77c")
