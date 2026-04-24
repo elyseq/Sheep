@@ -24,6 +24,7 @@ class ShaveFunction : Button {
 //            
 //            panel.panelDisappear()
 //    }
+    
     func chooseShave() {
         guard let woolController = getNode(path: NodePath("/root/SceneBarn/WoolController")) as? WoolController else {
             GD.print("Could not find WoolController")
@@ -42,18 +43,20 @@ class ShaveFunction : Button {
     }
     
     override func _ready() {
-        let pos = self.getPosition()
-        self.setPosition(pos)
-        
-        let originalScale = self.scale
-        //self.pivotOffset = self.getSize()/2
-            
+        let overlay = Panel()
+        let style = StyleBoxFlat()
+        style.bgColor = Color(r: 0, g: 0, b: 0, a: 0)
+        style.borderColor = Color(r: 1.0, g: 1.0, b: 1.0, a: 0.8)
+        style.setBorderWidthAll(width: 5)
+        style.drawCenter = false
+        overlay.addThemeStyleboxOverride(name: "panel", stylebox: style)
+
         focusEntered.connect {
-            self.scale = Vector2(x: originalScale.x * 1.1, y: originalScale.y * 1.1)
+            overlay.visible = true
         }
-        
+
         focusExited.connect {
-            self.scale = originalScale
+            overlay.visible = false
         }
         
         self.pressed.connect {
