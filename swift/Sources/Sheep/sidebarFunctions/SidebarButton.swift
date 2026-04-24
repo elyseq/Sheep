@@ -64,11 +64,11 @@ class SidebarButton : Button {
                woolController.setColorMode(color: Color(r: 1.0, g: 1.0, b: 1.0, a: 1.0))
               
                if let tex = GD.load(path: "res://assets/brushCursor.png") as? Texture2D {
-                       Input.setCustomMouseCursor(
-                           image: tex,
-                           shape: .arrow,
-                           hotspot: Vector2(x: 0, y: 0)
-                       )
+                   Input.setCustomMouseCursor(
+                       image: tex,
+                       shape: .arrow,
+                       hotspot: Vector2(x: 0, y: 40)
+                   )
                            }
                GD.print("SET CURSOR")
            } else if functionName == "shave" {
