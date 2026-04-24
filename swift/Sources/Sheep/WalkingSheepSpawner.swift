@@ -38,5 +38,14 @@ public class WalkingSheepSpawner: CharacterBody2D {
             level = level + 10
             speed = speed + 5.75
         }
+        
+        checkSavedSheep()
+        
+    }
+    
+    func checkSavedSheep() {
+        if SavedSheep.shared.hasSavedAppearance, let firstSheep = sheepList.first {
+            firstSheep.applySavedAppearance()
+        }
     }
 }

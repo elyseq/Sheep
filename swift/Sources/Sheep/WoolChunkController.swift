@@ -76,6 +76,12 @@ class WoolChunkController: Area2D {
             
     }
    
+    func setColor(_ color: Color) {
+        sprite.modulate = color
+    }
+    func getColor() -> Color {
+        return sprite.modulate
+    }
     
     func onMouseEntered() {
         // Check if the left mouse button is held down while entering
