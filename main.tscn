@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bl105vstqmhgy"]
 
-[ext_resource type="Texture2D" uid="uid://dsclqubop3vn1" path="res://assets/background.jpg" id="1_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://cxgan3vlcgkvl" path="res://assets/penBackground.jpg" id="1_0xm2m"]
 [ext_resource type="Texture2D" uid="uid://cxgan3vlcgkvl" path="res://assets/penBackground.jpg" id="1_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://544kddk7yhbs" path="res://assets/settingsButton.png" id="4_kek77"]
 [ext_resource type="SpriteFrames" uid="uid://bd1vsjtvhlhym" path="res://sheep_animations.tres" id="4_lquwl"]
