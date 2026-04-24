@@ -38,7 +38,12 @@ class WoolController: CharacterBody2D {
         addChild(node:sheepbody)
         
         // Wool
-        self.woolLocations = readFile(fileName: "sheepmatrix.txt")
+        //self.woolLocations = readFile(fileName: "sheepmatrix.txt")
+        if SavedSheep.shared.hasSavedAppearance {
+            self.woolLocations = SavedSheep.shared.woolLocations
+        } else {
+            self.woolLocations = readFile(fileName: "sheepmatrix.txt")
+        }
         for y in 0...woolLocations.count-1{
             woolNodesMatrix.append(Array(repeating: nil, count: woolLocations[y].count))
             let ypos = 7 * y - 150
@@ -49,6 +54,13 @@ class WoolController: CharacterBody2D {
                     //let wool = makeWoolNode(Vector2(x: Float(xpos), y: Float(ypos)))
                     woolWrapper.position = Vector2(x: Float(xpos), y: Float(ypos))
                     woolWrapper.rotation = Double.random(in: 0.0...360.0)
+                    
+                    if SavedSheep.shared.hasSavedAppearance,
+                       y < SavedSheep.shared.woolColors.count,
+                       x < SavedSheep.shared.woolColors[y].count {
+                        woolWrapper.getChunk().setColor(SavedSheep.shared.woolColors[y][x])
+                    }
+                    
                     woolWrapper.zIndex = 200-abs(Int32(woolWrapper.position.distanceTo(Vector2(x: -70, y: -20))))
                     if(woolWrapper.position.y < -100){
                        // woolWrapper.zIndex = 350-abs(Int32(woolWrapper.position.distanceTo(Vector2(x: -70, y: -20))))
