@@ -39,11 +39,17 @@ class WoolController: CharacterBody2D {
         
         // Wool
         //self.woolLocations = readFile(fileName: "sheepmatrix.txt")
-        if SavedSheep.shared.hasSavedAppearance {
-            self.woolLocations = SavedSheep.shared.woolLocations
+//        if SavedSheep.shared.hasSavedAppearance {
+//            self.woolLocations = SavedSheep.shared.woolLocations
+//        } else {
+//            self.woolLocations = readFile(fileName: "sheepmatrix.txt")
+//        }
+        if let appearance = SavedSheep.shared.appearanceForSelectedSheep() {
+            self.woolLocations = appearance.woolLocations
         } else {
             self.woolLocations = readFile(fileName: "sheepmatrix.txt")
         }
+        
         for y in 0...woolLocations.count-1{
             woolNodesMatrix.append(Array(repeating: nil, count: woolLocations[y].count))
             let ypos = 7 * y - 150
@@ -55,11 +61,11 @@ class WoolController: CharacterBody2D {
                     woolWrapper.position = Vector2(x: Float(xpos), y: Float(ypos))
                     woolWrapper.rotation = Double.random(in: 0.0...360.0)
                     
-                    if SavedSheep.shared.hasSavedAppearance,
-                       y < SavedSheep.shared.woolColors.count,
-                       x < SavedSheep.shared.woolColors[y].count {
-                        woolWrapper.getChunk().setColor(SavedSheep.shared.woolColors[y][x])
-                    }
+//                    if SavedSheep.shared.hasSavedAppearance,
+//                       y < SavedSheep.shared.woolColors.count,
+//                       x < SavedSheep.shared.woolColors[y].count {
+//                        woolWrapper.getChunk().setColor(SavedSheep.shared.woolColors[y][x])
+//                    }
                     
                     woolWrapper.zIndex = 200-abs(Int32(woolWrapper.position.distanceTo(Vector2(x: -70, y: -20))))
                     if(woolWrapper.position.y < -100){
@@ -67,6 +73,12 @@ class WoolController: CharacterBody2D {
                         woolWrapper.zIndex = 500
                     }
                     let wool = woolWrapper.getChunk()
+                    
+                    if let appearance = SavedSheep.shared.appearanceForSelectedSheep(),
+                       y < appearance.woolColors.count,
+                       x < appearance.woolColors[y].count {
+                        wool.setColor(appearance.woolColors[y][x])
+                    }
                     
                     //let blackwool = wool.duplicate() as! WoolThing
 //                    blackwool.scale = Vector2(x: 1.25, y: 1.25)
@@ -81,7 +93,7 @@ class WoolController: CharacterBody2D {
                 
                     woolNodesMatrix[y][x] = wool as? WoolChunkController
                     sheepbody.addChild(node: woolWrapper)
-                }
+                } //self.woolLocations = readFile(fileName: "sheepmatrix.txt")
                 
             }
             

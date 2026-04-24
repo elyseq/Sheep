@@ -27,7 +27,9 @@ public class WalkingSheepSpawner: CharacterBody2D {
             let scale = Vector2(x: scaleNum, y: scaleNum)
             
             let sheep = WalkingSheep()
-            sheep.configure(direction: direction, position: position, scale: scale, speed: speed)
+            //sheep.configure(direction: direction, position: position, scale: scale, speed: speed)
+            sheep.configure(sheepNum: i, direction: direction, position: position, scale: scale, speed: speed)
+            GD.print("Spawned sheep num: \(sheep.sheepNum)")
             sheep.visible = true
             self.addChild(node: sheep)
             
@@ -44,8 +46,13 @@ public class WalkingSheepSpawner: CharacterBody2D {
     }
     
     func checkSavedSheep() {
-        if SavedSheep.shared.hasSavedAppearance, let firstSheep = sheepList.first {
-            firstSheep.applySavedAppearance()
+//        if SavedSheep.shared.hasSavedAppearance, let firstSheep = sheepList.first {
+//            firstSheep.applySavedAppearance()
+//        }
+        for sheep in sheepList {
+            if let appearance = SavedSheep.shared.appearance(for: sheep.sheepNum) {
+                sheep.applySavedAppearance(appearance)
+            }
         }
     }
 }

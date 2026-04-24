@@ -16,6 +16,7 @@ class WalkingSheep: CharacterBody2D {
     var woolLayer: Node2D = Node2D()
     var clickArea: Area2D = Area2D()
     var canClickSheep: Bool = true
+    var sheepNum: Int = 0
     //var path: String = "" // load a different sprite frame for each sheep to have them all start at different walking positions?
     
     override func _ready() {
@@ -45,11 +46,22 @@ class WalkingSheep: CharacterBody2D {
         clickArea.inputPickable = true
         self.addChild(node: clickArea)
 
+//        clickArea.inputEvent.connect { viewport, event, shapeIdx in
+//            if self.canClickSheep,
+//               let mouseEvent = event as? InputEventMouseButton,
+//               mouseEvent.pressed,
+//               mouseEvent.buttonIndex == .left {
+//                self.getTree()?.changeSceneToFile(path: "res://scene_barn.tscn")
+//            }
+//        }
+        
         clickArea.inputEvent.connect { viewport, event, shapeIdx in
-            if self.canClickSheep,
-               let mouseEvent = event as? InputEventMouseButton,
+            if let mouseEvent = event as? InputEventMouseButton,
                mouseEvent.pressed,
                mouseEvent.buttonIndex == .left {
+
+                SavedSheep.shared.selectedSheepNum = self.sheepNum
+                GD.print("Clicked sheep num: \(self.sheepNum)")
                 self.getTree()?.changeSceneToFile(path: "res://scene_barn.tscn")
             }
         }
@@ -86,7 +98,9 @@ class WalkingSheep: CharacterBody2D {
         }
     }
     
-    public func configure(direction: Float, position: Vector2, scale: Vector2, speed: Float) { // path: String
+    //public func configure(direction: Float, position: Vector2, scale: Vector2, speed: Float) { // path: String
+    public func configure(sheepNum: Int, direction: Float, position: Vector2, scale: Vector2, speed: Float) {
+        self.sheepNum = sheepNum
         self.direction = direction
         self.position = position
         self.scale = scale
@@ -100,12 +114,12 @@ class WalkingSheep: CharacterBody2D {
         }
     }
     
-    func applySavedAppearance() {
+    func applySavedAppearance(_ appearance: SheepAppearance) {
         let saved = SavedSheep.shared
         
-        if !saved.hasSavedAppearance {
-            return
-        }
+//        if !saved.hasSavedAppearance {
+//            return
+//        }
         
         clearSavedWoolOverlay()
             
@@ -119,9 +133,9 @@ class WalkingSheep: CharacterBody2D {
             woolLayer.position = Vector2(x: 135, y: 50)
         }
         
-        for row in 0..<saved.woolLocations.count {
-            for col in 0..<saved.woolLocations[row].count {
-                let value = saved.woolLocations[row][col]
+        for row in 0..<appearance.woolLocations.count {
+            for col in 0..<appearance.woolLocations[row].count {
+                let value = appearance.woolLocations[row][col]
                 
                 if value == "1" || value == "2" {
                     let wool = Sprite2D()
@@ -132,7 +146,7 @@ class WalkingSheep: CharacterBody2D {
                     )
                     wool.rotation = Double.random(in: 0.0...360.0)
                     wool.scale = Vector2(x: 0.07, y: 0.07)
-                    wool.modulate = saved.woolColors[row][col]
+                    wool.modulate = appearance.woolColors[row][col]
 //                    wool.zIndex = 200 - abs(Int32(wool.position.distanceTo(Vector2(x: -70, y: -20))))
 //
 //                    if wool.position.y < -100 {
