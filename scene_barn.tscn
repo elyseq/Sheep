@@ -145,10 +145,11 @@ flat = true
 [node name="SizeButton" type="SizeButton" parent="." unique_id=531458442]
 slider_path = NodePath("../BrushSize")
 direction = 1
-offset_left = 1808.0
-offset_top = 682.0
-offset_right = 1922.0
-offset_bottom = 792.0
+z_index = 1
+offset_left = 1770.632
+offset_top = 740.1481
+offset_right = 1884.632
+offset_bottom = 850.1481
 theme_override_styles/normal = SubResource("StyleBoxFlat_ffoxc")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_vkee1")
 theme_override_styles/hover = SubResource("StyleBoxFlat_fxl1m")
@@ -307,15 +308,16 @@ icon = ExtResource("11_asthk")
 flat = true
 
 [node name="ShadowClipartLg" type="Sprite2D" parent="." unique_id=354202044]
-position = Vector2(995.625, 893.75)
+position = Vector2(996.00006, 1002)
 scale = Vector2(0.45839846, 0.3322511)
 texture = ExtResource("15_74jdp")
 
 [node name="BrushSize" type="BrushSize" parent="." unique_id=1202299549]
-offset_left = 1644.0
-offset_top = 714.0
-offset_right = 1803.0
-offset_bottom = 758.0
+z_index = 1
+offset_left = 1604.632
+offset_top = 775.1481
+offset_right = 1763.632
+offset_bottom = 819.1481
 theme_override_styles/slider = SubResource("StyleBoxFlat_jxaey")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_xyyho")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_ot8k7")
@@ -327,11 +329,18 @@ value = 5.0
 [node name="SizeButton2" type="SizeButton" parent="." unique_id=231551411]
 slider_path = NodePath("../BrushSize")
 direction = -1
-offset_left = 1556.0
-offset_top = 686.0
-offset_right = 1656.0
-offset_bottom = 786.0
+z_index = 1
+offset_left = 1516.632
+offset_top = 748.1481
+offset_right = 1616.632
+offset_bottom = 848.1481
 theme_override_styles/normal = SubResource("StyleBoxFlat_h8tmb")
 theme_override_styles/hover = SubResource("StyleBoxFlat_2xopo")
 icon = ExtResource("17_ft452")
 expand_icon = true
+
+[node name="ModePanel3" type="Sprite2D" parent="." unique_id=1134552223]
+position = Vector2(1688.3379, 795.14813)
+rotation = 1.5707964
+scale = Vector2(0.37600055, 0.80046505)
+texture = ExtResource("2_74jdp")

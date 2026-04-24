@@ -138,20 +138,22 @@ class WalkingSheep: CharacterBody2D {
                 let value = appearance.woolLocations[row][col]
                 
                 if value == "1" || value == "2" {
-                    let wool = Sprite2D()
-                    wool.texture = GD.load(path: "res://assets/cloudshape.png") as? Texture2D
+                    let woolWrapper = WoolThing()
+                    let wool = woolWrapper.getChunk()
+//                    wool.texture = GD.load(path: "res://assets/cloudshape.png") as? Texture2D
                     wool.position = Vector2(
                         x: Float(10 * col - 190),
                         y: Float(7 * row - 100)
                     )
                     wool.rotation = Double.random(in: 0.0...360.0)
-                    wool.scale = Vector2(x: 0.07, y: 0.07)
                     wool.modulate = appearance.woolColors[row][col]
-//                    wool.zIndex = 200 - abs(Int32(wool.position.distanceTo(Vector2(x: -70, y: -20))))
-//
-//                    if wool.position.y < -100 {
-//                        wool.zIndex = 500
-//                    }
+                    var centerVec = animatedSprite.position
+                    centerVec = centerVec + Vector2(x: -50, y: 40) 
+                    wool.zIndex = 200 - abs(Int32(wool.position.distanceTo(centerVec) + .random(in: -10 ... 10)))
+
+                    if wool.position.y < -100 {
+                        wool.zIndex = 500
+                    }
                     woolLayer.addChild(node: wool)
                 }
                 

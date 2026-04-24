@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://bl105vstqmhgy"]
 
-[ext_resource type="Texture2D" uid="uid://cxgan3vlcgkvl" path="res://assets/penBackground.jpg" id="1_0xm2m"]
 [ext_resource type="Texture2D" uid="uid://cxgan3vlcgkvl" path="res://assets/penBackground.jpg" id="1_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://544kddk7yhbs" path="res://assets/settingsButton.png" id="4_kek77"]
 [ext_resource type="SpriteFrames" uid="uid://bd1vsjtvhlhym" path="res://sheep_animations.tres" id="4_lquwl"]
@@ -31,6 +30,7 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 scale = Vector2(1.0043718, 1)
 
 [node name="PenBackground" type="Sprite2D" parent="." unique_id=1398805788]
+z_index = -1
 position = Vector2(1307.2849, 250)
 scale = Vector2(0.8023536, 0.7890244)
 texture = ExtResource("1_1bvp3")
@@ -40,7 +40,7 @@ offset = Vector2(-436.0935, 362)
 visible = false
 position = Vector2(941.8823, 556)
 scale = Vector2(0.7410254, 0.6731707)
-texture = ExtResource("1_0xm2m")
+texture = ExtResource("1_1bvp3")
 
 [node name="leftPenWall" type="StaticBody2D" parent="." unique_id=1266156243]
 position = Vector2(371.37643, 898)
@@ -92,6 +92,7 @@ flat = true
 
 [node name="MenuPanel" type="MenuPanel" parent="." unique_id=2028186624]
 visible = false
+z_index = 2600
 offset_left = 544.6191
 offset_top = 138.0
 offset_right = 573.7854
