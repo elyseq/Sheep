@@ -113,6 +113,11 @@ class WalkingSheep: CharacterBody2D {
                     wool.rotation = Double.random(in: 0.0...360.0)
                     wool.scale = Vector2(x: 0.07, y: 0.07)
                     wool.modulate = saved.woolColors[row][col]
+                    wool.zIndex = 200 - abs(Int32(wool.position.distanceTo(Vector2(x: -70, y: -20))))
+
+                    if wool.position.y < -100 {
+                        wool.zIndex = 500
+                    }
                     woolLayer.addChild(node: wool)
                 }
                 
