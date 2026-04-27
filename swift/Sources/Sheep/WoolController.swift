@@ -18,7 +18,7 @@ import Foundation
 class WoolController: CharacterBody2D {
     var woolLocations: [[String]] = []
     var woolNodesMatrix : [[WoolChunkController?]] = []
-    var selectedFunction : String = ""
+    var selectedFunction : MouseMode = .normal
     var selectedColor: Color = Color(r: 0.0, g: 0.0, b: 0.0, a: 0.0)
     
     var sheepbody = Sprite2D()
@@ -265,6 +265,7 @@ class WoolController: CharacterBody2D {
             woolNodesMatrix.append(Array(repeating: nil, count: woolLocations[y].count))
             let ypos = 7 * y - 150
             for x in 0...woolLocations[y].count-1{
+                woolNodesMatrix[y][x]?.queueFree()
                 let xpos = 10 * x - 195
                 if(woolLocations[y][x] == "1" || woolLocations[y][x] == "2"){
                     let woolWrapper = WoolThing()
@@ -312,16 +313,16 @@ class WoolController: CharacterBody2D {
     }
     
     func setColorMode(color: Color) {
-        selectedFunction = "color"
+        selectedFunction = .color
         selectedColor = color
     }
     
     func setShaveMode() {
-        selectedFunction = "shave"
+        selectedFunction = .shave
     }
     
     func setNormalMode() {
-        selectedFunction = ""
+        selectedFunction = .normal
         Input.setCustomMouseCursor(image: nil)
     }
     
