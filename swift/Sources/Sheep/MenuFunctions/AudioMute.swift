@@ -11,11 +11,12 @@ import SwiftGodot
 class AudioMute : CheckButton {
     var originalVolume: Double = 0.0
     override func _ready() {
-           self.toggled.connect { isPressed in
+           self.toggled.connect {
+               checked in
                guard let root = self.getNode(path: NodePath("/root/AudioStreamPlayer2d"))
-                else {
-                          GD.print("Could find autoload root")
-                          return
+               else {
+                    GD.print("Could find autoload root")
+                    return
                       }
                
                guard let musicPlayer = self.getNode(path: NodePath("/root/AudioStreamPlayer2d")) as? AudioStreamPlayer2D
@@ -24,7 +25,7 @@ class AudioMute : CheckButton {
                    return
                }
                
-               if isPressed {
+               if checked {
                               musicPlayer.volumeDb = -80.0
                           } else {
                               musicPlayer.volumeDb = self.originalVolume

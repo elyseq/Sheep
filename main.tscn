@@ -91,7 +91,6 @@ icon = ExtResource("4_kek77")
 flat = true
 
 [node name="MenuPanel" type="MenuPanel" parent="." unique_id=2028186624]
-visible = false
 z_index = 2600
 offset_left = 544.6191
 offset_top = 138.0
@@ -119,10 +118,10 @@ scale = Vector2(0.175, 0.175)
 
 [node name="instructions" type="InstructionButton" parent="MenuPanel" unique_id=1089562420]
 layout_mode = 0
-offset_left = 6.09082
-offset_top = 17.542463
-offset_right = 211.09082
-offset_bottom = 125.542465
+offset_left = 7.13496
+offset_top = 18.12238
+offset_right = 212.13496
+offset_bottom = 126.122375
 scale = Vector2(0.07730476, 0.07715663)
 text = "instructions"
 icon = ExtResource("7_5vw27")
@@ -133,11 +132,12 @@ position = Vector2(365.5843, 58.876003)
 scale = Vector2(0.17298028, 0.24174663)
 texture = ExtResource("8_kek77")
 
-[node name="colorBlind" type="MenuButton" parent="MenuPanel" unique_id=389115320]
+[node name="colorBlind" type="CheckButton" parent="MenuPanel" unique_id=457000020]
+visible = false
 layout_mode = 0
 offset_left = 12.112028
 offset_top = 28.029278
-offset_right = 320.11203
+offset_right = 360.11203
 offset_bottom = 351.02927
 scale = Vector2(0.015, 0.02)
 icon = ExtResource("9_dg77c")
