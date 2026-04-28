@@ -8,21 +8,15 @@ import SwiftGodot
 
 @Godot
 class ColorFunction : Button {
+//set the color when clicking the matching button,(actually would set the color mode again)
     @Export var colorName : String = ""
 
     func chooseColor() {
+        //reset the color of the wool when the matching color button is clicked
          guard let woolController = getNode(path: NodePath("/root/SceneBarn/WoolController")) as? WoolController else {
              GD.print("Could not find WoolController")
              return
          }
-        
-//        guard let panel = getNode(path: NodePath("/root/SceneBarn/colorPanel")) as? SidebarPanel else {
-//            GD.print("Could not find colorPanel")
-//            return
-//        }
-//        
-//        panel.panelAppear()
-
          if colorName == "red" {
              woolController.setColorMode(color: Color(r: 1.0, g: 0.5451, b: 0.5765, a: 0.8))
          } else if colorName == "orange" {

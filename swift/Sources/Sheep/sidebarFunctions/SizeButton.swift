@@ -9,6 +9,7 @@ import SwiftGodot
 
 @Godot
 class SizeButton: Button {
+    //adjust the size by clicking the button 
     @Export var sliderPath: NodePath = NodePath()
     @Export var direction = Int()
     
@@ -21,8 +22,7 @@ class SizeButton: Button {
     func moveInDirection(){
         if let slider = getNode(path: sliderPath) as? HSlider {
             slider.value += Double(direction) * 5
-        }
-        else {
+        } else {
             return
         }
     }

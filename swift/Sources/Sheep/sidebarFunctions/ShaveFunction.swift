@@ -8,31 +8,14 @@ import SwiftGodot
 
 @Godot
 class ShaveFunction : Button {
-    
-//    func chooseShave() {
-//        guard let woolController = getNode(path: NodePath("/root/SceneBarn/WoolController")) as? WoolController else {
-//            GD.print("Could not find WoolController")
-//            return
-//        }
-//            
-//            woolController.setShaveMode()
-//            
-//            guard let panel = getNode(path: NodePath("/root/SceneBarn/colorPanel")) as? SidebarPanel else {
-//                GD.print("Could not find colorPanel")
-//                return
-//            }
-//            
-//            panel.panelDisappear()
-//    }
-    
+//set the mode into shaving mode when clickingbthe shaving button
     func chooseShave() {
+        //reset the cursor and set the shaving mode
         guard let woolController = getNode(path: NodePath("/root/SceneBarn/WoolController")) as? WoolController else {
             GD.print("Could not find WoolController")
             return
-        }
-
+            }
         woolController.setShaveMode()
-
         if let tex = GD.load(path: "res://assets/razorCursor.png") as? Texture2D {
             Input.setCustomMouseCursor(
                 image: tex,
@@ -50,19 +33,15 @@ class ShaveFunction : Button {
         style.setBorderWidthAll(width: 5)
         style.drawCenter = false
         overlay.addThemeStyleboxOverride(name: "panel", stylebox: style)
-
         focusEntered.connect {
             overlay.visible = true
         }
-
         focusExited.connect {
             overlay.visible = false
         }
-        
         self.pressed.connect {
             self.grabFocus()
             self.chooseShave()
         }
-        
     }
 }

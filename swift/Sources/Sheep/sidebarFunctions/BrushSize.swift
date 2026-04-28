@@ -8,14 +8,15 @@ import SwiftGodot
 
 @Godot
 class BrushSize : HSlider {
+//adjust the size by a slider
     var woolController = WoolController()
+    
     override func _ready() {
-        
         self.valueChanged.connect(self.change_brush_size)
-        
     }
     
     func change_brush_size(value: Double) {
+        //changing the brush size by adjusting the rows and columns it covers
         self.woolController = getNode(path: NodePath("/root/SceneBarn/WoolController")) as! WoolController
         let chunkMatrix = woolController.getMatrix()
         let rows = chunkMatrix.count

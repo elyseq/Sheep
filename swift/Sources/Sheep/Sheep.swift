@@ -14,7 +14,7 @@ import SwiftGodot
     //ColorChanger.self,
     ColorFunction.self,
     ShaveFunction.self,
-    SidebarButton.self,
+    ColorSidebarButton.self,
     SidebarPanel.self,
     BrushSize.self,
     redoButton.self,
@@ -27,7 +27,6 @@ import SwiftGodot
     AudioMute.self,
     InstructionPic.self,
     InstructionButton.self,
-    
 ])
 
 @Godot

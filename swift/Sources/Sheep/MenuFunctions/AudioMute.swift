@@ -9,6 +9,7 @@ import SwiftGodot
 
 @Godot
 class AudioMute : CheckButton {
+// mute the background music, but keep the shaving noize
     var originalVolume: Double = 0.0
     override func _ready() {
            self.toggled.connect {
@@ -26,10 +27,10 @@ class AudioMute : CheckButton {
                }
                
                if checked {
-                              musicPlayer.volumeDb = -80.0
-                          } else {
-                              musicPlayer.volumeDb = self.originalVolume
-                          }
+                    musicPlayer.volumeDb = -80.0
+               } else {
+                   musicPlayer.volumeDb = self.originalVolume
+                }
            }
        }
 }
