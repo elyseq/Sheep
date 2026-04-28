@@ -27,7 +27,7 @@ import SwiftGodot
     AudioMute.self,
     InstructionPic.self,
     InstructionButton.self,
-    ColorBlind.self,
+    
 ])
 
 @Godot
