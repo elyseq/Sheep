@@ -8,6 +8,7 @@ import SwiftGodot
 
 @Godot
 class InstructionPic : Sprite2D {
+    //set the visibility
     func InstructionAppear () {
         self.visible = true
     }
