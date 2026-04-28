@@ -8,7 +8,7 @@ import SwiftGodot
 
 @Godot
 public class SidebarPanel : Panel {
-    
+    //set the visibility
     func panelAppear () {
         self.visible = true
     }
