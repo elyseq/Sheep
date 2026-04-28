@@ -296,7 +296,14 @@ class WoolController: CharacterBody2D {
     
     func setNormalMode() {
         selectedFunction = .normal
-        Input.setCustomMouseCursor(image: nil)
+        if let tex = GD.load(path: "res://assets/cursor.png") as? Texture2D {
+            Input.setCustomMouseCursor(
+                image: tex,
+                shape: .arrow,
+                hotspot: Vector2(x: 0, y: 0)
+            )
+                    }
+
     }
     
     func getMatrix() -> [[WoolChunkController?]] {
