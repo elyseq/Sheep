@@ -5,8 +5,11 @@
 [ext_resource type="SpriteFrames" uid="uid://bd1vsjtvhlhym" path="res://sheep_animations.tres" id="4_lquwl"]
 [ext_resource type="Texture2D" uid="uid://bv6rg5t0cbqtv" path="res://assets/settingsPanel.png" id="5_4c57u"]
 [ext_resource type="Texture2D" uid="uid://boshrsjk5saq7" path="res://assets/muteButton.png" id="6_efxa6"]
+[ext_resource type="Texture2D" uid="uid://dom7uyru3mcw" path="res://assets/ok.png" id="7_4c57u"]
 [ext_resource type="Texture2D" uid="uid://bhh6jx728nu60" path="res://assets/large circle.svg" id="7_5vw27"]
-[ext_resource type="Texture2D" uid="uid://c1l7mc61bdk41" path="res://assets/instructions.png" id="8_kek77"]
+[ext_resource type="Texture2D" uid="uid://cjm4xylk74owf" path="res://assets/click-choose-sheep.png" id="8_4c57u"]
+[ext_resource type="Texture2D" uid="uid://b8bg6ihw1ed8l" path="res://assets/Go-to-barn.png" id="9_efxa6"]
+[ext_resource type="Texture2D" uid="uid://beru4bx570p1f" path="res://assets/click-to-start.png" id="9_kek77"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_h2yge"]
 a = Vector2(-312.63324, 271)
@@ -24,6 +27,8 @@ bg_color = Color(0.6, 0.6, 1, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4c57u"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_4c57u"]
 
 [node name="PenScene" type="Node2D" unique_id=1221304897]
 scale = Vector2(1.0043718, 1)
@@ -90,7 +95,6 @@ icon = ExtResource("4_kek77")
 flat = true
 
 [node name="MenuPanel" type="MenuPanel" parent="." unique_id=2028186624]
-visible = false
 z_index = 2600
 offset_left = 544.6191
 offset_top = 138.0
@@ -126,8 +130,39 @@ scale = Vector2(0.07730476, 0.07715663)
 text = "instructions"
 icon = ExtResource("7_5vw27")
 
-[node name="InstructionNote" type="InstructionPic" parent="MenuPanel/instructions" unique_id=5570548]
-visible = false
-position = Vector2(365.5843, 58.876003)
-scale = Vector2(0.17298028, 0.24174663)
-texture = ExtResource("8_kek77")
+[node name="okButton" type="Button" parent="MenuPanel" unique_id=1247642677]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.025
+anchor_bottom = 0.027
+offset_left = 12.042419
+offset_top = 28.609192
+offset_right = 111.31326
+offset_bottom = 95.52919
+scale = Vector2(0.057678383, 0.07595276)
+icon = ExtResource("7_4c57u")
+flat = true
+
+[node name="InstructionPanel" type="InstructionPanel" parent="." unique_id=1689366817]
+offset_left = 228.99887
+offset_top = -80.0
+offset_right = 1922.5948
+offset_bottom = 700.74634
+scale = Vector2(1, 1.0028865)
+theme_override_styles/panel = SubResource("StyleBoxLine_4c57u")
+
+[node name="chooseSheepInstruction" type="Sprite2D" parent="InstructionPanel" unique_id=2036531622]
+position = Vector2(359.42865, 410.81418)
+texture = ExtResource("8_4c57u")
+
+[node name="GoToBarnInstruction" type="Sprite2D" parent="InstructionPanel" unique_id=1884284845]
+position = Vector2(1127.0728, 176.49057)
+texture = ExtResource("9_efxa6")
+
+[node name="closeInstructionButton" type="Button" parent="InstructionPanel" unique_id=783213272]
+layout_mode = 0
+offset_left = 615.31
+offset_top = 480.61267
+offset_right = 851.31
+offset_bottom = 552.6127
+icon = ExtResource("9_kek77")

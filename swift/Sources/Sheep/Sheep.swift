@@ -25,8 +25,8 @@ import SwiftGodot
     MenuButtonMy.self,
     MenuPanel.self,
     AudioMute.self,
-    InstructionPic.self,
     InstructionButton.self,
+    InstructionPanel.self,
 ])
 
 @Godot

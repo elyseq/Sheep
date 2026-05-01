@@ -10,12 +10,12 @@ import SwiftGodot
 @Godot
 class InstructionButton : Button {
 // if click the instruction button, the instruction would show up
-    var PicSelected: InstructionPic?
+    var Inspanel: InstructionPanel?
     var clickTime = 0
     
     override func _ready() {
 
-        PicSelected = getNode(path: NodePath("/root/PenScene/MenuPanel/instructions/InstructionNote")) as? InstructionPic
+        Inspanel = getNode(path: NodePath("/root/PenScene/InstructionPanel")) as? InstructionPanel
 
         self.pressed.connect {
             self.NoteVisibility()
@@ -26,12 +26,10 @@ class InstructionButton : Button {
 
     func NoteVisibility() {
     // check if the instruction pic is visable or not when the button is clicked; if visable, make it disappear
-        guard let panel = PicSelected else { return }
+        guard let panel = Inspanel else { return }
         
-        if panel.visible {
-            panel.InstructionDisappear()
-        } else {
-            panel.InstructionAppear()
+        if panel.visible == false {
+            panel.visible = true
         }
     }
 }
