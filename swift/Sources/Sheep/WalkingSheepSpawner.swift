@@ -15,7 +15,7 @@ public class WalkingSheepSpawner: CharacterBody2D {
     public override func _ready() {
         
         //ARRAY OF SHEEP
-        var scaleNum : Float = 0.5
+        var scaleNum : Float = 0.13
         var positionY : Float = -200
         var level : Float = 0
         var speed: Float = 20
@@ -32,14 +32,16 @@ public class WalkingSheepSpawner: CharacterBody2D {
             sheep.configure(sheepNum: i, direction: direction, position: position, scale: scale, speed: speed)
             GD.print("Spawned sheep num: \(sheep.sheepNum)")
             sheep.visible = true
+            var num = String(i)
             self.addChild(node: sheep)
+            sheep.setWalkNum(num: num)
             
             sheepList.append(sheep)
             
-            scaleNum = scaleNum + 0.1
+            scaleNum = scaleNum + 0.035
             positionY = positionY + 85
             level = level + 10
-            speed = speed + 5.75
+            speed = speed + 5.0
         }
         
         checkSavedSheep()

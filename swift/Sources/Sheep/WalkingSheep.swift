@@ -35,7 +35,7 @@ class WalkingSheep: CharacterBody2D {
         
         animatedBody = AnimatedSprite2D()
         animatedBody.spriteFrames = frames
-        animatedBody.play(name: "walkBody")
+        animatedBody.play(name: "walk1")
         self.addChild(node: animatedBody)
 
         let collision = CollisionShape2D()
@@ -124,6 +124,15 @@ class WalkingSheep: CharacterBody2D {
         for childIndex in stride(from: woolLayer.getChildCount() - 1, through: 0, by: -1) {
             woolLayer.getChild(idx: childIndex)?.queueFree()
         }
+    }
+    
+    func setWalkNum(num: String){
+        guard let animatedBody = animatedBody else {
+                GD.print("setWalkNum called before _ready")
+                return
+            }
+        let walkNum = "walk" + num
+        animatedBody.play(name: StringName(walkNum))
     }
     
     func applySavedAppearance(_ appearance: SheepAppearance) {
