@@ -29,21 +29,16 @@ class WoolController: CharacterBody2D {
     
     override func _ready() {
         setNormalMode()
+        
         // Sheep Body
         sheepbody = Sprite2D()
-        sheepbody.texture = GD.load(path: "res://assets/sheepBody.png") as? Texture2D
-        sheepbody.position = Vector2(x: 1100, y: 800) // +75
-        sheepbody.scale = Vector2(x: 2, y: 2)
+        sheepbody.texture = GD.load(path: "res://assets/bodyShaved.png") as? Texture2D
+        sheepbody.position = Vector2(x: 950, y: 750) // +75
+        sheepbody.scale = Vector2(x: 0.7, y: 0.7)
         sheepbody.zIndex = 1
         addChild(node:sheepbody)
-        
-        // Wool
-        //self.woolLocations = readFile(fileName: "sheepmatrix.txt")
-//        if SavedSheep.shared.hasSavedAppearance {
-//            self.woolLocations = SavedSheep.shared.woolLocations
-//        } else {
-//            self.woolLocations = readFile(fileName: "sheepmatrix.txt")
-//        }
+
+        // Sheep Wool
         if let appearance = SavedSheep.shared.appearanceForSelectedSheep() {
             self.woolLocations = appearance.woolLocations
         } else {
@@ -52,20 +47,16 @@ class WoolController: CharacterBody2D {
         
         for y in 0...woolLocations.count-1{
             woolNodesMatrix.append(Array(repeating: nil, count: woolLocations[y].count))
-            let ypos = 7 * y - 150
+            let ypos = (7 * y - 117)
+            //let ypos = 7 * y - 150
             for x in 0...woolLocations[y].count-1{
-                let xpos = 10 * x - 195
+                let xpos = (10 * x - 181)  // was -195
+                //let xpos = 10 * x - 195
                 if(woolLocations[y][x] == "1" || woolLocations[y][x] == "2"){
                     let woolWrapper = WoolThing()
                     //let wool = makeWoolNode(Vector2(x: Float(xpos), y: Float(ypos)))
                     woolWrapper.position = Vector2(x: Float(xpos), y: Float(ypos))
                     woolWrapper.rotation = Double.random(in: 0.0...360.0)
-                    
-//                    if SavedSheep.shared.hasSavedAppearance,
-//                       y < SavedSheep.shared.woolColors.count,
-//                       x < SavedSheep.shared.woolColors[y].count {
-//                        woolWrapper.getChunk().setColor(SavedSheep.shared.woolColors[y][x])
-//                    }
                     
                     let distToCenter = woolWrapper.position.distanceTo(Vector2(x: -70, y: -20)) + .random(in: -10 ... 10)
                     woolWrapper.zIndex = 200 - abs(Int32(distToCenter))
@@ -84,16 +75,7 @@ class WoolController: CharacterBody2D {
                         wool.setColor(appearance.woolColors[y][x])
                     }
                     
-                    //let blackwool = wool.duplicate() as! WoolThing
-//                    blackwool.scale = Vector2(x: 1.25, y: 1.25)
-//                    blackwool.modulate = Color(r: 0.0, g: 0.0, b: 0.0) // makes these ones black
-//                    blackwool.zIndex = -1
-//                    
-//                    if let blackController = blackwool.getChild(idx: 0) as? WoolChunkController {
-//                        blackController.inputPickable = false
-//                    }
-                    
-                } //self.woolLocations = readFile(fileName: "sheepmatrix.txt")
+                }
                 
             }
             
@@ -105,20 +87,14 @@ class WoolController: CharacterBody2D {
             return
         }
         animatedSprite = AnimatedSprite2D()
-        animatedSprite?.position = Vector2(x: 785, y: 605)
-        animatedSprite?.scale = Vector2(x: 0.525, y: 0.525)
-        
-        let sheephead = Sprite2D()
-        sheephead.texture = GD.load(path: "res://assets/head.png") as? Texture2D
-        sheephead.position = Vector2(x: 785, y: 605)
-        sheephead.scale = Vector2(x: 0.525, y: 0.525)
-        sheephead.zIndex = 250
-        addChild(node:sheephead)
-        
+        animatedSprite?.position = Vector2(x: 950, y: 750)
+        animatedSprite?.scale = Vector2(x: 0.7, y: 0.7)
         animatedSprite?.spriteFrames = frames
         animatedSprite?.zIndex = 250
+        animatedSprite?.play(name: "none")
         addChild(node: animatedSprite!)
     }
+    
     func makeWoolNode (_ pos: Vector2) -> WoolChunkController {
         let n = WoolThing()
         n.position = pos
@@ -160,12 +136,10 @@ class WoolController: CharacterBody2D {
     
     func playBlink() {
         animatedSprite?.play(name: "blink")
-        //GD.print("blink")
     }
 
     func playEarTwitch() {
         animatedSprite?.play(name: "twitch")
-        //GD.print("twitch")
     }
     
     
@@ -218,7 +192,6 @@ class WoolController: CharacterBody2D {
 
                     }
                     woolNodesMatrix[r][c] = nil
-                    // woolNodesMatrix[r][c] = nil
                 }
             }
         }
@@ -278,6 +251,12 @@ class WoolController: CharacterBody2D {
                     
                     woolNodesMatrix[y][x] = wool as? WoolChunkController
                     sheepbody.addChild(node: woolWrapper)
+                    
+                    if let appearance = SavedSheep.shared.appearanceForSelectedSheep(),
+                       y < appearance.woolColors.count,
+                       x < appearance.woolColors[y].count {
+                        wool.setColor(appearance.woolColors[y][x])
+                    }
                    
                 }
             }

@@ -20,10 +20,10 @@ class WoolChunkController: Area2D {
         player.play()
         player.streamPaused = true
         sprite.texture = GD.load(path: "res://assets/cloudshape.png") as? Texture2D
-        sprite.scale = Vector2(x: 0.07, y: 0.07)
+        sprite.scale = Vector2(x: 0.1, y: 0.1)
         
         shadowSprite.texture = GD.load(path: "res://assets/cloudshape.png") as? Texture2D
-        shadowSprite.scale = Vector2(x: 0.08, y: 0.08)
+        shadowSprite.scale = Vector2(x: 0.114, y: 0.114)
 
         
         sprite.modulate = Color(r: 0.965, g: 0.945, b: 0.898) // makes clouds/wool the color of head

@@ -95,6 +95,7 @@ icon = ExtResource("4_kek77")
 flat = true
 
 [node name="MenuPanel" type="MenuPanel" parent="." unique_id=2028186624]
+visible = false
 z_index = 2600
 offset_left = 544.6191
 offset_top = 138.0

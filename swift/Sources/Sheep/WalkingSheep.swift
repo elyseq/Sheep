@@ -12,7 +12,8 @@ class WalkingSheep: CharacterBody2D {
 
     var speed: Float = 0
     var direction: Float = 0
-    var animatedSprite: AnimatedSprite2D!
+    var animatedHead: AnimatedSprite2D!
+    var animatedBody: AnimatedSprite2D!
     var woolLayer: Node2D = Node2D()
     var clickArea: Area2D = Area2D()
     var canClickSheep: Bool = true
@@ -20,15 +21,22 @@ class WalkingSheep: CharacterBody2D {
     //var path: String = "" // load a different sprite frame for each sheep to have them all start at different walking positions?
     
     override func _ready() {
-        animatedSprite = AnimatedSprite2D()
         guard let frames = GD.load(path: "res://sheep_animations.tres") as? SpriteFrames else {
             // GD.load(path: "res://assets/" + path + ".tres") as? SpriteFrames else { load a different sprite frame for each sheep to have them all start at different walking positions?
             GD.print("Failed to load sprite frames")
             return
         }
-        animatedSprite.spriteFrames = frames
-        animatedSprite.play(name: "walk2")
-        self.addChild(node: animatedSprite)
+        
+        animatedHead = AnimatedSprite2D()
+        animatedHead.spriteFrames = frames
+        animatedHead.play(name: "walkHead")
+        animatedHead.zIndex = 250
+        self.addChild(node: animatedHead)
+        
+        animatedBody = AnimatedSprite2D()
+        animatedBody.spriteFrames = frames
+        animatedBody.play(name: "walkBody")
+        self.addChild(node: animatedBody)
 
         let collision = CollisionShape2D()
         let shape = RectangleShape2D()
@@ -71,10 +79,12 @@ class WalkingSheep: CharacterBody2D {
 
     override func _physicsProcess(delta: Double) {
         if direction == 1 {
-            animatedSprite?.flipH = true
+            animatedHead?.flipH = true
+            animatedBody?.flipH = true
             woolLayer.scale.x = -abs(woolLayer.scale.x)
         } else {
-            animatedSprite?.flipH = false
+            animatedBody?.flipH = false
+            animatedHead?.flipH = false
             woolLayer.scale.x = abs(woolLayer.scale.x)
         }
         
@@ -87,11 +97,13 @@ class WalkingSheep: CharacterBody2D {
             //direction *= -1
                         
                 if direction == 1 {
-                    animatedSprite?.flipH = true
+                    animatedHead?.flipH = true
+                    animatedBody?.flipH = true
                     woolLayer.scale.x = -abs(woolLayer.scale.x)
                     woolLayer.position = Vector2(x: -135, y: 50) //(x: -135, y: 100) //(x: -175, y: 100) //edit wool position, good direction when going to the right
                 } else {
-                    animatedSprite?.flipH = false
+                    animatedBody?.flipH = false
+                    animatedHead?.flipH = false
                     woolLayer.scale.x = abs(woolLayer.scale.x)
                     woolLayer.position = Vector2(x: 135, y: 50) //(x: 135, y: 100)
                 }
@@ -147,8 +159,8 @@ class WalkingSheep: CharacterBody2D {
                     )
                     wool.rotation = Double.random(in: 0.0...360.0)
                     wool.modulate = appearance.woolColors[row][col]
-                    var centerVec = animatedSprite.position
-                    centerVec = centerVec + Vector2(x: -50, y: 40) 
+                    var centerVec = animatedBody.position
+                    centerVec = centerVec + Vector2(x: -50, y: 40)
                     wool.zIndex = 200 - abs(Int32(wool.position.distanceTo(centerVec) + .random(in: -10 ... 10)))
 
                     if wool.position.y < -100 {
