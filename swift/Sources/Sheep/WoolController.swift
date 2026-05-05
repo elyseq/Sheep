@@ -48,10 +48,8 @@ class WoolController: CharacterBody2D {
         for y in 0...woolLocations.count-1{
             woolNodesMatrix.append(Array(repeating: nil, count: woolLocations[y].count))
             let ypos = (7 * y - 117)
-            //let ypos = 7 * y - 150
             for x in 0...woolLocations[y].count-1{
                 let xpos = (10 * x - 181)  // was -195
-                //let xpos = 10 * x - 195
                 if(woolLocations[y][x] == "1" || woolLocations[y][x] == "2"){
                     let woolWrapper = WoolThing()
                     //let wool = makeWoolNode(Vector2(x: Float(xpos), y: Float(ypos)))
@@ -61,7 +59,6 @@ class WoolController: CharacterBody2D {
                     let distToCenter = woolWrapper.position.distanceTo(Vector2(x: -70, y: -20)) + .random(in: -10 ... 10)
                     woolWrapper.zIndex = 200 - abs(Int32(distToCenter))
                     if(woolWrapper.position.y < -100){
-                       // woolWrapper.zIndex = 350-abs(Int32(woolWrapper.position.distanceTo(Vector2(x: -70, y: -20))))
                         woolWrapper.zIndex = 500
                     }
                     let wool = woolWrapper.getChunk()
@@ -181,11 +178,8 @@ class WoolController: CharacterBody2D {
                     if let node = woolNodesMatrix[r][c] {
                         GD.print("trying to queue free")
                         let tween = createTween()
-//                        var xMovement:Float = Float(Bool.random() ? Double.random(in: -110 ... -90) : Double.random(in: 90 ... 110))
-//                        tween?.tweenProperty(object: node, property: "global_position", finalVal: Variant(Vector2(x: node.globalPosition.x + xMovement, y: node.globalPosition.y-60)), duration: 0.18)
                         tween?.tweenProperty(object: node.getSprite(), property: "scale", finalVal: Variant(Vector2(x: 0.14,y: 0.15)), duration: 0.1)
                         tween?.tweenProperty(object: node, property: "rotation", finalVal: Variant(Bool.random() ? node.rotation+3*3.14 : node.rotation-3*3.14), duration: 0.5)
-//                        tween?.tweenProperty(object: node, property: "global_position", finalVal: Variant(Vector2(x: node.globalPosition.x + xMovement , y: node.globalPosition.y+300)), duration: 0.5)
                         tween?.parallel()?.tweenProperty(object: node.shadowSprite, property: "modulate", finalVal: Variant(Color(r: 1, g: 1, b: 1, a: 0)), duration: 0.1 )
                         tween?.parallel()?.tweenProperty(object: node, property: "modulate", finalVal: Variant(Color(r: 1, g: 1, b: 1, a: 0)), duration: Double.random(in: 0.5 ... 1.0) )
                         tween?.parallel()?.tweenProperty(object: node, property: "scale", finalVal: Variant(Vector2(x: 0.5,y: 0.5)), duration: 0.3)

@@ -26,9 +26,9 @@ final class penSceneSwitch : Button {
 
             SavedSheep.shared.save(from: woolController)
             
-            if let woolController = self.getNode(path: NodePath("/root/SceneBarn/WoolController")) as? WoolController { //wasn't here before
+            if let woolController = self.getNode(path: NodePath("/root/SceneBarn/WoolController")) as? WoolController {
                 woolController.setNormalMode()
-            } //wasn't here before
+            }
             self.getTree()?.changeSceneToFile(path: "res://main.tscn")
         
         }

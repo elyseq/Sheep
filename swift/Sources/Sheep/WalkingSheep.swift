@@ -18,26 +18,27 @@ class WalkingSheep: CharacterBody2D {
     var clickArea: Area2D = Area2D()
     var canClickSheep: Bool = true
     var sheepNum: Int = 0
-    //var path: String = "" // load a different sprite frame for each sheep to have them all start at different walking positions?
     
     override func _ready() {
         guard let frames = GD.load(path: "res://sheep_animations.tres") as? SpriteFrames else {
-            // GD.load(path: "res://assets/" + path + ".tres") as? SpriteFrames else { load a different sprite frame for each sheep to have them all start at different walking positions?
             GD.print("Failed to load sprite frames")
             return
         }
         
+        // head
         animatedHead = AnimatedSprite2D()
         animatedHead.spriteFrames = frames
         animatedHead.play(name: "walkHead")
         animatedHead.zIndex = 250
         self.addChild(node: animatedHead)
         
+        // body
         animatedBody = AnimatedSprite2D()
         animatedBody.spriteFrames = frames
         animatedBody.play(name: "walk1")
         self.addChild(node: animatedBody)
 
+        // collision box
         let collision = CollisionShape2D()
         let shape = RectangleShape2D()
         shape.size = Vector2(x: 275, y: 50)
@@ -45,6 +46,7 @@ class WalkingSheep: CharacterBody2D {
         self.addChild(node: collision)
         self.addChild(node: woolLayer)
         
+        // click box
         let clickShape = CollisionShape2D()
         let clickRect = RectangleShape2D()
         clickRect.size = Vector2(x: 275, y: 150)
@@ -53,16 +55,8 @@ class WalkingSheep: CharacterBody2D {
         clickArea.addChild(node: clickShape)
         clickArea.inputPickable = true
         self.addChild(node: clickArea)
-
-//        clickArea.inputEvent.connect { viewport, event, shapeIdx in
-//            if self.canClickSheep,
-//               let mouseEvent = event as? InputEventMouseButton,
-//               mouseEvent.pressed,
-//               mouseEvent.buttonIndex == .left {
-//                self.getTree()?.changeSceneToFile(path: "res://scene_barn.tscn")
-//            }
-//        }
         
+        // click handlers
         clickArea.inputEvent.connect { viewport, event, shapeIdx in
             if let mouseEvent = event as? InputEventMouseButton,
                mouseEvent.pressed,
@@ -73,11 +67,10 @@ class WalkingSheep: CharacterBody2D {
                 self.getTree()?.changeSceneToFile(path: "res://scene_barn.tscn")
             }
         }
-        
-        
     }
 
     override func _physicsProcess(delta: Double) {
+        // changes direction if hits fence
         if direction == 1 {
             animatedHead?.flipH = true
             animatedBody?.flipH = true
@@ -110,14 +103,12 @@ class WalkingSheep: CharacterBody2D {
         }
     }
     
-    //public func configure(direction: Float, position: Vector2, scale: Vector2, speed: Float) { // path: String
     public func configure(sheepNum: Int, direction: Float, position: Vector2, scale: Vector2, speed: Float) {
         self.sheepNum = sheepNum
         self.direction = direction
         self.position = position
         self.scale = scale
         self.speed = speed
-        //self.path = path // load a different sprite frame for each sheep to have them all start at different walking positions?
     }
     
     func clearSavedWoolOverlay() {
@@ -127,6 +118,7 @@ class WalkingSheep: CharacterBody2D {
     }
     
     func setWalkNum(num: String){
+        // sets the correct walk animation so sheep all start at different walk cycles
         guard let animatedBody = animatedBody else {
                 GD.print("setWalkNum called before _ready")
                 return
@@ -136,12 +128,9 @@ class WalkingSheep: CharacterBody2D {
     }
     
     func applySavedAppearance(_ appearance: SheepAppearance) {
+        // applies the edits to sheep
+        
         let saved = SavedSheep.shared
-        
-//        if !saved.hasSavedAppearance {
-//            return
-//        }
-        
         clearSavedWoolOverlay()
             
         //woolLayer.position = Vector2(x: 135, y: 100) //edit wool position, good direction when going to the right
