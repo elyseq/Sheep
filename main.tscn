@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bl105vstqmhgy"]
 
 [ext_resource type="Texture2D" uid="uid://cxgan3vlcgkvl" path="res://assets/penBackground.jpg" id="1_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://doygk1636b5vb" path="res://assets/backgroundPen.png" id="1_efxa6"]
 [ext_resource type="Texture2D" uid="uid://544kddk7yhbs" path="res://assets/settingsButton.png" id="4_kek77"]
 [ext_resource type="SpriteFrames" uid="uid://bd1vsjtvhlhym" path="res://sheep_animations.tres" id="4_lquwl"]
 [ext_resource type="Texture2D" uid="uid://bv6rg5t0cbqtv" path="res://assets/settingsPanel.png" id="5_4c57u"]
@@ -33,9 +34,14 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 [node name="PenScene" type="Node2D" unique_id=1221304897]
 scale = Vector2(1.0043718, 1)
 
+[node name="BackgroundPen" type="Sprite2D" parent="." unique_id=529743844]
+position = Vector2(958.8082, 500.00003)
+scale = Vector2(0.81634635, 0.80960363)
+texture = ExtResource("1_efxa6")
+
 [node name="PenBackground" type="Sprite2D" parent="." unique_id=1398805788]
 z_index = -1
-position = Vector2(1307.2849, 250)
+position = Vector2(3507.6653, 295)
 scale = Vector2(0.8023536, 0.7890244)
 texture = ExtResource("1_1bvp3")
 offset = Vector2(-436.0935, 362)
@@ -145,10 +151,10 @@ icon = ExtResource("7_4c57u")
 flat = true
 
 [node name="InstructionPanel" type="InstructionPanel" parent="." unique_id=1689366817]
-offset_left = 228.99887
-offset_top = -80.0
-offset_right = 1922.5948
-offset_bottom = 700.74634
+offset_left = 184.19475
+offset_top = -75.99999
+offset_right = 1877.7906
+offset_bottom = 704.74634
 scale = Vector2(1, 1.0028865)
 theme_override_styles/panel = SubResource("StyleBoxLine_4c57u")
 
