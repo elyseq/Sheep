@@ -47,9 +47,9 @@ class WoolController: CharacterBody2D {
         
         for y in 0...woolLocations.count-1{
             woolNodesMatrix.append(Array(repeating: nil, count: woolLocations[y].count))
-            let ypos = (7 * y - 117)
+            let ypos = (20 * y - y_displacement) //7 to 20
             for x in 0...woolLocations[y].count-1{
-                let xpos = (10 * x - 181)  // was -195
+                let xpos = (28 * x - x_displacement)  // was -195  10 to 28
                 if(woolLocations[y][x] == "1" || woolLocations[y][x] == "2"){
                     let woolWrapper = WoolThing()
                     //let wool = makeWoolNode(Vector2(x: Float(xpos), y: Float(ypos)))
@@ -57,9 +57,9 @@ class WoolController: CharacterBody2D {
                     woolWrapper.rotation = Double.random(in: 0.0...360.0)
                     
                     let distToCenter = woolWrapper.position.distanceTo(Vector2(x: -70, y: -20)) + .random(in: -10 ... 10)
-                    woolWrapper.zIndex = 200 - abs(Int32(distToCenter))
+                    woolWrapper.zIndex = 600 - abs(Int32(distToCenter))
                     if(woolWrapper.position.y < -100){
-                        woolWrapper.zIndex = 500
+                        woolWrapper.zIndex = 700
                     }
                     let wool = woolWrapper.getChunk()
                     
@@ -227,10 +227,10 @@ class WoolController: CharacterBody2D {
         
         for y in 0...woolLocations.count-1{
             woolNodesMatrix.append(Array(repeating: nil, count: woolLocations[y].count))
-            let ypos = 7 * y - 117
+            let ypos = 20 * y - y_displacement
             for x in 0...woolLocations[y].count-1{
                 woolNodesMatrix[y][x]?.queueFree()
-                let xpos = 10 * x - 181
+                let xpos = 28 * x - x_displacement
                 if(woolLocations[y][x] == "1" || woolLocations[y][x] == "2"){
                     let woolWrapper = WoolThing()
                     woolWrapper.position = Vector2(x: Float(xpos), y: Float(ypos))

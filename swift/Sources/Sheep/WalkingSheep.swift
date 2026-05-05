@@ -152,8 +152,8 @@ class WalkingSheep: CharacterBody2D {
                     let wool = woolWrapper.getChunk()
 //                    wool.texture = GD.load(path: "res://assets/cloudshape.png") as? Texture2D
                     wool.position = Vector2(
-                        x: Float(10 * col - 190),
-                        y: Float(7 * row - 100)
+                        x: Float(28 * col - 190),
+                        y: Float(20 * row - 100)
                     )
                     wool.rotation = Double.random(in: 0.0...360.0)
                     wool.modulate = appearance.woolColors[row][col]

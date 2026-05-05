@@ -5,6 +5,9 @@
 //  Created by Nora Betry on 3/13/26.
 //
 import SwiftGodot
+let y_displacement = 365
+let x_displacement = 320
+
 
 @Godot
 class WoolChunkController: Area2D {
@@ -20,10 +23,10 @@ class WoolChunkController: Area2D {
         player.play()
         player.streamPaused = true
         sprite.texture = GD.load(path: "res://assets/cloudshape.png") as? Texture2D
-        sprite.scale = Vector2(x: 0.1, y: 0.1)
+        sprite.scale = Vector2(x: 0.2, y: 0.2)
         
         shadowSprite.texture = GD.load(path: "res://assets/cloudshape.png") as? Texture2D
-        shadowSprite.scale = Vector2(x: 0.114, y: 0.114)
+        shadowSprite.scale = Vector2(x: 0.23, y: 0.23)
 
         
         sprite.modulate = Color(r: 0.965, g: 0.945, b: 0.898) // makes clouds/wool the color of head
@@ -141,8 +144,8 @@ class WoolChunkController: Area2D {
                 return
             }
 
-            let row = Int((woolThing.position.y + 117) / 7)
-            let col = Int((woolThing.position.x + 181) / 10)
+            let row = ((Int(woolThing.position.y) + y_displacement) / 20)
+            let col = (Int(woolThing.position.x) + x_displacement)  / 28
 
             woolController.woolLocations[row][col] = "0"
             woolController.woolNodesMatrix[row][col] = nil
