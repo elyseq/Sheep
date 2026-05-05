@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bp6fx6ql8xagn"
-path="res://.godot/imported/twitch1-removebg-preview.png-73e6e446ed145e979a3fb0a62b9f1d2f.ctex"
+uid="uid://dh1o8brqkunt0"
+path="res://.godot/imported/body.png-b8c73c77b587abd445085cbdae951373.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/twitch1-removebg-preview.png"
-dest_files=["res://.godot/imported/twitch1-removebg-preview.png-73e6e446ed145e979a3fb0a62b9f1d2f.ctex"]
+source_file="res://assets/body.png"
+dest_files=["res://.godot/imported/body.png-b8c73c77b587abd445085cbdae951373.ctex"]
 
 [params]
 

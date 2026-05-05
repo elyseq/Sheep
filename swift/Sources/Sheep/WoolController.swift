@@ -32,7 +32,7 @@ class WoolController: CharacterBody2D {
         
         // Sheep Body
         sheepbody = Sprite2D()
-        sheepbody.texture = GD.load(path: "res://assets/bodyShaved.png") as? Texture2D
+        sheepbody.texture = GD.load(path: "res://assets/body.png") as? Texture2D
         sheepbody.position = Vector2(x: 950, y: 750) // +75
         sheepbody.scale = Vector2(x: 0.7, y: 0.7)
         sheepbody.zIndex = 1

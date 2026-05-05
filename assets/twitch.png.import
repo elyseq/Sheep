@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bv6rmwc5mcxpn"
-path="res://.godot/imported/sheepshape.jpg-1853b82d342f84a5174f293e0bc18c75.ctex"
+uid="uid://cd8d07gi4axav"
+path="res://.godot/imported/twitch.png-667332668700874938efaca452f2a158.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sheepshape.jpg"
-dest_files=["res://.godot/imported/sheepshape.jpg-1853b82d342f84a5174f293e0bc18c75.ctex"]
+source_file="res://assets/twitch.png"
+dest_files=["res://.godot/imported/twitch.png-667332668700874938efaca452f2a158.ctex"]
 
 [params]
 

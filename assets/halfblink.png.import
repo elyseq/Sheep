@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ir6cxb2bfsc0"
-path="res://.godot/imported/blink-removebg-preview.png-403d8cce7090803666aa17c28eb3685a.ctex"
+uid="uid://wimp8xs0ccl5"
+path="res://.godot/imported/halfblink.png-38f8b94d43ebbcc17712ae4c95a01194.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/blink-removebg-preview.png"
-dest_files=["res://.godot/imported/blink-removebg-preview.png-403d8cce7090803666aa17c28eb3685a.ctex"]
+source_file="res://assets/halfblink.png"
+dest_files=["res://.godot/imported/halfblink.png-38f8b94d43ebbcc17712ae4c95a01194.ctex"]
 
 [params]
 
