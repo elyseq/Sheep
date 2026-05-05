@@ -227,10 +227,10 @@ class WoolController: CharacterBody2D {
         
         for y in 0...woolLocations.count-1{
             woolNodesMatrix.append(Array(repeating: nil, count: woolLocations[y].count))
-            let ypos = 7 * y - 150
+            let ypos = 7 * y - 117
             for x in 0...woolLocations[y].count-1{
                 woolNodesMatrix[y][x]?.queueFree()
-                let xpos = 10 * x - 195
+                let xpos = 10 * x - 181
                 if(woolLocations[y][x] == "1" || woolLocations[y][x] == "2"){
                     let woolWrapper = WoolThing()
                     woolWrapper.position = Vector2(x: Float(xpos), y: Float(ypos))
