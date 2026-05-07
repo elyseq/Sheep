@@ -202,6 +202,7 @@ offset_right = 224.0
 offset_bottom = 665.0
 
 [node name="redoButton" type="redoButton" parent="." unique_id=9702019]
+slider_path = NodePath("../BrushSize")
 offset_left = 1697.0
 offset_top = 470.0
 offset_right = 2210.0

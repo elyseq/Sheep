@@ -54,7 +54,7 @@ class WalkingSheep: CharacterBody2D {
         // click box
         let clickShape = CollisionShape2D()
         let clickRect = RectangleShape2D()
-        clickRect.size = Vector2(x: 700, y: 300)
+        clickRect.size = Vector2(x: 800, y: 600)
         clickShape.shape = clickRect
 
         clickArea.addChild(node: clickShape)
