@@ -102,7 +102,8 @@ flat = true
 
 [node name="MenuPanel" type="MenuPanel" parent="." unique_id=2028186624]
 visible = false
-z_index = 2600
+z_index = 4096
+z_as_relative = false
 offset_left = 544.6191
 offset_top = 138.0
 offset_right = 573.7854
@@ -172,4 +173,5 @@ offset_left = 615.31
 offset_top = 480.61267
 offset_right = 851.31
 offset_bottom = 552.6127
+pivot_offset = Vector2(100, 36)
 icon = ExtResource("9_kek77")

@@ -246,12 +246,7 @@ class WoolController: CharacterBody2D {
                     
                     woolNodesMatrix[y][x] = wool as? WoolChunkController
                     sheepbody.addChild(node: woolWrapper)
-                    
-                    if let appearance = SavedSheep.shared.appearanceForSelectedSheep(),
-                       y < appearance.woolColors.count,
-                       x < appearance.woolColors[y].count {
-                        wool.setColor(appearance.woolColors[y][x])
-                    }
+
                    
                 }
             }

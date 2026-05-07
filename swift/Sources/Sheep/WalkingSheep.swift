@@ -32,7 +32,7 @@ class WalkingSheep: CharacterBody2D {
         animatedHead.spriteFrames = frames
         animatedHead.play(name: "walkHead")
         
-        animatedHead.zIndex = 700
+        animatedHead.zIndex = 605
         animatedHead.scale = Vector2(x:1.78, y:1.78)
         animatedHead.position = Vector2(x:-183, y:7)
         self.addChild(node: animatedHead)

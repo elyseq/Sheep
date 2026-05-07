@@ -14,11 +14,13 @@ class InstructionButton : Button {
     var clickTime = 0
     
     override func _ready() {
-
+      
+        
         Inspanel = getNode(path: NodePath("/root/PenScene/InstructionPanel")) as? InstructionPanel
-
+        var menuPanel = getNode(path: NodePath("/root/PenScene/MenuPanel")) as? MenuPanel
         self.pressed.connect {
             self.NoteVisibility()
+            menuPanel?.visible = false
         }
             
             

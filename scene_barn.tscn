@@ -138,8 +138,8 @@ texture = ExtResource("1_p52js")
 position = Vector2(6, 14)
 
 [node name="ModePanel" type="Sprite2D" parent="." unique_id=422418745]
-position = Vector2(1762, 359)
-scale = Vector2(0.741093, 1.1939291)
+position = Vector2(1762, 284)
+scale = Vector2(0.741093, 0.940978)
 texture = ExtResource("2_74jdp")
 
 [node name="sidebarButtonColor" type="ColorSidebarButton" parent="." unique_id=714495984]
@@ -158,10 +158,10 @@ flat = true
 slider_path = NodePath("../BrushSize")
 direction = 1
 z_index = 1
-offset_left = 1770.632
-offset_top = 740.1481
-offset_right = 1884.632
-offset_bottom = 850.1481
+offset_left = 1770.6318
+offset_top = 599.1481
+offset_right = 1884.6318
+offset_bottom = 709.1481
 theme_override_styles/normal = SubResource("StyleBoxFlat_ffoxc")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_vkee1")
 theme_override_styles/hover = SubResource("StyleBoxFlat_fxl1m")
@@ -172,10 +172,10 @@ expand_icon = true
 slider_path = NodePath("../BrushSize")
 direction = -1
 z_index = 1
-offset_left = 1538.632
-offset_top = 775.78
-offset_right = 1585.0
-offset_bottom = 822.1481
+offset_left = 1538.6318
+offset_top = 634.78
+offset_right = 1584.9999
+offset_bottom = 681.1481
 theme_override_styles/normal = SubResource("StyleBoxFlat_h8tmb")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_n0edv")
 theme_override_styles/hover = SubResource("StyleBoxFlat_2xopo")
@@ -203,10 +203,11 @@ offset_bottom = 665.0
 
 [node name="redoButton" type="redoButton" parent="." unique_id=9702019]
 slider_path = NodePath("../BrushSize")
-offset_left = 1697.0
-offset_top = 470.0
-offset_right = 2210.0
-offset_bottom = 972.0
+z_index = 1
+offset_left = 123.0
+offset_top = 264.0
+offset_right = 807.0
+offset_bottom = 916.0
 scale = Vector2(0.25, 0.25)
 theme_override_styles/hover = SubResource("StyleBoxFlat_e4vda")
 icon = ExtResource("14_p52js")
@@ -324,15 +325,15 @@ icon = ExtResource("11_6ty18")
 flat = true
 
 [node name="ModePanel2" type="Sprite2D" parent="." unique_id=962141083]
-position = Vector2(192.00006, 161.00012)
-scale = Vector2(0.7713775, 0.48102877)
+position = Vector2(192.00006, 268.68753)
+scale = Vector2(0.7713775, 0.84422404)
 texture = ExtResource("2_74jdp")
 
 [node name="penSceneSwitch" type="penSceneSwitch" parent="." unique_id=577819439]
 offset_left = 88.99999
-offset_top = 75.0
+offset_top = 89.00001
 offset_right = 681.0
-offset_bottom = 510.0
+offset_bottom = 524.0
 scale = Vector2(0.35, 0.35)
 theme_override_styles/pressed = SubResource("StyleBoxFlat_hnnkm")
 theme_override_styles/hover = SubResource("StyleBoxFlat_cf255")
@@ -346,10 +347,10 @@ texture = ExtResource("15_74jdp")
 
 [node name="BrushSize" type="BrushSize" parent="." unique_id=1202299549]
 z_index = 1
-offset_left = 1604.632
-offset_top = 775.1481
-offset_right = 1763.632
-offset_bottom = 819.1481
+offset_left = 1604.6318
+offset_top = 634.1481
+offset_right = 1763.6318
+offset_bottom = 678.1481
 theme_override_styles/slider = SubResource("StyleBoxFlat_jxaey")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_xyyho")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_ot8k7")
@@ -359,7 +360,7 @@ step = 5.0
 value = 15.0
 
 [node name="ModePanel3" type="Sprite2D" parent="." unique_id=1134552223]
-position = Vector2(1688.3379, 795.14813)
+position = Vector2(1688.3379, 654.14813)
 rotation = 1.5707964
 scale = Vector2(0.37600055, 0.80046505)
 texture = ExtResource("2_74jdp")

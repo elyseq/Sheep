@@ -22,6 +22,16 @@ class InstructionPanel : Panel {
             GD.print("Could not find closeInstructionButton")
             return
         }
+        
+        guard let tween = createTween() else {
+            GD.print("Could not create tween")
+            return
+        }
+        tween.setLoops()
+
+        tween.tweenProperty(object: turnOffButton, property: "scale", finalVal: Variant(Vector2( x: 1.2, y: 1.2)), duration: 0.3)
+        tween.tweenProperty(object: turnOffButton, property: "scale", finalVal: Variant(Vector2( x: 1, y: 1)), duration: 0.3)
+        tween.tweenProperty(object: turnOffButton, property: "scale", finalVal: Variant(Vector2( x: 1, y: 1)), duration: 0.9)
 
         turnOffButton.pressed.connect {
             self.closeInstruction()
