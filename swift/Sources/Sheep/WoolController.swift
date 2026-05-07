@@ -56,9 +56,9 @@ class WoolController: CharacterBody2D {
                     woolWrapper.position = Vector2(x: Float(xpos), y: Float(ypos))
                     woolWrapper.rotation = Double.random(in: 0.0...360.0)
                     
-                    let distToCenter = woolWrapper.position.distanceTo(Vector2(x: -70, y: -20)) + .random(in: -10 ... 10)
+                    let distToCenter = woolWrapper.position.distanceTo(Vector2(x: 45, y: 15)) + .random(in: -10 ... 10)
                     woolWrapper.zIndex = 600 - abs(Int32(distToCenter))
-                    if(woolWrapper.position.y < -100){
+                    if(woolWrapper.position.y < -220){
                         woolWrapper.zIndex = 700
                     }
                     let wool = woolWrapper.getChunk()
@@ -87,7 +87,7 @@ class WoolController: CharacterBody2D {
         animatedSprite?.position = Vector2(x: 950, y: 750)
         animatedSprite?.scale = Vector2(x: 0.7, y: 0.7)
         animatedSprite?.spriteFrames = frames
-        animatedSprite?.zIndex = 250
+        animatedSprite?.zIndex = 650
         animatedSprite?.play(name: "none")
         addChild(node: animatedSprite!)
     }
@@ -236,10 +236,11 @@ class WoolController: CharacterBody2D {
                     woolWrapper.position = Vector2(x: Float(xpos), y: Float(ypos))
                     woolWrapper.rotation = Double.random(in: 0.0...360.0)
                     
-                    let distToCenter = woolWrapper.position.distanceTo(Vector2(x: -70, y: -20)) + .random(in: -10 ... 10)
-                    woolWrapper.zIndex = 200 - abs(Int32(distToCenter))
-                    if(woolWrapper.position.y < -100){
-                        woolWrapper.zIndex = 500
+                    let distToCenter = woolWrapper.position.distanceTo(Vector2(x: -45, y: 15)) + .random(in: -10 ... 10)
+                    woolWrapper.zIndex = 600 - abs(Int32(distToCenter))
+                    GD.print(woolWrapper.zIndex)
+                    if(woolWrapper.position.y < -220){
+                        woolWrapper.zIndex = 700
                     }
                     let wool = woolWrapper.getChunk()
                     

@@ -11,6 +11,7 @@ import SwiftGodot
 class ColorFunction : Button {
 //set the color when clicking the matching button,(actually would set the color mode again)
     @Export var colorName : String = ""
+    @Export var sliderPath: NodePath = NodePath()
 
     func chooseColor() {
         //reset the color of the wool when the matching color button is clicked
@@ -45,16 +46,22 @@ class ColorFunction : Button {
         style.setBorderWidthAll(width: 5)
         style.drawCenter = false
         overlay.addThemeStyleboxOverride(name: "panel", stylebox: style)
-
+        
         focusEntered.connect {
             overlay.visible = true
         }
-
+        
         focusExited.connect {
             overlay.visible = false
         }
         
-        self.pressed.connect {
+        self.pressed.connect { [self] in
+            if let slider = getNode(path: sliderPath) as? HSlider {
+                slider.value += Double(-1) * 5
+                slider.value += Double(1) * 5
+            } else {
+                return
+            }
             self.grabFocus()
             self.chooseColor()
         }

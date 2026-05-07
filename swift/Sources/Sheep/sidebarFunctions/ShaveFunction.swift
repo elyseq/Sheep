@@ -9,6 +9,8 @@ import SwiftGodot
 @Godot
 class ShaveFunction : Button {
 //set the mode into shaving mode when clickingbthe shaving button
+    @Export var sliderPath: NodePath = NodePath()
+
     func chooseShave() {
         //reset the cursor and set the shaving mode，color panel dissappear when set into the shaving mode
         guard let woolController = getNode(path: NodePath("/root/SceneBarn/WoolController")) as? WoolController else {
@@ -41,7 +43,13 @@ class ShaveFunction : Button {
         style.borderColor = Color(r: 1.0, g: 1.0, b: 1.0, a: 0.8)
         style.setBorderWidthAll(width: 5)
         style.drawCenter = false
-        self.pressed.connect {
+        self.pressed.connect { [self] in
+            if let slider = getNode(path: sliderPath) as? HSlider {
+                slider.value += Double(-1) * 5
+                slider.value += Double(1) * 5
+            } else {
+                return
+            }
             self.grabFocus()
             self.chooseShave()
         }

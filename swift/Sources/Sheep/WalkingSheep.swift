@@ -18,6 +18,8 @@ class WalkingSheep: CharacterBody2D {
     var clickArea: Area2D = Area2D()
     var canClickSheep: Bool = true
     var sheepNum: Int = 0
+    var isDragging: Bool = false
+    var animationCooldown: Double = 0.0 // wait time
     
     override func _ready() {
         guard let frames = GD.load(path: "res://sheep_animations.tres") as? SpriteFrames else {
@@ -29,7 +31,10 @@ class WalkingSheep: CharacterBody2D {
         animatedHead = AnimatedSprite2D()
         animatedHead.spriteFrames = frames
         animatedHead.play(name: "walkHead")
-        animatedHead.zIndex = 250
+        
+        animatedHead.zIndex = 700
+        animatedHead.scale = Vector2(x:1.78, y:1.78)
+        animatedHead.position = Vector2(x:-183, y:7)
         self.addChild(node: animatedHead)
         
         // body
@@ -49,7 +54,7 @@ class WalkingSheep: CharacterBody2D {
         // click box
         let clickShape = CollisionShape2D()
         let clickRect = RectangleShape2D()
-        clickRect.size = Vector2(x: 275, y: 150)
+        clickRect.size = Vector2(x: 700, y: 300)
         clickShape.shape = clickRect
 
         clickArea.addChild(node: clickShape)
@@ -68,16 +73,57 @@ class WalkingSheep: CharacterBody2D {
             }
         }
     }
+//    override func _input(event: InputEvent) {
+//        if event is InputEventMouseMotion && Input.isMouseButtonPressed(button: .left) {
+//            isDragging = true
+//        } else if event is InputEventMouseButton {
+//            let mouseEvent = event as! InputEventMouseButton
+//            if !mouseEvent.pressed {
+//                isDragging = false
+//            }
+//        }
+//    }
+    override func _process(delta: Double) {
+        
+            animationCooldown -= delta
+            
+            if animationCooldown <= 0 {
+                triggerRandomAnimation()
+                animationCooldown = Double.random(in: 4.5...6.7)
+            }
+        
+    }
+    
+    func triggerRandomAnimation() {
+        let choice = Float.random(in: 0...1)
+        
+        if choice > 0.30 {
+            playBlink()
+        } else {
+            playEarTwitch()
+        }
+    }
+    
+    func playBlink() {
+        animatedHead?.play(name: "blink")
+    }
 
+    func playEarTwitch() {
+        animatedHead?.play(name: "twitch")
+    }
+    
     override func _physicsProcess(delta: Double) {
         // changes direction if hits fence
         if direction == 1 {
             animatedHead?.flipH = true
             animatedBody?.flipH = true
+            animatedHead?.position = Vector2(x:-183, y: 7)
+
             woolLayer.scale.x = -abs(woolLayer.scale.x)
         } else {
             animatedBody?.flipH = false
             animatedHead?.flipH = false
+            animatedHead?.position = Vector2(x:183, y: 7)
             woolLayer.scale.x = abs(woolLayer.scale.x)
         }
         
@@ -93,15 +139,16 @@ class WalkingSheep: CharacterBody2D {
                     animatedHead?.flipH = true
                     animatedBody?.flipH = true
                     woolLayer.scale.x = -abs(woolLayer.scale.x)
-                    woolLayer.position = Vector2(x: -135, y: 50) //(x: -135, y: 100) //(x: -175, y: 100) //edit wool position, good direction when going to the right
+                    woolLayer.position = Vector2(x: -200, y: 8) //(x: -135, y: 100) //(x: -175, y: 100) //edit wool position, good direction when going to the right
                 } else {
                     animatedBody?.flipH = false
                     animatedHead?.flipH = false
                     woolLayer.scale.x = abs(woolLayer.scale.x)
-                    woolLayer.position = Vector2(x: 135, y: 50) //(x: 135, y: 100)
+                    woolLayer.position = Vector2(x: 200, y: 8) //(x: 135, y: 100)
                 }
         }
     }
+    
     
     public func configure(sheepNum: Int, direction: Float, position: Vector2, scale: Vector2, speed: Float) {
         self.sheepNum = sheepNum
@@ -135,12 +182,12 @@ class WalkingSheep: CharacterBody2D {
             
         //woolLayer.position = Vector2(x: 135, y: 100) //edit wool position, good direction when going to the right
 
-        woolLayer.scale = Vector2(x: 1.3, y: 1.3)
+        woolLayer.scale = Vector2(x: 1.75, y: 1.75)
 
         if(direction == 1) {
-            woolLayer.position = Vector2(x: -135, y: 50)
+            woolLayer.position = Vector2(x: -200, y: 8)
         } else {
-            woolLayer.position = Vector2(x: 135, y: 50)
+            woolLayer.position = Vector2(x: 200, y: 8)
         }
         
         for row in 0..<appearance.woolLocations.count {
@@ -152,17 +199,17 @@ class WalkingSheep: CharacterBody2D {
                     let wool = woolWrapper.getChunk()
 //                    wool.texture = GD.load(path: "res://assets/cloudshape.png") as? Texture2D
                     wool.position = Vector2(
-                        x: Float(28 * col - 190),
-                        y: Float(20 * row - 100)
+                        x: Float(28 * col - x_displacement),
+                        y: Float(20 * row - y_displacement)
                     )
                     wool.rotation = Double.random(in: 0.0...360.0)
                     wool.modulate = appearance.woolColors[row][col]
                     var centerVec = animatedBody.position
                     centerVec = centerVec + Vector2(x: -50, y: 40)
-                    wool.zIndex = 200 - abs(Int32(wool.position.distanceTo(centerVec) + .random(in: -10 ... 10)))
+                    wool.zIndex = 600 - abs(Int32(wool.position.distanceTo(centerVec) + .random(in: -10 ... 10)))
 
-                    if wool.position.y < -100 {
-                        wool.zIndex = 500
+                    if wool.position.y < -220 {
+                        wool.zIndex = 700
                     }
                     woolLayer.addChild(node: wool)
                 }

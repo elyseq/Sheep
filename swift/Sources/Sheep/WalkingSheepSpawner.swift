@@ -27,7 +27,7 @@ public class WalkingSheepSpawner: CharacterBody2D {
             let scale = Vector2(x: scaleNum, y: scaleNum)
             
             let sheep = WalkingSheep()
-            sheep.zIndex = (Int32)((i) * 500 + 1)
+            sheep.zIndex = (Int32)((i) * 700 + 1)
             sheep.configure(sheepNum: i, direction: direction, position: position, scale: scale, speed: speed)
             GD.print("Spawned sheep num: \(sheep.sheepNum)")
             sheep.visible = true
