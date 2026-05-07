@@ -51,6 +51,8 @@ public class WalkingSheepSpawner: CharacterBody2D {
         for sheep in sheepList {
             if let appearance = SavedSheep.shared.appearance(for: sheep.sheepNum) {
                 sheep.applySavedAppearance(appearance)
+            } else {
+                sheep.applyDefaultAppearance()
             }
         }
     }

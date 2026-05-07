@@ -82,5 +82,18 @@ final class SavedSheep : @unchecked Sendable{
     func appearance(for sheepNum: Int) -> SheepAppearance? {
         return appearancesBySheepNum[sheepNum]
     }
+    
+    func readFile(fileName: String) -> [[String]] {
+        let path = "res://assets/\(fileName)"
+        guard let file = FileAccess.open(path: path, flags: .read) else {
+            print("Could not open file at \(path)")
+            return []
+        }
+        
+        let content = file.getAsText()
+        return content.components(separatedBy: .newlines)
+            .filter { !$0.isEmpty }
+            .map { $0.components(separatedBy: ",") }
+    }
 
 }

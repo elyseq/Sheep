@@ -56,6 +56,16 @@ class WoolChunkController: Area2D {
         circle.radius = value //changes brush size!
         collision.shape = circle
     }
+
+    override func _inputEvent(viewport: Viewport?, event: InputEvent?, shapeIdx: Int32) {
+          guard let mouseEvent = event as? InputEventMouseButton else { return }
+          
+          if mouseEvent.buttonIndex == .left && mouseEvent.pressed {
+              print("Sheep clicked in Swift!")
+              woolSheared()
+          }
+    }
+    
     override func _input(event: InputEvent?) {
             guard let mouseEvent = event as? InputEventMouseButton else { return }
             
@@ -85,29 +95,33 @@ class WoolChunkController: Area2D {
     func getColor() -> Color {
         return sprite.modulate
     }
-    
+ 
     func onMouseEntered() {
         // Check if the left mouse button is held down while entering
         if Input.isMouseButtonPressed(button: .left) {
-
-            guard let woolThing = self.getParent() as? WoolThing,
-                  let woolController = woolThing.getParent()?.getParent() as? WoolController
-            else {
-                GD.print("Could not find WoolController")
-                return
-            }
-            
-            switch woolController.selectedFunction {
-            case .color:
-                sprite.modulate = woolController.selectedColor
-
-            case .shave:
-                shave()
-            
-            case .normal:
-                return 
-            }
+           woolSheared()
         }
+    }
+    
+    func woolSheared(){
+        guard let woolThing = self.getParent() as? WoolThing,
+              let woolController = woolThing.getParent()?.getParent() as? WoolController
+        else {
+            GD.print("Could not find WoolController")
+            return
+        }
+        
+        switch woolController.selectedFunction {
+        case .color:
+            sprite.modulate = woolController.selectedColor
+
+        case .shave:
+            shave()
+        
+        case .normal:
+            return
+        }
+
     }
     
     private func shave() {
