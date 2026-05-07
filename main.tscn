@@ -14,10 +14,10 @@
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_h2yge"]
 a = Vector2(-312.63324, 271)
-b = Vector2(63.721405, -320)
+b = Vector2(124.4559, -515)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_1bvp3"]
-a = Vector2(-37.834595, -313)
+a = Vector2(-125.86035, -523)
 b = Vector2(316.61584, 280)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h2yge"]
@@ -53,13 +53,13 @@ scale = Vector2(0.7410254, 0.6731707)
 texture = ExtResource("1_1bvp3")
 
 [node name="leftPenWall" type="StaticBody2D" parent="." unique_id=1266156243]
-position = Vector2(371.37643, 898)
+position = Vector2(504.79315, 898)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="leftPenWall" unique_id=1202446268]
 shape = SubResource("SegmentShape2D_h2yge")
 
 [node name="rightPenWall" type="StaticBody2D" parent="." unique_id=77093328]
-position = Vector2(1736, 1077)
+position = Vector2(1636.8441, 1093)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="rightPenWall" unique_id=1493300971]
 position = Vector2(-204.69447, -197)
