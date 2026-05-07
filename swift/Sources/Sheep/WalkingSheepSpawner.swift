@@ -16,7 +16,7 @@ public class WalkingSheepSpawner: CharacterBody2D {
         
         //ARRAY OF SHEEP
         var scaleNum : Float = 0.13
-        var positionY : Float = -200
+        var positionY : Float = -250
         var level : Float = 0
         var speed: Float = 20
         
@@ -38,7 +38,7 @@ public class WalkingSheepSpawner: CharacterBody2D {
             sheepList.append(sheep)
             
             scaleNum = scaleNum + 0.035
-            positionY = positionY + 85
+            positionY = positionY + 115
             level = level + 10
             speed = speed + 5.0
         }
