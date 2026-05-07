@@ -13,17 +13,11 @@ let x_displacement = 320
 class WoolChunkController: Area2D {
     var shadowSprite: Sprite2D = Sprite2D() // Store the black wool here
     var sprite : Sprite2D = Sprite2D()
-    var player: AudioStreamPlayer = AudioStreamPlayer()
 
     var collision = CollisionShape2D()
     override func _ready() {
         
-        addChild(node: player)
-        player.volumeDb = -65.0
-
-        player.stream = GD.load(path: "res://assets/shearingSound.mp3")
-        player.play(fromPosition: 5.0)
-        player.streamPaused = true
+        
         sprite.texture = GD.load(path: "res://assets/cloudshape.png") as? Texture2D
         sprite.scale = Vector2(x: 0.2, y: 0.2)
         
@@ -68,28 +62,7 @@ class WoolChunkController: Area2D {
           }
     }
     
-    override func _input(event: InputEvent?) {
-            guard let mouseEvent = event as? InputEventMouseButton else { return }
-            
-            if mouseEvent.isPressed() && mouseEvent.buttonIndex == .left {
-                guard let woolThing = self.getParent() as? WoolThing else {
-                    return
-                }
-                guard let woolController = woolThing.getParent()?.getParent() as? WoolController else {
-                    GD.print("Could not find WoolController")
-                    return
-                }
-
-                if woolController.selectedFunction == .shave {
-                    player.streamPaused = false
-                }
-            }
-        if !mouseEvent.isPressed(){
-            
-            player.streamPaused = true
-        }
-            
-    }
+    
    
     func setColor(_ color: Color) {
         sprite.modulate = color

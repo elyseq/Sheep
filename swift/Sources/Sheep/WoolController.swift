@@ -20,7 +20,8 @@ class WoolController: CharacterBody2D {
     var woolNodesMatrix : [[WoolChunkController?]] = []
     var selectedFunction : MouseMode = .normal
     var selectedColor: Color = Color(r: 0.0, g: 0.0, b: 0.0, a: 0.0)
-    
+    var player: AudioStreamPlayer = AudioStreamPlayer()
+
     var sheepbody = Sprite2D()
     
     var animatedSprite: AnimatedSprite2D?
@@ -90,6 +91,14 @@ class WoolController: CharacterBody2D {
         animatedSprite?.zIndex = 650
         animatedSprite?.play(name: "none")
         addChild(node: animatedSprite!)
+        
+        //audio stream player
+        addChild(node: player)
+        player.volumeDb = -15.0
+
+        player.stream = GD.load(path: "res://assets/shearingSound.mp3")
+        player.play(fromPosition: 5.0)
+        player.streamPaused = true
     }
     
     func makeWoolNode (_ pos: Vector2) -> WoolChunkController {
@@ -118,6 +127,18 @@ class WoolController: CharacterBody2D {
             if !mouseEvent.pressed {
                 isDragging = false
             }
+        }
+        
+        //shave sound playing
+        guard let mouseEvent = event as? InputEventMouseButton else { return }
+        
+        if mouseEvent.isPressed() && mouseEvent.buttonIndex == .left {
+            if selectedFunction == .shave {
+                player.streamPaused = false
+            }
+        }
+        if !mouseEvent.isPressed(){
+            player.streamPaused = true
         }
     }
     
