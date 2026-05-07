@@ -42,7 +42,7 @@ class WoolController: CharacterBody2D {
         if let appearance = SavedSheep.shared.appearanceForSelectedSheep() {
             self.woolLocations = appearance.woolLocations
         } else {
-            self.woolLocations = readFile(fileName: "sheepmatrix.txt")
+            self.woolLocations = SavedSheep.shared.readFile(fileName: "sheepmatrix.txt")
         }
         
         for y in 0...woolLocations.count-1{
@@ -139,19 +139,6 @@ class WoolController: CharacterBody2D {
         animatedSprite?.play(name: "twitch")
     }
     
-    
-    func readFile(fileName: String) -> [[String]] {
-        let path = "res://assets/\(fileName)"
-        guard let file = FileAccess.open(path: path, flags: .read) else {
-            print("Could not open file at \(path)")
-            return []
-        }
-        
-        let content = file.getAsText()
-        return content.components(separatedBy: .newlines)
-            .filter { !$0.isEmpty }
-            .map { $0.components(separatedBy: ",") }
-    }
     func checkForFloating(row: Int,col: Int){
         let rows = woolLocations.count
         let cols = woolLocations[0].count
@@ -222,8 +209,8 @@ class WoolController: CharacterBody2D {
     }
     
     func redo() {
-        self.woolLocations = readFile(fileName: "sheepmatrix.txt")
-       
+        //self.woolLocations = readFile(fileName: "sheepmatrix.txt")
+        self.woolLocations = SavedSheep.shared.readFile(fileName: "sheepmatrix.txt")
         
         for y in 0...woolLocations.count-1{
             woolNodesMatrix.append(Array(repeating: nil, count: woolLocations[y].count))

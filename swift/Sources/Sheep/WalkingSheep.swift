@@ -220,5 +220,26 @@ class WalkingSheep: CharacterBody2D {
         
     }
 
+    func applyDefaultAppearance() {
+        let locations = SavedSheep.shared.readFile(fileName: "sheepmatrix.txt")
+        var colors: [[Color]] = []
+
+        for row in locations {
+            colors.append(
+                row.map { value in
+                    value == "1" || value == "2"
+                    ? Color(r: 1, g: 1, b: 1)
+                    : Color(r: 0, g: 0, b: 0, a: 0)
+                }
+            )
+        }
+
+        applySavedAppearance(
+            SheepAppearance(
+                woolLocations: locations,
+                woolColors: colors
+            )
+        )
+    }
     
 }
