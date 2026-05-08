@@ -168,6 +168,7 @@ position = Vector2(1127.0728, 176.49057)
 texture = ExtResource("9_efxa6")
 
 [node name="closeInstructionButton" type="Button" parent="InstructionPanel" unique_id=783213272]
+z_index = 4096
 layout_mode = 0
 offset_left = 615.31
 offset_top = 480.61267
