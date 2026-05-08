@@ -8,7 +8,7 @@ import SwiftGodot
 
 @Godot
 class MenuPanel: Panel {
-
+//The panel that hold all the manu functions: including the mute and instruction
     override func _ready() {
         self.visible = false
 

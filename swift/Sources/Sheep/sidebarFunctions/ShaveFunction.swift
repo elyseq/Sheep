@@ -24,8 +24,7 @@ class ShaveFunction : Button {
                     }
         
                     panel.panelDisappear()
-            
-
+        
         woolController.setShaveMode()
 
         if let tex = GD.load(path: "res://assets/razorCursor.png") as? Texture2D {

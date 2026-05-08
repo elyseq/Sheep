@@ -66,7 +66,7 @@ class ColorSidebarButton : Button {
                return
            }
            if functionName == "color" {
-               woolController.setColorMode(color: Color(r: 0.965, g: 0.945, b: 0.898))
+               woolController.setColorMode(color: Color(r: 1, g: 1, b: 1))
                if let tex = GD.load(path: "res://assets/brushCursor.png") as? Texture2D {
                    Input.setCustomMouseCursor(
                        image: tex,

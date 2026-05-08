@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cj1m8ok1hxai4"
-path="res://.godot/imported/click-choose-sheep.png-d9290dc543aebc1dfc8a435d1367879a.ctex"
+uid="uid://bjywp8roast6c"
+path="res://.godot/imported/e742ca59-9804-4b81-bb34-ad51f741e76c.png-2f454aeae438db077d49f4baf3ae57de.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/click-choose-sheep.png"
-dest_files=["res://.godot/imported/click-choose-sheep.png-d9290dc543aebc1dfc8a435d1367879a.ctex"]
+source_file="res://assets/Image Creation Request_files/e742ca59-9804-4b81-bb34-ad51f741e76c.png"
+dest_files=["res://.godot/imported/e742ca59-9804-4b81-bb34-ad51f741e76c.png-2f454aeae438db077d49f4baf3ae57de.ctex"]
 
 [params]
 
