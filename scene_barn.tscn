@@ -144,6 +144,7 @@ texture = ExtResource("2_74jdp")
 
 [node name="sidebarButtonColor" type="ColorSidebarButton" parent="." unique_id=714495984]
 function_name = "color"
+slider_path = NodePath("../BrushSize")
 offset_left = 1675.0
 offset_top = 284.00003
 offset_right = 2187.0
@@ -183,6 +184,7 @@ icon = ExtResource("17_ft452")
 expand_icon = true
 
 [node name="SidebarButtonShave" type="ShaveFunction" parent="." unique_id=1999481116]
+slider_path = NodePath("../BrushSize")
 offset_left = 1672.9999
 offset_top = 99.0
 offset_right = 2185.0
@@ -201,6 +203,7 @@ offset_right = 224.0
 offset_bottom = 665.0
 
 [node name="redoButton" type="redoButton" parent="." unique_id=9702019]
+slider_path = NodePath("../BrushSize")
 z_index = 1
 offset_left = 123.0
 offset_top = 264.0

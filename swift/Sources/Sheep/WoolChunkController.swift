@@ -25,7 +25,6 @@ class WoolChunkController: Area2D {
         shadowSprite.scale = Vector2(x: 0.23, y: 0.23)
 
         
-        sprite.modulate = Color(r: 0.965, g: 0.945, b: 0.898) // makes clouds/wool the color of head
         shadowSprite.modulate = Color(r:0.0, g: 0.0, b: 0.0)
         shadowSprite.zIndex = 1
         sprite.zIndex = 50

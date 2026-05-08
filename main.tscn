@@ -39,13 +39,6 @@ position = Vector2(958.8082, 500.00003)
 scale = Vector2(0.81634635, 0.80960363)
 texture = ExtResource("1_efxa6")
 
-[node name="PenBackground" type="Sprite2D" parent="." unique_id=1398805788]
-z_index = -1
-position = Vector2(3507.6653, 295)
-scale = Vector2(0.8023536, 0.7890244)
-texture = ExtResource("1_1bvp3")
-offset = Vector2(-436.0935, 362)
-
 [node name="background" type="Sprite2D" parent="." unique_id=1340833516]
 visible = false
 position = Vector2(941.8823, 556)
