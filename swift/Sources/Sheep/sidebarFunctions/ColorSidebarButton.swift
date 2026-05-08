@@ -74,7 +74,7 @@ class ColorSidebarButton : Button {
                        hotspot: Vector2(x: 0, y: 40)
                    )
                 }
-                GD.print("SET CURSOR")
+                
            } else if functionName == "shave" {
                woolController.setShaveMode()
            }

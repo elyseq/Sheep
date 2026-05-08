@@ -20,20 +20,92 @@ class ColorFunction : Button {
          }
          if colorName == "red" {
              woolController.setColorMode(color: Color(r: 1.0, g: 0.5451, b: 0.5765, a: 0.8))
+             
+             if let tex = GD.load(path: "res://assets/redBrush.png") as? Texture2D {
+                 Input.setCustomMouseCursor(
+                     image: tex,
+                     shape: .arrow,
+                     hotspot: Vector2(x: 0, y: 40)
+                 )
+              }
+             
          } else if colorName == "orange" {
              woolController.setColorMode(color: Color(r: 1.0, g: 0.733, b: 0.729, a: 0.8))
+             
+             if let tex = GD.load(path: "res://assets/orangeBrush.png") as? Texture2D {
+                 Input.setCustomMouseCursor(
+                     image: tex,
+                     shape: .arrow,
+                     hotspot: Vector2(x: 0, y: 40)
+                 )
+              }
+
          } else if colorName == "yellow" {
              woolController.setColorMode(color: Color(r: 0.996, g: 1.0, b: 0.549, a: 0.8))
+             
+             if let tex = GD.load(path: "res://assets/yellowBrush.png") as? Texture2D {
+                 Input.setCustomMouseCursor(
+                     image: tex,
+                     shape: .arrow,
+                     hotspot: Vector2(x: 0, y: 40)
+                 )
+              }
+
          } else if colorName == "green" {
              woolController.setColorMode(color: Color(r: 0.7176, g: 1.0, b: 0.7412, a: 0.8))
+             
+             if let tex = GD.load(path: "res://assets/greenBrush.png") as? Texture2D {
+                 Input.setCustomMouseCursor(
+                     image: tex,
+                     shape: .arrow,
+                     hotspot: Vector2(x: 0, y: 40)
+                 )
+              }
+
          } else if colorName == "blue" {
              woolController.setColorMode(color: Color(r: 0.48, g: 0.835, b: 1.0, a: 0.8))
+             
+             if let tex = GD.load(path: "res://assets/blueBrush.png") as? Texture2D {
+                 Input.setCustomMouseCursor(
+                     image: tex,
+                     shape: .arrow,
+                     hotspot: Vector2(x: 0, y: 40)
+                 )
+              }
+
          } else if colorName == "purple" {
              woolController.setColorMode(color: Color(r: 0.6078, g: 0.6, b: 1, a: 0.8))
+             
+             if let tex = GD.load(path: "res://assets/purpleBrush.png") as? Texture2D {
+                 Input.setCustomMouseCursor(
+                     image: tex,
+                     shape: .arrow,
+                     hotspot: Vector2(x: 0, y: 40)
+                 )
+              }
+             
          } else if colorName == "pink" {
              woolController.setColorMode(color: Color(r: 0.9843, g: 0.8039, b: 0.949, a: 0.8))
+             
+             if let tex = GD.load(path: "res://assets/pinkBrush.png") as? Texture2D {
+                 Input.setCustomMouseCursor(
+                     image: tex,
+                     shape: .arrow,
+                     hotspot: Vector2(x: 0, y: 40)
+                 )
+              }
+
          } else if colorName == "white" {
              woolController.setColorMode(color: Color(r: 1, g: 1, b: 1, a: 0.8))
+             
+             if let tex = GD.load(path: "res://assets/eraser.png") as? Texture2D {
+                 Input.setCustomMouseCursor(
+                     image: tex,
+                     shape: .arrow,
+                     hotspot: Vector2(x: 10, y: 10)
+                 )
+              }
+
          } else if colorName == "" {
              woolController.setColorMode(color: woolController.selectedColor)
          }
