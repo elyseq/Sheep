@@ -9,6 +9,8 @@ import SwiftGodot
 @Godot
 class ColorSidebarButton : Button {
     @Export var functionName: String = ""
+    @Export var sliderPath: NodePath = NodePath()
+
     var panelSelected: SidebarPanel?
     var clickTime = 0
     
@@ -29,7 +31,14 @@ class ColorSidebarButton : Button {
         focusExited.connect {
             overlay.visible = false
         }
-        self.pressed.connect {
+        self.pressed.connect { [self] in
+            if let slider = getNode(path: sliderPath) as? HSlider {
+                slider.value += Double(-1) * 5
+                slider.value += Double(1) * 5
+            } else {
+                return
+            }
+
             self.grabFocus()
             self.panelVisibility()
             self.selectFunction()
