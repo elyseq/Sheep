@@ -14,6 +14,8 @@ class WalkingSheep: CharacterBody2D {
     var direction: Float = 0
     var animatedHead: AnimatedSprite2D!
     var animatedBody: AnimatedSprite2D!
+    var shadow: Sprite2D!
+    
     var woolLayer: Node2D = Node2D()
     var clickArea: Area2D = Area2D()
     var canClickSheep: Bool = true
@@ -26,6 +28,14 @@ class WalkingSheep: CharacterBody2D {
             GD.print("Failed to load sprite frames")
             return
         }
+        
+        // shadow
+        shadow = Sprite2D()
+        shadow.texture = GD.load(path: "res://assets/shadow.png") as? Texture2D
+        shadow.position = Vector2(x:-250, y:650)
+        shadow.scale = Vector2(x:1.25, y:0.7)
+        shadow.modulate = Color(r: 0, g: 0, b: 0, a: 0.5)
+        self.addChild(node: shadow)
         
         // head
         animatedHead = AnimatedSprite2D()
@@ -118,12 +128,14 @@ class WalkingSheep: CharacterBody2D {
             animatedHead?.flipH = true
             animatedBody?.flipH = true
             animatedHead?.position = Vector2(x:-183, y: 7)
+            shadow.position = Vector2(x:-250, y:650)
 
             woolLayer.scale.x = -abs(woolLayer.scale.x)
         } else {
             animatedBody?.flipH = false
             animatedHead?.flipH = false
             animatedHead?.position = Vector2(x:183, y: 7)
+            shadow.position = Vector2(x:250, y:650)
             woolLayer.scale.x = abs(woolLayer.scale.x)
         }
         
@@ -139,12 +151,12 @@ class WalkingSheep: CharacterBody2D {
                     animatedHead?.flipH = true
                     animatedBody?.flipH = true
                     woolLayer.scale.x = -abs(woolLayer.scale.x)
-                    woolLayer.position = Vector2(x: -200, y: 8) //(x: -135, y: 100) //(x: -175, y: 100) //edit wool position, good direction when going to the right
+                    woolLayer.position = Vector2(x: -200, y: 8)
                 } else {
                     animatedBody?.flipH = false
                     animatedHead?.flipH = false
                     woolLayer.scale.x = abs(woolLayer.scale.x)
-                    woolLayer.position = Vector2(x: 200, y: 8) //(x: 135, y: 100)
+                    woolLayer.position = Vector2(x: 200, y: 8)
                 }
         }
     }

@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://mcb5fukgkk8a" path="res://assets/pinkButton.png" id="11_6ty18"]
 [ext_resource type="Texture2D" uid="uid://gmm66t1d5nqf" path="res://assets/barn.png" id="11_asthk"]
 [ext_resource type="Texture2D" uid="uid://ttnau2urkoj0" path="res://assets/redoButton.png" id="14_p52js"]
-[ext_resource type="Texture2D" uid="uid://u1lie2ngbrcd" path="res://assets/shadow-clipart-lg.png" id="15_74jdp"]
+[ext_resource type="Texture2D" uid="uid://u1lie2ngbrcd" path="res://assets/shadow.png" id="15_74jdp"]
 [ext_resource type="Texture2D" uid="uid://b688rnpd1tc33" path="res://assets/small circle.svg" id="17_ft452"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m37kl"]
@@ -183,7 +183,6 @@ icon = ExtResource("17_ft452")
 expand_icon = true
 
 [node name="SidebarButtonShave" type="ShaveFunction" parent="." unique_id=1999481116]
-slider_path = NodePath("../BrushSize")
 offset_left = 1672.9999
 offset_top = 99.0
 offset_right = 2185.0
@@ -202,7 +201,6 @@ offset_right = 224.0
 offset_bottom = 665.0
 
 [node name="redoButton" type="redoButton" parent="." unique_id=9702019]
-slider_path = NodePath("../BrushSize")
 z_index = 1
 offset_left = 123.0
 offset_top = 264.0
@@ -228,7 +226,6 @@ texture = ExtResource("6_m37kl")
 
 [node name="redButton" type="ColorFunction" parent="colorPanel" unique_id=1910094079]
 color_name = "red"
-slider_path = NodePath("../../BrushSize")
 layout_mode = 0
 offset_left = 17.0
 offset_top = 40.0
@@ -242,7 +239,6 @@ flat = true
 
 [node name="orangeButton" type="ColorFunction" parent="colorPanel" unique_id=808991442]
 color_name = "orange"
-slider_path = NodePath("../../BrushSize")
 layout_mode = 0
 offset_left = 160.0
 offset_top = 40.0
@@ -256,7 +252,6 @@ flat = true
 
 [node name="yellowButton" type="ColorFunction" parent="colorPanel" unique_id=941045030]
 color_name = "yellow"
-slider_path = NodePath("../../BrushSize")
 layout_mode = 0
 offset_left = 297.0
 offset_top = 40.0
@@ -270,7 +265,6 @@ flat = true
 
 [node name="greenButton" type="ColorFunction" parent="colorPanel" unique_id=1879817039]
 color_name = "green"
-slider_path = NodePath("../../BrushSize")
 layout_mode = 0
 offset_left = 442.0
 offset_top = 40.0
@@ -284,7 +278,6 @@ flat = true
 
 [node name="blueButton" type="ColorFunction" parent="colorPanel" unique_id=1019955173]
 color_name = "blue"
-slider_path = NodePath("../../BrushSize")
 layout_mode = 0
 offset_left = 586.0
 offset_top = 40.0
@@ -298,7 +291,6 @@ flat = true
 
 [node name="purpleButton" type="ColorFunction" parent="colorPanel" unique_id=1074793611]
 color_name = "purple"
-slider_path = NodePath("../../BrushSize")
 layout_mode = 0
 offset_left = 729.0
 offset_top = 40.0
@@ -312,7 +304,6 @@ flat = true
 
 [node name="pinkButton" type="ColorFunction" parent="colorPanel" unique_id=1219949709]
 color_name = "pink"
-slider_path = NodePath("../../BrushSize")
 layout_mode = 0
 offset_left = 874.0
 offset_top = 40.0
