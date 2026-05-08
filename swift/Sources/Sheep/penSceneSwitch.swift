@@ -9,6 +9,7 @@ import SwiftGodot
 
 @Godot
 final class penSceneSwitch : Button {
+// switch the scene from the barn scene to the main scene, witht the sheep wool shape and color saved
     
     override func _ready() {
 
@@ -23,12 +24,13 @@ final class penSceneSwitch : Button {
                 self.getTree()?.changeSceneToFile(path: "res://main.tscn")
                 return
             }
-
+            
             SavedSheep.shared.save(from: woolController)
             
             if let woolController = self.getNode(path: NodePath("/root/SceneBarn/WoolController")) as? WoolController {
                 woolController.setNormalMode()
             }
+            
             self.getTree()?.changeSceneToFile(path: "res://main.tscn")
         
         }
