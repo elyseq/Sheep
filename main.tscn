@@ -8,9 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://boshrsjk5saq7" path="res://assets/muteButton.png" id="6_efxa6"]
 [ext_resource type="Texture2D" uid="uid://dom7uyru3mcw" path="res://assets/ok.png" id="7_4c57u"]
 [ext_resource type="Texture2D" uid="uid://bhh6jx728nu60" path="res://assets/large circle.svg" id="7_5vw27"]
-[ext_resource type="Texture2D" uid="uid://cjm4xylk74owf" path="res://assets/click-choose-sheep.png" id="8_4c57u"]
+[ext_resource type="Texture2D" uid="uid://cj1m8ok1hxai4" path="res://assets/click-choose-sheep.png" id="8_4c57u"]
 [ext_resource type="Texture2D" uid="uid://b8bg6ihw1ed8l" path="res://assets/Go-to-barn.png" id="9_efxa6"]
-[ext_resource type="Texture2D" uid="uid://beru4bx570p1f" path="res://assets/click-to-start.png" id="9_kek77"]
+[ext_resource type="Texture2D" uid="uid://cbkdj5sa2jmw1" path="res://assets/click-to-start.png" id="9_kek77"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_h2yge"]
 a = Vector2(-312.63324, 271)
@@ -87,7 +87,7 @@ position = Vector2(956.817, 793)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1297550186]
 visible = false
 sprite_frames = ExtResource("4_lquwl")
-animation = &"walk"
+animation = &"blink"
 
 [node name="MenuButton" type="MenuButtonMy" parent="." unique_id=1669685431]
 offset_left = 34.847656
@@ -152,26 +152,30 @@ icon = ExtResource("7_4c57u")
 flat = true
 
 [node name="InstructionPanel" type="InstructionPanel" parent="." unique_id=1689366817]
-offset_left = 184.19475
-offset_top = -75.99999
-offset_right = 1877.7906
-offset_bottom = 704.74634
+offset_left = 215.05981
+offset_top = -21.999998
+offset_right = 1859.869
+offset_bottom = 520.43427
 scale = Vector2(1, 1.0028865)
 theme_override_styles/panel = SubResource("StyleBoxLine_4c57u")
 
 [node name="chooseSheepInstruction" type="Sprite2D" parent="InstructionPanel" unique_id=2036531622]
-position = Vector2(359.42865, 410.81418)
+position = Vector2(364.40692, 162.53085)
+scale = Vector2(0.5439458, 0.67925787)
 texture = ExtResource("8_4c57u")
 
 [node name="GoToBarnInstruction" type="Sprite2D" parent="InstructionPanel" unique_id=1884284845]
-position = Vector2(1127.0728, 176.49057)
+position = Vector2(1242.5679, 174.4963)
+scale = Vector2(0.6808838, 0.77155644)
 texture = ExtResource("9_efxa6")
 
 [node name="closeInstructionButton" type="Button" parent="InstructionPanel" unique_id=783213272]
 layout_mode = 0
-offset_left = 615.31
-offset_top = 480.61267
-offset_right = 851.31
-offset_bottom = 552.6127
+offset_left = 141.3819
+offset_top = 190.45027
+offset_right = 2580.3818
+offset_bottom = 608.4503
+scale = Vector2(0.32267728, 0.28512278)
 pivot_offset = Vector2(100, 36)
 icon = ExtResource("9_kek77")
+flat = true
