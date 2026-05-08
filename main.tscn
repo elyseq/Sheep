@@ -145,10 +145,10 @@ icon = ExtResource("7_4c57u")
 flat = true
 
 [node name="InstructionPanel" type="InstructionPanel" parent="." unique_id=1689366817]
-offset_left = 215.05981
+offset_left = 197.13817
 offset_top = -21.999998
-offset_right = 1859.869
-offset_bottom = 520.43427
+offset_right = 205.10333
+offset_bottom = -21.999998
 scale = Vector2(1, 1.0028865)
 theme_override_styles/panel = SubResource("StyleBoxLine_4c57u")
 
@@ -162,12 +162,12 @@ position = Vector2(1242.5679, 174.4963)
 scale = Vector2(0.6808838, 0.77155644)
 texture = ExtResource("9_efxa6")
 
-[node name="closeInstructionButton" type="Button" parent="InstructionPanel" unique_id=783213272]
+[node name="closeInstructionButton" type="InstructionButton" parent="InstructionPanel" unique_id=190984246]
 layout_mode = 0
-offset_left = 141.3819
-offset_top = 190.45027
-offset_right = 2580.3818
-offset_bottom = 608.4503
+offset_left = 176.22955
+offset_top = 188.45602
+offset_right = 1286.9517
+offset_bottom = 538.8375
 scale = Vector2(0.32267728, 0.28512278)
 pivot_offset = Vector2(100, 36)
 icon = ExtResource("9_kek77")

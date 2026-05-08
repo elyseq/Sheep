@@ -33,7 +33,7 @@ class ColorFunction : Button {
          } else if colorName == "pink" {
              woolController.setColorMode(color: Color(r: 0.9843, g: 0.8039, b: 0.949, a: 0.8))
          } else {
-             woolController.setColorMode(color: Color(r: 0.965, g: 0.945, b: 0.898))
+             woolController.setColorMode(color: Color(r: 1, g: 1, b: 1))
          }
      }
     
