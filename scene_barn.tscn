@@ -145,6 +145,7 @@ texture = ExtResource("2_74jdp")
 
 [node name="sidebarButtonColor" type="ColorSidebarButton" parent="." unique_id=714495984]
 function_name = "color"
+slider_path = NodePath("../BrushSize")
 offset_left = 1687.9999
 offset_top = 280.00003
 offset_right = 2200.0
@@ -156,6 +157,7 @@ icon = ExtResource("3_ft452")
 flat = true
 
 [node name="SidebarButtonShave" type="ShaveFunction" parent="." unique_id=1999481116]
+slider_path = NodePath("../BrushSize")
 offset_left = 1688.0
 offset_top = 95.99999
 offset_right = 2200.0
