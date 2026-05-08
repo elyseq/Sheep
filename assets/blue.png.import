@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mcb5fukgkk8a"
-path="res://.godot/imported/pinkButton.png-52e134f0943b00d1a32473f29f4b369c.ctex"
+uid="uid://h0li665q3lof"
+path="res://.godot/imported/blue.png-febe91f205a1eb4db51db73579ff5524.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/pinkButton.png"
-dest_files=["res://.godot/imported/pinkButton.png-52e134f0943b00d1a32473f29f4b369c.ctex"]
+source_file="res://assets/blue.png"
+dest_files=["res://.godot/imported/blue.png-febe91f205a1eb4db51db73579ff5524.ctex"]
 
 [params]
 

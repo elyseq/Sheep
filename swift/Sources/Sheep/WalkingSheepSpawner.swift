@@ -1,9 +1,12 @@
-//
-//  WalkingSheepSpawner.swift
-//  Sheep
-//
-//  Created by Maddy Scott on 3/31/26.
-//
+///
+/// WalkingSheepSpawner.swift
+/// Sheep
+///
+/// Created by Maddy Scott on 3/31/26.
+///
+///
+/// Creates the 4 walking sheep in the pasture with the saved wool appearance
+///
 
 import SwiftGodot
 
@@ -14,7 +17,7 @@ public class WalkingSheepSpawner: CharacterBody2D {
 
     public override func _ready() {
         
-        //ARRAY OF SHEEP
+        
         var scaleNum : Float = 0.13
         var positionY : Float = -250
         var level : Float = 0
@@ -47,6 +50,7 @@ public class WalkingSheepSpawner: CharacterBody2D {
         
     }
     
+    /// Applies the correct appearance for each sheep based on its sheepNum
     func checkSavedSheep() {
         for sheep in sheepList {
             if let appearance = SavedSheep.shared.appearance(for: sheep.sheepNum) {

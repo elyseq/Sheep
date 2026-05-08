@@ -1,27 +1,32 @@
-//
-//  WalkingSheep.swift
-//  Sheep
-//
-//  Created by Maddy Scott on 3/30/26.
-//
-//
+///
+/// WalkingSheep.swift
+/// Sheep
+///
+/// Created by Maddy Scott on 3/30/26.
+///
+/// Creates a walking sheep with a saved wool appearance
+///
+
 import SwiftGodot
 
 @Godot
 class WalkingSheep: CharacterBody2D {
-
+    
+    var sheepNum: Int = 0
     var speed: Float = 0
     var direction: Float = 0
+    var animationCooldown: Double = 0.0
+    
     var animatedHead: AnimatedSprite2D!
     var animatedBody: AnimatedSprite2D!
+    
     var shadow: Sprite2D!
     
     var woolLayer: Node2D = Node2D()
     var clickArea: Area2D = Area2D()
+    
     var canClickSheep: Bool = true
-    var sheepNum: Int = 0
     var isDragging: Bool = false
-    var animationCooldown: Double = 0.0 // wait time
     
     override func _ready() {
         guard let frames = GD.load(path: "res://sheep_animations.tres") as? SpriteFrames else {
@@ -29,7 +34,7 @@ class WalkingSheep: CharacterBody2D {
             return
         }
         
-        // shadow
+        /// shadow
         shadow = Sprite2D()
         shadow.texture = GD.load(path: "res://assets/shadow.png") as? Texture2D
         shadow.position = Vector2(x:-250, y:650)
@@ -37,7 +42,7 @@ class WalkingSheep: CharacterBody2D {
         shadow.modulate = Color(r: 0, g: 0, b: 0, a: 0.5)
         self.addChild(node: shadow)
         
-        // head
+        /// head
         animatedHead = AnimatedSprite2D()
         animatedHead.spriteFrames = frames
         animatedHead.play(name: "walkHead")
@@ -47,13 +52,13 @@ class WalkingSheep: CharacterBody2D {
         animatedHead.position = Vector2(x:-183, y:7)
         self.addChild(node: animatedHead)
         
-        // body
+        /// body
         animatedBody = AnimatedSprite2D()
         animatedBody.spriteFrames = frames
         animatedBody.play(name: "walk1")
         self.addChild(node: animatedBody)
 
-        // collision box
+        /// collision box
         let collision = CollisionShape2D()
         let shape = RectangleShape2D()
         shape.size = Vector2(x: 275, y: 50)
@@ -61,7 +66,7 @@ class WalkingSheep: CharacterBody2D {
         self.addChild(node: collision)
         self.addChild(node: woolLayer)
         
-        // click box
+        /// click box
         let clickShape = CollisionShape2D()
         let clickRect = RectangleShape2D()
         clickRect.size = Vector2(x: 800, y: 600)
@@ -71,7 +76,7 @@ class WalkingSheep: CharacterBody2D {
         clickArea.inputPickable = true
         self.addChild(node: clickArea)
         
-        // click handlers
+        /// click handlers
         clickArea.inputEvent.connect { viewport, event, shapeIdx in
             if let mouseEvent = event as? InputEventMouseButton,
                mouseEvent.pressed,
@@ -83,18 +88,8 @@ class WalkingSheep: CharacterBody2D {
             }
         }
     }
-//    override func _input(event: InputEvent) {
-//        if event is InputEventMouseMotion && Input.isMouseButtonPressed(button: .left) {
-//            isDragging = true
-//        } else if event is InputEventMouseButton {
-//            let mouseEvent = event as! InputEventMouseButton
-//            if !mouseEvent.pressed {
-//                isDragging = false
-//            }
-//        }
-//    }
+    
     override func _process(delta: Double) {
-        
             animationCooldown -= delta
             
             if animationCooldown <= 0 {
@@ -104,6 +99,7 @@ class WalkingSheep: CharacterBody2D {
         
     }
     
+    /// plays face animation randomly
     func triggerRandomAnimation() {
         let choice = Float.random(in: 0...1)
         
@@ -114,16 +110,18 @@ class WalkingSheep: CharacterBody2D {
         }
     }
     
+    /// plays the blink animation
     func playBlink() {
         animatedHead?.play(name: "blink")
     }
 
+    /// plays the ear twitch animation
     func playEarTwitch() {
         animatedHead?.play(name: "twitch")
     }
     
+    /// changes the direction of the sheep if it hits the fence
     override func _physicsProcess(delta: Double) {
-        // changes direction if hits fence
         if direction == 1 {
             animatedHead?.flipH = true
             animatedBody?.flipH = true
@@ -145,7 +143,6 @@ class WalkingSheep: CharacterBody2D {
 
         if isOnWall() {
             direction *= -1
-            //direction *= -1
                         
                 if direction == 1 {
                     animatedHead?.flipH = true
@@ -161,7 +158,7 @@ class WalkingSheep: CharacterBody2D {
         }
     }
     
-    
+    /// configures the walking sheep
     public func configure(sheepNum: Int, direction: Float, position: Vector2, scale: Vector2, speed: Float) {
         self.sheepNum = sheepNum
         self.direction = direction
@@ -170,14 +167,15 @@ class WalkingSheep: CharacterBody2D {
         self.speed = speed
     }
     
+    /// clears the wool nodes
     func clearSavedWoolOverlay() {
         for childIndex in stride(from: woolLayer.getChildCount() - 1, through: 0, by: -1) {
             woolLayer.getChild(idx: childIndex)?.queueFree()
         }
     }
     
+    /// sets the correct walk animation so sheep all start at different walk cycles/
     func setWalkNum(num: String){
-        // sets the correct walk animation so sheep all start at different walk cycles
         guard let animatedBody = animatedBody else {
                 GD.print("setWalkNum called before _ready")
                 return
@@ -186,14 +184,11 @@ class WalkingSheep: CharacterBody2D {
         animatedBody.play(name: StringName(walkNum))
     }
     
+    /// applies the edits to sheep
     func applySavedAppearance(_ appearance: SheepAppearance) {
-        // applies the edits to sheep
-        
         let saved = SavedSheep.shared
         clearSavedWoolOverlay()
             
-        //woolLayer.position = Vector2(x: 135, y: 100) //edit wool position, good direction when going to the right
-
         woolLayer.scale = Vector2(x: 1.75, y: 1.75)
 
         if(direction == 1) {
@@ -209,7 +204,6 @@ class WalkingSheep: CharacterBody2D {
                 if value == "1" || value == "2" {
                     let woolWrapper = WoolThing()
                     let wool = woolWrapper.getChunk()
-//                    wool.texture = GD.load(path: "res://assets/cloudshape.png") as? Texture2D
                     wool.position = Vector2(
                         x: Float(28 * col - x_displacement),
                         y: Float(20 * row - y_displacement)
@@ -232,6 +226,7 @@ class WalkingSheep: CharacterBody2D {
         
     }
 
+    /// applies the starting wool (default) appearance
     func applyDefaultAppearance() {
         let locations = SavedSheep.shared.readFile(fileName: "sheepmatrix.txt")
         var colors: [[Color]] = []

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ttnau2urkoj0"
-path="res://.godot/imported/redoButton.png-3c0cc4840f3a4a277e9622361ca816ef.ctex"
+uid="uid://dtbimwr1lnrdp"
+path="res://.godot/imported/erase.png-03ab4d3db604595332d7331b41e2ab65.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/redoButton.png"
-dest_files=["res://.godot/imported/redoButton.png-3c0cc4840f3a4a277e9622361ca816ef.ctex"]
+source_file="res://assets/erase.png"
+dest_files=["res://.godot/imported/erase.png-03ab4d3db604595332d7331b41e2ab65.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c45omcd2kk127"
-path="res://.godot/imported/shaveButton.png-64353166af286aac4a9141879876b5ef.ctex"
+uid="uid://0kdqptr7t2r2"
+path="res://.godot/imported/shave.png-7422f2c47fe431915dfca02bed9b6c65.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/shaveButton.png"
-dest_files=["res://.godot/imported/shaveButton.png-64353166af286aac4a9141879876b5ef.ctex"]
+source_file="res://assets/shave.png"
+dest_files=["res://.godot/imported/shave.png-7422f2c47fe431915dfca02bed9b6c65.ctex"]
 
 [params]
 

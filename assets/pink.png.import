@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5y1w2dn0qbbv"
-path="res://.godot/imported/colorBlindButton.png-66402840410233022e23163d8753159f.ctex"
+uid="uid://b5qmxdtx6ck1h"
+path="res://.godot/imported/pink.png-0e118c0a13c625367f41793402bc0186.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/colorBlindButton.png"
-dest_files=["res://.godot/imported/colorBlindButton.png-66402840410233022e23163d8753159f.ctex"]
+source_file="res://assets/pink.png"
+dest_files=["res://.godot/imported/pink.png-0e118c0a13c625367f41793402bc0186.ctex"]
 
 [params]
 
