@@ -20,6 +20,7 @@ class SizeButton: Button {
     }
     
     func moveInDirection(){
+    //move the slider 5 unit larger or smaller when clicking the size button
         if let slider = getNode(path: sliderPath) as? HSlider {
             slider.value += Double(direction) * 5
         } else {
