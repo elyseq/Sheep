@@ -123,8 +123,6 @@ class WoolChunkController: Area2D {
                        .setTrans(.back)?
                        .setEase(.in)
 
-        
-        // Removes wool chunk when animation finished
         tween.finished.connect {
             guard let woolThing = self.getParent() as? WoolThing else { return }
                 
