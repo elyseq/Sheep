@@ -83,16 +83,7 @@ class WalkingSheep: CharacterBody2D {
             }
         }
     }
-//    override func _input(event: InputEvent) {
-//        if event is InputEventMouseMotion && Input.isMouseButtonPressed(button: .left) {
-//            isDragging = true
-//        } else if event is InputEventMouseButton {
-//            let mouseEvent = event as! InputEventMouseButton
-//            if !mouseEvent.pressed {
-//                isDragging = false
-//            }
-//        }
-//    }
+    
     override func _process(delta: Double) {
         
             animationCooldown -= delta
@@ -192,8 +183,6 @@ class WalkingSheep: CharacterBody2D {
         let saved = SavedSheep.shared
         clearSavedWoolOverlay()
             
-        //woolLayer.position = Vector2(x: 135, y: 100) //edit wool position, good direction when going to the right
-
         woolLayer.scale = Vector2(x: 1.75, y: 1.75)
 
         if(direction == 1) {
@@ -209,7 +198,6 @@ class WalkingSheep: CharacterBody2D {
                 if value == "1" || value == "2" {
                     let woolWrapper = WoolThing()
                     let wool = woolWrapper.getChunk()
-//                    wool.texture = GD.load(path: "res://assets/cloudshape.png") as? Texture2D
                     wool.position = Vector2(
                         x: Float(28 * col - x_displacement),
                         y: Float(20 * row - y_displacement)

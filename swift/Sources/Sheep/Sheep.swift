@@ -19,9 +19,6 @@ import SwiftGodot
     BrushSize.self,
     redoButton.self,
     SizeButton.self,
-    
-//    SelectionManager.self,
-//    SelectionBox.self,
     MenuButtonMy.self,
     MenuPanel.self,
     AudioMute.self,
