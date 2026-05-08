@@ -1,11 +1,10 @@
 [gd_scene format=3 uid="uid://bl105vstqmhgy"]
 
-[ext_resource type="Texture2D" uid="uid://cxgan3vlcgkvl" path="res://assets/penBackground.jpg" id="1_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://doygk1636b5vb" path="res://assets/backgroundPen.png" id="1_efxa6"]
-[ext_resource type="Texture2D" uid="uid://544kddk7yhbs" path="res://assets/settingsButton.png" id="4_kek77"]
+[ext_resource type="Texture2D" uid="uid://qdny0i5la6gw" path="res://assets/setting.png" id="4_efxa6"]
 [ext_resource type="SpriteFrames" uid="uid://bd1vsjtvhlhym" path="res://sheep_animations.tres" id="4_lquwl"]
 [ext_resource type="Texture2D" uid="uid://bv6rg5t0cbqtv" path="res://assets/settingsPanel.png" id="5_4c57u"]
-[ext_resource type="Texture2D" uid="uid://boshrsjk5saq7" path="res://assets/muteButton.png" id="6_efxa6"]
+[ext_resource type="Texture2D" uid="uid://cfi8d26vjfl0x" path="res://assets/mute.png" id="6_dg77c"]
 [ext_resource type="Texture2D" uid="uid://dom7uyru3mcw" path="res://assets/ok.png" id="7_4c57u"]
 [ext_resource type="Texture2D" uid="uid://bhh6jx728nu60" path="res://assets/large circle.svg" id="7_5vw27"]
 [ext_resource type="Texture2D" uid="uid://cjm4xylk74owf" path="res://assets/click-choose-sheep.png" id="8_4c57u"]
@@ -19,9 +18,6 @@ b = Vector2(124.4559, -515)
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_1bvp3"]
 a = Vector2(-125.86035, -523)
 b = Vector2(316.61584, 280)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_h2yge"]
-size = Vector2(280, 240)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kek77"]
 bg_color = Color(0.6, 0.6, 1, 0)
@@ -39,12 +35,6 @@ position = Vector2(958.8082, 500.00003)
 scale = Vector2(0.81634635, 0.80960363)
 texture = ExtResource("1_efxa6")
 
-[node name="background" type="Sprite2D" parent="." unique_id=1340833516]
-visible = false
-position = Vector2(941.8823, 556)
-scale = Vector2(0.7410254, 0.6731707)
-texture = ExtResource("1_1bvp3")
-
 [node name="leftPenWall" type="StaticBody2D" parent="." unique_id=1266156243]
 position = Vector2(504.79315, 898)
 
@@ -58,14 +48,6 @@ position = Vector2(1636.8441, 1093)
 position = Vector2(-204.69447, -197)
 shape = SubResource("SegmentShape2D_1bvp3")
 
-[node name="Spawnpoint" type="Node2D" parent="." unique_id=1626801168]
-position = Vector2(2.08165e-12, -336)
-
-[node name="TouchScreenButton" type="TouchScreenButton" parent="." unique_id=288178666]
-visible = false
-position = Vector2(1677.6656, 475)
-shape = SubResource("RectangleShape2D_h2yge")
-
 [node name="sceneSwitch" type="MainToBarnSceneSwitch" parent="." unique_id=679890085]
 offset_left = 1452.6494
 offset_top = 178.0
@@ -77,20 +59,20 @@ flat = true
 [node name="WalkingSheepSpawner" type="WalkingSheepSpawner" parent="." unique_id=1828825578]
 position = Vector2(956.817, 793)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1297550186]
+[node name="animationFrames" type="AnimatedSprite2D" parent="." unique_id=1297550186]
 visible = false
 sprite_frames = ExtResource("4_lquwl")
-animation = &"walk"
+animation = &"walk4"
 
 [node name="MenuButton" type="MenuButtonMy" parent="." unique_id=1669685431]
 offset_left = 34.847656
 offset_top = 16.0
 offset_right = 364.84766
 offset_bottom = 348.0
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.3, 0.3)
 theme_override_styles/pressed = SubResource("StyleBoxFlat_kek77")
 theme_override_styles/hover = SubResource("StyleBoxFlat_4c57u")
-icon = ExtResource("4_kek77")
+icon = ExtResource("4_efxa6")
 flat = true
 
 [node name="MenuPanel" type="MenuPanel" parent="." unique_id=2028186624]
@@ -109,9 +91,9 @@ scale = Vector2(0.06146507, 0.08031839)
 texture = ExtResource("5_4c57u")
 
 [node name="MuteButton" type="Sprite2D" parent="MenuPanel" unique_id=427688358]
-position = Vector2(11.450741, 12.806481)
-scale = Vector2(0.018895894, 0.024871834)
-texture = ExtResource("6_efxa6")
+position = Vector2(10.99828, 12.709828)
+scale = Vector2(0.011283512, 0.01460209)
+texture = ExtResource("6_dg77c")
 
 [node name="mute" type="AudioMute" parent="MenuPanel" unique_id=1897334706]
 layout_mode = 0

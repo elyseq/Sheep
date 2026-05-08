@@ -25,6 +25,13 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p52js"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_74jdp"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oxekk"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_color = Color(0.8, 0.8, 0.8, 0)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ffoxc"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 border_color = Color(0.8, 0.8, 0.8, 0)
@@ -58,13 +65,6 @@ expand_margin_left = 12.0
 expand_margin_top = 12.0
 expand_margin_right = 12.0
 expand_margin_bottom = 12.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_74jdp"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oxekk"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-border_color = Color(0.8, 0.8, 0.8, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e4vda"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -155,6 +155,17 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_p52js")
 icon = ExtResource("3_ft452")
 flat = true
 
+[node name="SidebarButtonShave" type="ShaveFunction" parent="." unique_id=1999481116]
+offset_left = 1688.0
+offset_top = 95.99999
+offset_right = 2200.0
+offset_bottom = 604.0
+scale = Vector2(0.35, 0.35)
+theme_override_styles/pressed = SubResource("StyleBoxFlat_74jdp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_oxekk")
+icon = ExtResource("6_6ty18")
+flat = true
+
 [node name="SizeButton" type="SizeButton" parent="." unique_id=531458442]
 slider_path = NodePath("../BrushSize")
 direction = 1
@@ -182,24 +193,6 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_n0edv")
 theme_override_styles/hover = SubResource("StyleBoxFlat_2xopo")
 icon = ExtResource("17_ft452")
 expand_icon = true
-
-[node name="SidebarButtonShave" type="ShaveFunction" parent="." unique_id=1999481116]
-offset_left = 1688.0
-offset_top = 95.99999
-offset_right = 2200.0
-offset_bottom = 604.0
-scale = Vector2(0.35, 0.35)
-theme_override_styles/pressed = SubResource("StyleBoxFlat_74jdp")
-theme_override_styles/hover = SubResource("StyleBoxFlat_oxekk")
-icon = ExtResource("6_6ty18")
-flat = true
-
-[node name="decorationPanel" type="SidebarPanel" parent="." unique_id=590645921]
-visible = false
-offset_left = 30.0
-offset_top = 284.0
-offset_right = 224.0
-offset_bottom = 665.0
 
 [node name="redoButton" type="redoButton" parent="." unique_id=9702019]
 z_index = 1
@@ -327,7 +320,7 @@ scale = Vector2(0.2, 0.2)
 icon = ExtResource("16_t0ui0")
 flat = true
 
-[node name="ModePanel2" type="Sprite2D" parent="." unique_id=962141083]
+[node name="redoScenePanel" type="Sprite2D" parent="." unique_id=962141083]
 position = Vector2(176.00002, 280)
 scale = Vector2(0.7713775, 0.84422404)
 texture = ExtResource("2_74jdp")
@@ -362,7 +355,7 @@ max_value = 60.0
 step = 5.0
 value = 15.0
 
-[node name="ModePanel3" type="Sprite2D" parent="." unique_id=1134552223]
+[node name="BrushSizePanel" type="Sprite2D" parent="." unique_id=1134552223]
 position = Vector2(1688.3379, 654.14813)
 rotation = 1.5707964
 scale = Vector2(0.37600055, 0.80046505)
