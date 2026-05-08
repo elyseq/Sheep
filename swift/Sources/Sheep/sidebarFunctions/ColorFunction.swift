@@ -35,7 +35,7 @@ class ColorFunction : Button {
          } else if colorName == "white" {
              woolController.setColorMode(color: Color(r: 1, g: 1, b: 1, a: 0.8))
          } else if colorName == "" {
-             
+             woolController.setColorMode(color: woolController.selectedColor)
          }
      }
     

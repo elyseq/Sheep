@@ -1,9 +1,10 @@
-//
-//  penSceneSwitch.swift
-//  Sheep
-//
-//  Created by Elyse Q on 4/2/26.
-//
+///
+///  penSceneSwitch.swift
+///  Sheep
+///
+///  Created by Elyse Q on 4/2/26.
+///
+/// Creates the button to change scenes from the pen scene to the barn scene
 
 import SwiftGodot
 

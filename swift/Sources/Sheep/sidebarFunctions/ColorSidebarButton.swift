@@ -1,9 +1,12 @@
-//
-//  FunctionButtonClass.swift
-//  Sheep
-//
-//  Created by Livian on 4/2/26.
-//
+///
+///  FunctionButtonClass.swift
+///  Sheep
+///
+///  Created by Livian on 4/2/26.
+///
+/// Creates a button that corresponds to a paint color
+///
+
 import SwiftGodot
 
 @Godot
@@ -45,8 +48,8 @@ class ColorSidebarButton : Button {
         }
     }
 
+    /// checks the visibility of the panel, if visible--click--become invisible
     func panelVisibility() {
-//        check the visibility of the panel, if visible--click--become incisible.
         guard let panel = panelSelected else { return }
         
         if panel.visible {
@@ -56,8 +59,8 @@ class ColorSidebarButton : Button {
         }
     }
     
+    /// set the shaving mode or coloring mode and adjust the defaulted color to the wool color, and set the cursor to the correct icon
     func selectFunction() {
-        //set the coloring mode and adjust the defaulted color to the wool color, and set the cursor to the paint brush
            guard let woolController = getNode(path: NodePath("/root/SceneBarn/WoolController")) as? WoolController else {
                GD.print("Could not find WoolController")
                return
